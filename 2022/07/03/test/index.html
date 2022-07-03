@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="John Doe">
+
+
+
+
+
+<title>Hexo &amp; Github建立部落格 | Hexo</title>
+
+
+
+    <link rel="icon" href="/short_hair.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Niniiii&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Niniiii&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Hexo &amp; Github建立部落格</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">July 3, 2022&nbsp;&nbsp;19:44:09</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/note/">note</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="寫部落格的原由"><a href="#寫部落格的原由" class="headerlink" title="寫部落格的原由"></a>寫部落格的原由</h2><hr>
+<ol>
+<li>整理學習內容</li>
+<li>系統化的紀錄專案製作步驟</li>
+<li>加深記憶</li>
+</ol>
+<h2 id="hexo-介紹"><a href="#hexo-介紹" class="headerlink" title="hexo 介紹"></a>hexo 介紹</h2><hr>
+<p>hexo是一個靜態的網誌框架</p>
+<p>(何謂靜態 : 是指不用後台，只用html, css, javascript即可生成的網站)</p>
+<p>特點:</p>
+<ul>
+<li><p>超快的檔案產生速度，在幾秒內即可完成網誌產檔</p>
+</li>
+<li><p>近300個外掛插件</p>
+</li>
+<li><p>有200多個免費主題</p>
+</li>
+<li><p>Markdown支援</p>
+</li>
+</ul>
+<h2 id="建立hexo環境"><a href="#建立hexo環境" class="headerlink" title="建立hexo環境"></a>建立hexo環境</h2><hr>
+<h3 id="安裝需求"><a href="#安裝需求" class="headerlink" title="安裝需求"></a>安裝需求</h3><p>要先安裝Node.js和Git</p>
+<h3 id="下載hexo"><a href="#下載hexo" class="headerlink" title="下載hexo"></a>下載hexo</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="literal">-g</span> hexo<span class="literal">-cli</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="建立部落格"><a href="#建立部落格" class="headerlink" title="建立部落格"></a>建立部落格</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>完成後，資料夾內會產生這些檔案</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+
+<p>另外可以用以下命令，透過本地端看最初始的網頁</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br><span class="line">(hexo s)</span><br></pre></td></tr></table></figure>
+
+<h3 id="下載主題"><a href="#下載主題" class="headerlink" title="下載主題 !"></a>下載主題 !</h3><p>接下來可以開始找喜歡的主題拉，可以在hexo官網的themes目錄下尋找自己喜歡的風格。</p>
+<p>而我自己是挑選到這一個: chic</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Siricee/hexo-theme-Chic">Siricee&#x2F;hexo-theme-Chic: An elegant, powerful, easy-to-read Hexo theme. (github.com)</a></p>
+<p>他是比較簡潔的，留白比較多，而且也有tag, category的一些分類，方便之後越來越多東西的時候，可以迅速找到我想要找的文章。</p>
+<p>直接下載文件到 &#x2F;themes資料夾中，</p>
+<p>再將_config.yml 文件中的theme名稱，改成你剛剛下載的檔案名稱。</p>
+<p><img src="C:\Users\open1\AppData\Roaming\Typora\typora-user-images\image-20220703204903842.png" alt="image-20220703204903842"></p>
+<p>之後執行下面命令，就可以看到主題成果了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>另外可以在 &#x2F;hexo-theme-Chic&#x2F;_config.yml 修改網頁的一些配置</p>
+<p>詳細說明可以看上面提供的github連結。</p>
+<h2 id="將部落格佈署在github"><a href="#將部落格佈署在github" class="headerlink" title="將部落格佈署在github"></a>將部落格佈署在github</h2><hr>
+<ol>
+<li><p>先在自己的github上，創建一個新的Repository，名子一定要是 : 用戶名.github.io</p>
+</li>
+<li><p>配置ssh key</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;username&quot;</span><br><span class="line">git config --global user.email &quot;email address&quot;</span><br><span class="line">ssh-keygen -t rsa -C &#x27;email address&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>完成後，查看ssh</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>首次使用要添加主機到本機的ssh可信列表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<p>要顯示”Hi xxx” You’ve successfully….”才是成功哦!</p>
+</li>
+<li><p>在你的github添加剛剛生成的ssh key</p>
+<p>找到settings&gt;SSH and GPG keys 並點擊由上方的New SSH key</p>
+<p><img src="C:\Users\open1\AppData\Roaming\Typora\typora-user-images\image-20220703221105139.png" alt="image-20220703221105139"></p>
+<p>之後加入在欄位中加入剛剛cat裡面的資料並按下Add SSH key</p>
+<p><img src="C:\Users\open1\AppData\Roaming\Typora\typora-user-images\image-20220703221312250.png" alt="image-20220703221312250"></p>
+</li>
+<li><p>將本地與github連接</p>
+<p>在&#x2F;_config.yml文件中加入以下的欄位</p>
+<p><img src="C:\Users\open1\AppData\Roaming\Typora\typora-user-images\image-20220703221658448.png" alt="image-20220703221658448"></p>
+</li>
+<li><p>安裝hexo-deployer-git</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>執行兩命令快速佈署到github</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g #generate</span><br><span class="line">hexo d #deploy</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以直接透過瀏覽器輸入username.github.io查看blog</p>
+</li>
+</ol>
+<h2 id="寫文章並上傳"><a href="#寫文章並上傳" class="headerlink" title="寫文章並上傳"></a>寫文章並上傳</h2><hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;title&quot;</span><br></pre></td></tr></table></figure>
+
+<p>即可新增一篇新文章 ~</p>
+<p>之後再用Typora編輯文章會比較快速</p>
+<p>因為Typora是一款幫這markdown語法書寫方便的軟體</p>
+<p>打出來的句子可以即時看到會顯示給別人的樣子</p>
+<p>非常方便 推推~</p>
+<p>這裡補充一下這個主題有category與tags頁面</p>
+<p>需要先</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tag</span><br><span class="line">hexo new page category</span><br></pre></td></tr></table></figure>
+
+<p>然後修改&#x2F;source&#x2F;tag&#x2F;index.md </p>
+<p><img src="C:\Users\open1\AppData\Roaming\Typora\typora-user-images\image-20220703223125494.png" alt="image-20220703223125494"></p>
+<p>&#x2F;source&#x2F;category&#x2F;index.md </p>
+<p><img src="C:\Users\open1\AppData\Roaming\Typora\typora-user-images\image-20220703223101236.png" alt="image-20220703223101236"></p>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p>[<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Eg41157tL?p=1&share_medium=iphone&share_plat=ios&share_session_id=32D32AC8-17AE-483C-9F4F-B53CC0A62D84&share_source=COPY&share_tag=s_i&timestamp=1656835226&unique_k=ZvJHs7T">教程]Hexo &amp; Github搭建自己的专属博客_哔哩哔哩_bilibili</a></p>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-tw/docs/">文件 | Hexo</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.larrynote.com/website-service/31/#:~:text=Hexo%E6%98%AF%E4%B8%80%E5%80%8B%E8%83%BD,%E6%99%82%E5%80%99%E4%B9%9F%E6%AF%94%E8%BC%83%E6%96%B9%E4%BE%BF%E3%80%82">Hexo + Github Pages：手把手教你打造免費個人部落格 - Mr.萊瑞的生活隨筆 (larrynote.com)</a></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://example.com/2022/07/03/test/">http://example.com/2022/07/03/test/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/hexo/"># hexo</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2022/07/03/hello-world/">Hello World</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
