@@ -13,7 +13,7 @@
 
 
 
-<title>Unity-DAY1 Unity介紹 | Niniiii&#39;s Blog</title>
+<title>Unity-DAY2 Prefabs &amp; Script基礎 | Niniiii&#39;s Blog</title>
 
 
 
@@ -196,7 +196,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Unity-DAY1 Unity介紹</h1>
+            <h1 class="post-title">Unity-DAY2 Prefabs &amp; Script基礎</h1>
             
                 <div class="post-meta">
                     
@@ -205,7 +205,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">July 4, 2022&nbsp;&nbsp;23:38:58</a>
+                        Date: <a href="#">July 5, 2022&nbsp;&nbsp;13:21:54</a>
                         </span>
                     
                     
@@ -221,78 +221,42 @@
         </header>
 
         <div class="post-content">
-            <h2 id="Unity是什麼"><a href="#Unity是什麼" class="headerlink" title="Unity是什麼??"></a>Unity是什麼??</h2><hr>
-<blockquote>
-<p>“是一種跨平台的2D和3D遊戲引擎”	–維基百科</p>
-</blockquote>
-<p>那遊戲引擎又是什麼呢 ?? </p>
-<blockquote>
-<p>“遊戲引擎就是一個程式庫，負責幫助團隊處理所有遊戲開發相關的事宜。”</p>
-</blockquote>
-<p><a target="_blank" rel="noopener" href="https://gnn.gamer.com.tw/detail.php?sn=140492">【專欄】淺談製作遊戲最重要的開發工具「遊戲引擎」《Qubot》 - 巴哈姆特 (gamer.com.tw)</a></p>
-<p>(這篇文章大部分內容關於遊戲引擎的歷史演進)</p>
-<p>其實就是 :</p>
-<ul>
-<li>具有可視化界面創建遊戲</li>
-<li>程式庫提供，可以方便遊戲建構許多功能(包含 : 渲染、地形、光影等等)</li>
-</ul>
-<h2 id="下載Unity"><a href="#下載Unity" class="headerlink" title="下載Unity"></a>下載Unity</h2><hr>
+            <h1 id="Prefabs"><a href="#Prefabs" class="headerlink" title="Prefabs"></a>Prefabs</h1><h2 id="prefabs是什麼"><a href="#prefabs是什麼" class="headerlink" title="prefabs是什麼?"></a>prefabs是什麼?</h2><hr>
+<p>其是就是一個game object模板，當你需要在場景中添加多個相同的東西，可以透過prefabs直接拉入場景中，也可以透過修改prafabs統一相同物件的參數型態等等。</p>
+<h2 id="prefabs操作"><a href="#prefabs操作" class="headerlink" title="prefabs操作"></a>prefabs操作</h2><hr>
+<h3 id="如何建立"><a href="#如何建立" class="headerlink" title="如何建立?"></a>如何建立?</h3><p>以這個車子形狀的組件為例 : </p>
+<p>直接將car這個game object拉入下方Assets的欄位中即。</p>
+<p><img src="/2022/07/05/Unity-DAY2/image-20220705135933413.png" alt="image-20220705135933413"></p>
+<h3 id="如何加入場景"><a href="#如何加入場景" class="headerlink" title="如何加入場景?"></a>如何加入場景?</h3><p>直接從Assets中拉入場景中即可</p>
+<p><img src="/2022/07/05/Unity-DAY2/image-20220705140639968.png" alt="image-20220705140639968"></p>
+<h3 id="如何修改prefabs"><a href="#如何修改prefabs" class="headerlink" title="如何修改prefabs"></a>如何修改prefabs</h3><p>直接雙擊Assets中的prefabs即可</p>
+<p><img src="/2022/07/05/Unity-DAY2/image-20220705140841924.png" alt="image-20220705140841924"></p>
+<h1 id="Script"><a href="#Script" class="headerlink" title="Script"></a>Script</h1><h2 id="新增Script"><a href="#新增Script" class="headerlink" title="新增Script"></a>新增Script</h2><hr>
 <ol>
-<li><p><a target="_blank" rel="noopener" href="https://unity3d.com/get-unity/download">Unity官網</a>下載Unity Hub(管理版本跟模組)</p>
+<li><p>在assets中右鍵新增C# Script<img src="/2022/07/05/Unity-DAY2/image-20220705172031837.png" alt="image-20220705172031837"></p>
 </li>
-<li><p>安裝完畢後開啟，應該會直接詢問要下載哪一個版本的Unity</p>
-<p>我是選擇最新的並且有(LTS : long-term support)標籤的版本</p>
+<li><p>script命名(切記這裡命名要用駝峰式的命名否則可能有錯誤發生)</p>
+<p><img src="/2022/07/05/Unity-DAY2/image-20220705172239403.png" alt="image-20220705172239403"></p>
 </li>
-<li><p>接下來會詢問要下載那些模組?</p>
-<ul>
-<li><p>Android Build Support </p>
-<p><img src="/2022/07/04/Unity-DAY1/image-20220705090935066.png" alt="image-20220705090935066"></p>
+<li><p>選擇你要編寫script的editor (Edit &gt; Preferences &gt; External Script Editor)</p>
+<p><img src="/2022/07/05/Unity-DAY2/image-20220705172840640.png" alt="image-20220705172840640"></p>
 </li>
-<li><p>WebGL : 可以讓遊戲能夠在網站上運作。</p>
-<p><img src="/2022/07/04/Unity-DAY1/image-20220705091006038.png" alt="image-20220705091006038"></p>
-</li>
-</ul>
+<li><p>雙擊檔案後就可以根據你所選擇的editor開啟</p>
 </li>
 </ol>
-<h2 id="Unity介面"><a href="#Unity介面" class="headerlink" title="Unity介面"></a>Unity介面</h2><hr>
-<h3 id="開啟新的project"><a href="#開啟新的project" class="headerlink" title="開啟新的project"></a>開啟新的project</h3><ul>
-<li><p>開啟unity hub &gt; project &gt; 點選右上的按鈕new project</p>
+<h2 id="使用vscode"><a href="#使用vscode" class="headerlink" title="使用vscode"></a>使用vscode</h2><hr>
+<p>需要下載延伸模組 : C# &amp; Unity Code Snippets</p>
+<h3 id="測試是否正常運作"><a href="#測試是否正常運作" class="headerlink" title="測試是否正常運作"></a>測試是否正常運作</h3><ol>
+<li><p>先在script中加入一行 Debug.Log(…); &amp; 儲存</p>
+<p><img src="/2022/07/05/Unity-DAY2/image-20220705174745779.png" alt="image-20220705174745779"></p>
 </li>
-<li><p>選擇你要的unity版本，3D templates，輸入project name和選擇資料夾位置，按下create project</p>
-<p><img src="/2022/07/04/Unity-DAY1/image-20220705093235714.png" alt="image-20220705093235714"></p>
+<li><p>回到unity，將script附加到game object上，讓遊戲開始時能夠觸發</p>
+<p><img src="/2022/07/05/Unity-DAY2/image-20220705175421477.png" alt="image-20220705175421477"></p>
 </li>
-</ul>
-<h3 id="介面區塊"><a href="#介面區塊" class="headerlink" title="介面區塊"></a>介面區塊</h3><p>unity介面主要會分成這幾個區塊 : Main Menu、Toolbar、Hierarchy、Project、Inspector、Scence</p>
-<p><img src="/2022/07/04/Unity-DAY1/image-20220705093735383.png" alt="image-20220705093735383"></p>
-<ul>
-<li><p>Toolbar : 可以放上你最常使用到的功能</p>
+<li><p>按下開始，應該可以看到console中出現</p>
+<p><img src="/2022/07/05/Unity-DAY2/image-20220705175553074.png" alt="image-20220705175553074"></p>
 </li>
-<li><p>Hierarchy : 顯示遊戲的game object</p>
-</li>
-<li><p>Inspector : 特定game object的內容，包含一些可以調整的參數還可以新增一些元素</p>
-</li>
-<li><p>Sence : 場景畫面</p>
-</li>
-<li><p>Project : 專案資料夾內容</p>
-</li>
-</ul>
-<h2 id="基礎操作"><a href="#基礎操作" class="headerlink" title="基礎操作"></a>基礎操作</h2><hr>
-<h3 id="新增一個物件"><a href="#新增一個物件" class="headerlink" title="新增一個物件"></a>新增一個物件</h3><p>在Hierarchy區塊裡右鍵尋找</p>
-<p><img src="/2022/07/04/Unity-DAY1/image-20220705095548858.png" alt="image-20220705095548858"></p>
-<p><img src="/2022/07/04/Unity-DAY1/image-20220705095624357.png" alt="image-20220705095624357"></p>
-<h3 id="scene-view”物件”操作"><a href="#scene-view”物件”操作" class="headerlink" title="scene view”物件”操作"></a>scene view”物件”操作</h3><p><img src="/2022/07/04/Unity-DAY1/image-20220705095858637.png" alt="image-20220705095858637"></p>
-<h3 id="scene-view”視角”操作"><a href="#scene-view”視角”操作" class="headerlink" title="scene view”視角”操作"></a>scene view”視角”操作</h3><ul>
-<li>環顧周圍 : 右鍵</li>
-<li>拉近拉遠 : 滾輪、alt + 右鍵</li>
-<li>尋找到特定物件 : 雙擊Hierarchy區塊中要找的物件</li>
-<li>環視物件 : alt + 左鍵</li>
-</ul>
-<h3 id="建立game-object組合"><a href="#建立game-object組合" class="headerlink" title="建立game object組合"></a>建立game object組合</h3><ol>
-<li>新增一個Empty(右鍵 &gt; create empty)</li>
-<li>可以設定empty位置以及其他參數</li>
-<li>將子物件全部都放到empty底下</li>
 </ol>
-<p><img src="/2022/07/04/Unity-DAY1/image-20220705103707526.png" alt="image-20220705103707526"></p>
 
         </div>
 
@@ -324,10 +288,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2022/07/05/Unity-DAY2/">Unity-DAY2 Prefabs & Script基礎</a>
             
-            
-            <a class="next" rel="next" href="/2022/07/03/test/">Hexo & Github建立部落格</a>
+            <a class="next" rel="next" href="/2022/07/04/Unity-DAY1/">Unity-DAY1 Unity介紹</a>
             
         </section>
 
