@@ -13,7 +13,7 @@
 
 
 
-<title>Unity-DAY2 Prefabs &amp; Script基礎 | Niniiii&#39;s Blog</title>
+<title>Unity-DAY3 功能認識&amp;材質基礎 | Niniiii&#39;s Blog</title>
 
 
 
@@ -196,7 +196,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Unity-DAY2 Prefabs &amp; Script基礎</h1>
+            <h1 class="post-title">Unity-DAY3 功能認識&amp;材質基礎</h1>
             
                 <div class="post-meta">
                     
@@ -205,7 +205,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">July 5, 2022&nbsp;&nbsp;13:21:54</a>
+                        Date: <a href="#">July 6, 2022&nbsp;&nbsp;22:03:33</a>
                         </span>
                     
                     
@@ -221,40 +221,31 @@
         </header>
 
         <div class="post-content">
-            <h1 id="Prefabs"><a href="#Prefabs" class="headerlink" title="Prefabs"></a>Prefabs</h1><h2 id="prefabs是什麼"><a href="#prefabs是什麼" class="headerlink" title="prefabs是什麼?"></a>prefabs是什麼?</h2><hr>
-<p>其是就是一個game object模板，當你需要在場景中添加多個相同的東西，可以透過prefabs直接拉入場景中，也可以透過修改prafabs統一相同物件的參數型態等等。</p>
-<h2 id="prefabs操作"><a href="#prefabs操作" class="headerlink" title="prefabs操作"></a>prefabs操作</h2><hr>
-<h3 id="如何建立"><a href="#如何建立" class="headerlink" title="如何建立?"></a>如何建立?</h3><p>以這個車子形狀的組件為例 : </p>
-<p>直接將car這個game object拉入下方Assets的欄位中即。</p>
-<p><img src="/2022/07/05/Unity-DAY2/image-20220705135933413.png" alt="image-20220705135933413"></p>
-<h3 id="如何加入場景"><a href="#如何加入場景" class="headerlink" title="如何加入場景?"></a>如何加入場景?</h3><p>直接從Assets中拉入場景中即可</p>
-<p><img src="/2022/07/05/Unity-DAY2/image-20220705140639968.png" alt="image-20220705140639968"></p>
-<h3 id="如何修改prefabs"><a href="#如何修改prefabs" class="headerlink" title="如何修改prefabs"></a>如何修改prefabs</h3><p>直接雙擊Assets中的prefabs即可</p>
-<p><img src="/2022/07/05/Unity-DAY2/image-20220705140841924.png" alt="image-20220705140841924"></p>
-<h1 id="Script"><a href="#Script" class="headerlink" title="Script"></a>Script</h1><h2 id="新增Script"><a href="#新增Script" class="headerlink" title="新增Script"></a>新增Script</h2><hr>
-<ol>
-<li><p>在assets中右鍵新增C# Script<img src="/2022/07/05/Unity-DAY2/image-20220705172031837.png" alt="image-20220705172031837"></p>
+            <h2 id="認識Start-和Update"><a href="#認識Start-和Update" class="headerlink" title="認識Start()和Update()"></a>認識Start()和Update()</h2><hr>
+<p>在新增一個c# script後，內容會像是下圖所示</p>
+<p><img src="/Unity-DAY3/image-20220706220730999.png" alt="image-20220706220730999"></p>
+<h3 id="Start"><a href="#Start" class="headerlink" title="Start()"></a>Start()</h3><p>就是遊戲開始時會觸發的事件</p>
+<h3 id="Update"><a href="#Update" class="headerlink" title="Update()"></a>Update()</h3><p>會在start()發生後輩觸發，並且在遊戲過程中的每一幀都會再被觸發</p>
+<h3 id="小練習"><a href="#小練習" class="headerlink" title="小練習"></a>小練習</h3><p>在game object (我是新增了一個cube物件) 上套用script，並且分別在start()、update()上加入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transform.Translate(1,0,0);</span><br><span class="line">#改變物件的位置(x,y,z)</span><br></pre></td></tr></table></figure>
+
+<p>結果 :</p>
+<p>可以看到加在start()中，物件只會移動一次</p>
+<p>加在update()中，只要遊戲部結束他就會一直移動。</p>
+<h2 id="材質"><a href="#材質" class="headerlink" title="材質"></a>材質</h2><hr>
+<h3 id="新增材質"><a href="#新增材質" class="headerlink" title="新增材質"></a>新增材質</h3><p>Assets中右鍵 &gt; Create &gt; Material</p>
+<p><img src="/Unity-DAY3/image-20220706223221562.png" alt="image-20220706223221562"></p>
+<h3 id="加入到game-object中"><a href="#加入到game-object中" class="headerlink" title="加入到game object中"></a>加入到game object中</h3><p>從Assets中拖曳到物件上</p>
+<p><img src="/Unity-DAY3/image-20220706223537430.png" alt="image-20220706223537430"></p>
+<h3 id="調整參數"><a href="#調整參數" class="headerlink" title="調整參數"></a>調整參數</h3><p>可以調整顏色，Metallic(金屬質感)、Smoothness(光滑程度)等等</p>
+<p><img src="/Unity-DAY3/image-20220706225712149.png" alt="image-20220706225712149"></p>
+<h3 id="Using-SerializeField"><a href="#Using-SerializeField" class="headerlink" title="Using SerializeField"></a>Using SerializeField</h3><ol>
+<li><p>首先先加入一些變量在script</p>
 </li>
-<li><p>script命名(切記這裡命名要用駝峰式的命名否則可能有錯誤發生)</p>
-<p><img src="/2022/07/05/Unity-DAY2/image-20220705172239403.png" alt="image-20220705172239403"></p>
+<li><p>增加[SerializeField]在你希望可以在IDE也可以更改的值<img src="/Unity-DAY3/image-20220706230017389.png" alt="image-20220706230017389"></p>
 </li>
-<li><p>選擇你要編寫script的editor (Edit &gt; Preferences &gt; External Script Editor)</p>
-<p><img src="/2022/07/05/Unity-DAY2/image-20220705172840640.png" alt="image-20220705172840640"></p>
-</li>
-<li><p>雙擊檔案後就可以根據你所選擇的editor開啟</p>
-</li>
-</ol>
-<h2 id="使用vscode"><a href="#使用vscode" class="headerlink" title="使用vscode"></a>使用vscode</h2><hr>
-<p>需要下載延伸模組 : C# &amp; Unity Code Snippets</p>
-<h3 id="測試是否正常運作"><a href="#測試是否正常運作" class="headerlink" title="測試是否正常運作"></a>測試是否正常運作</h3><ol>
-<li><p>先在script中加入一行 Debug.Log(…); &amp; 儲存</p>
-<p><img src="/2022/07/05/Unity-DAY2/image-20220705174745779.png" alt="image-20220705174745779"></p>
-</li>
-<li><p>回到unity，將script附加到game object上，讓遊戲開始時能夠觸發</p>
-<p><img src="/2022/07/05/Unity-DAY2/image-20220705175421477.png" alt="image-20220705175421477"></p>
-</li>
-<li><p>按下開始，應該可以看到console中出現</p>
-<p><img src="/2022/07/05/Unity-DAY2/image-20220705175553074.png" alt="image-20220705175553074"></p>
+<li><p>儲存後就可以直接在物件的Inspector到看到yValue欄位，並且可以直接更改也不回更動到script中的值</p>
+<p><img src="/Unity-DAY3/image-20220706230910054.png" alt="image-20220706230910054"></p>
 </li>
 </ol>
 
@@ -288,10 +279,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2022/07/06/Unity-DAY3/">Unity-DAY3 功能認識&材質基礎</a>
             
-            
-            <a class="next" rel="next" href="/2022/07/04/Unity-DAY1/">Unity-DAY1 Unity介紹</a>
+            <a class="next" rel="next" href="/2022/07/05/Unity-DAY2/">Unity-DAY2 Prefabs & Script基礎</a>
             
         </section>
 
