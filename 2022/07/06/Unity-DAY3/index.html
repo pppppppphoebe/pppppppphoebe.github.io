@@ -223,7 +223,7 @@
         <div class="post-content">
             <h2 id="認識Start-和Update"><a href="#認識Start-和Update" class="headerlink" title="認識Start()和Update()"></a>認識Start()和Update()</h2><hr>
 <p>在新增一個c# script後，內容會像是下圖所示</p>
-<p><img src="/Unity-DAY3/image-20220706220730999.png" alt="image-20220706220730999"></p>
+<p><img src="/2022/07/06/Unity-DAY3/image-20220706220730999.png" alt="image-20220706220730999"></p>
 <h3 id="Start"><a href="#Start" class="headerlink" title="Start()"></a>Start()</h3><p>就是遊戲開始時會觸發的事件</p>
 <h3 id="Update"><a href="#Update" class="headerlink" title="Update()"></a>Update()</h3><p>會在start()發生後輩觸發，並且在遊戲過程中的每一幀都會再被觸發</p>
 <h3 id="小練習"><a href="#小練習" class="headerlink" title="小練習"></a>小練習</h3><p>在game object (我是新增了一個cube物件) 上套用script，並且分別在start()、update()上加入</p>
@@ -234,18 +234,18 @@
 <p>加在update()中，只要遊戲部結束他就會一直移動。</p>
 <h2 id="材質"><a href="#材質" class="headerlink" title="材質"></a>材質</h2><hr>
 <h3 id="新增材質"><a href="#新增材質" class="headerlink" title="新增材質"></a>新增材質</h3><p>Assets中右鍵 &gt; Create &gt; Material</p>
-<p><img src="/Unity-DAY3/image-20220706223221562.png" alt="image-20220706223221562"></p>
+<p><img src="/2022/07/06/Unity-DAY3/image-20220706223221562.png" alt="image-20220706223221562"></p>
 <h3 id="加入到game-object中"><a href="#加入到game-object中" class="headerlink" title="加入到game object中"></a>加入到game object中</h3><p>從Assets中拖曳到物件上</p>
-<p><img src="/Unity-DAY3/image-20220706223537430.png" alt="image-20220706223537430"></p>
+<p><img src="/2022/07/06/Unity-DAY3/image-20220706223537430.png" alt="image-20220706223537430"></p>
 <h3 id="調整參數"><a href="#調整參數" class="headerlink" title="調整參數"></a>調整參數</h3><p>可以調整顏色，Metallic(金屬質感)、Smoothness(光滑程度)等等</p>
-<p><img src="/Unity-DAY3/image-20220706225712149.png" alt="image-20220706225712149"></p>
+<p><img src="/2022/07/06/Unity-DAY3/image-20220706225712149.png" alt="image-20220706225712149"></p>
 <h3 id="Using-SerializeField"><a href="#Using-SerializeField" class="headerlink" title="Using SerializeField"></a>Using SerializeField</h3><ol>
 <li><p>首先先加入一些變量在script</p>
 </li>
-<li><p>增加[SerializeField]在你希望可以在IDE也可以更改的值<img src="/Unity-DAY3/image-20220706230017389.png" alt="image-20220706230017389"></p>
+<li><p>增加[SerializeField]在你希望可以在IDE也可以更改的值<img src="/2022/07/06/Unity-DAY3/image-20220706230017389.png" alt="image-20220706230017389"></p>
 </li>
 <li><p>儲存後就可以直接在物件的Inspector到看到yValue欄位，並且可以直接更改也不回更動到script中的值</p>
-<p><img src="/Unity-DAY3/image-20220706230910054.png" alt="image-20220706230910054"></p>
+<p><img src="/2022/07/06/Unity-DAY3/image-20220706230910054.png" alt="image-20220706230910054"></p>
 </li>
 </ol>
 
