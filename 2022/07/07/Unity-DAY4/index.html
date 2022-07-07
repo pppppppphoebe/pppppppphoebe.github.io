@@ -13,7 +13,7 @@
 
 
 
-<title>Unity-DAY3 功能認識&amp;材質基礎 | Niniiii&#39;s Blog</title>
+<title>Unity-DAY4 加入操作&amp;讓攝影機跟著物件移動 | Niniiii&#39;s Blog</title>
 
 
 
@@ -196,7 +196,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Unity-DAY3 功能認識&amp;材質基礎</h1>
+            <h1 class="post-title">Unity-DAY4 加入操作&amp;讓攝影機跟著物件移動</h1>
             
                 <div class="post-meta">
                     
@@ -205,7 +205,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">July 6, 2022&nbsp;&nbsp;22:03:33</a>
+                        Date: <a href="#">July 7, 2022&nbsp;&nbsp;22:31:53</a>
                         </span>
                     
                     
@@ -221,34 +221,63 @@
         </header>
 
         <div class="post-content">
-            <h2 id="認識Start-和Update"><a href="#認識Start-和Update" class="headerlink" title="認識Start()和Update()"></a>認識Start()和Update()</h2><hr>
-<p>在新增一個c# script後，內容會像是下圖所示</p>
-<p><img src="/2022/07/06/Unity-DAY3/image-20220706220730999.png" alt="image-20220706220730999"></p>
-<h3 id="Start"><a href="#Start" class="headerlink" title="Start()"></a>Start()</h3><p>就是遊戲開始時會觸發的事件</p>
-<h3 id="Update"><a href="#Update" class="headerlink" title="Update()"></a>Update()</h3><p>會在start()發生後輩觸發，並且在遊戲過程中的每一幀都會再被觸發</p>
-<h3 id="小練習"><a href="#小練習" class="headerlink" title="小練習"></a>小練習</h3><p>在game object (我是新增了一個cube物件) 上套用script，並且分別在start()、update()上加入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transform.Translate(1,0,0);</span><br><span class="line">#改變物件的位置(x,y,z)</span><br></pre></td></tr></table></figure>
-
-<p>結果 :</p>
-<p>可以看到加在start()中，物件只會移動一次</p>
-<p>加在update()中，只要遊戲部結束他就會一直移動。</p>
-<h2 id="材質"><a href="#材質" class="headerlink" title="材質"></a>材質</h2><hr>
-<h3 id="新增材質"><a href="#新增材質" class="headerlink" title="新增材質"></a>新增材質</h3><p>Assets中右鍵 &gt; Create &gt; Material</p>
-<p><img src="/2022/07/06/Unity-DAY3/image-20220706223221562.png" alt="image-20220706223221562"></p>
-<h3 id="加入到game-object中"><a href="#加入到game-object中" class="headerlink" title="加入到game object中"></a>加入到game object中</h3><p>從Assets中拖曳到物件上</p>
-<p><img src="/2022/07/06/Unity-DAY3/image-20220706223537430.png" alt="image-20220706223537430"></p>
-<h3 id="調整參數"><a href="#調整參數" class="headerlink" title="調整參數"></a>調整參數</h3><p>可以調整顏色，Metallic(金屬質感)、Smoothness(光滑程度)等等</p>
-<p><img src="/2022/07/06/Unity-DAY3/image-20220706225712149.png" alt="image-20220706225712149"></p>
-<h3 id="Using-SerializeField"><a href="#Using-SerializeField" class="headerlink" title="Using SerializeField"></a>Using SerializeField</h3><ol>
-<li><p>首先先加入一些變量在script</p>
+            <h1 id="加入操作"><a href="#加入操作" class="headerlink" title="加入操作"></a>加入操作</h1><hr>
+<h2 id="查看原始設定"><a href="#查看原始設定" class="headerlink" title="查看原始設定"></a>查看原始設定</h2><p>可以先到Edit &gt; Project setting&gt;Input Manager的地方查看或修改物件的Input設定</p>
+<p><img src="/2022/07/07/Unity-DAY4/https://s3-us-west-2.amazonaws.com/secure.notion-static.com/aec59569-efea-436e-9b3d-545b203be847/Untitled.png" alt="img"></p>
+<p><img src="/2022/07/07/Unity-DAY4/image-20220707223841448.png" alt="image-20220707223841448"></p>
+<p><img src="/2022/07/07/Unity-DAY4/image-20220707223959609.png" alt="image-20220707223959609"></p>
+<p>這裡可以看到預設的設定是垂直:s,w 水平:a,d</p>
+<h2 id="練習-如何透過w-s-a-d這幾個輸入來移動物件前後左右"><a href="#練習-如何透過w-s-a-d這幾個輸入來移動物件前後左右" class="headerlink" title="練習 : 如何透過w s a d這幾個輸入來移動物件前後左右 ?"></a>練習 : 如何透過w s a d這幾個輸入來移動物件前後左右 ?</h2><h3 id="加入-Input-GetAxis-“Horizontal”-amp-Input-GetAxis-“Vertical”"><a href="#加入-Input-GetAxis-“Horizontal”-amp-Input-GetAxis-“Vertical”" class="headerlink" title="加入 Input.GetAxis(“Horizontal”)&amp; Input.GetAxis(“Vertical”)"></a>加入 Input.GetAxis(“Horizontal”)&amp; Input.GetAxis(“Vertical”)</h3><p><img src="/2022/07/07/Unity-DAY4/image-20220707224840073.png" alt="image-20220707224840073"></p>
+<h3 id="考量每個user的硬體差異，fps也會有差異"><a href="#考量每個user的硬體差異，fps也會有差異" class="headerlink" title="考量每個user的硬體差異，fps也會有差異"></a>考量每個user的硬體差異，fps也會有差異</h3><ul>
+<li><p>fps : frames per second.</p>
 </li>
-<li><p>增加[SerializeField]在你希望可以在IDE也可以更改的值<img src="/2022/07/06/Unity-DAY3/image-20220706230017389.png" alt="image-20220706230017389"></p>
+<li><p>較快的電腦 : fps→100 durations of frame→0.01s(一個frame時間較短)</p>
+<p>較慢的電腦 : fps→10 durations of frame→0.1s(一個frame時間較長)</p>
 </li>
-<li><p>儲存後就可以直接在物件的Inspector到看到yValue欄位，並且可以直接更改也不會更動到原本script中的值</p>
-<p>(因為是unity後來才會覆蓋上去的)</p>
-<p><img src="/2022/07/06/Unity-DAY3/image-20220706230910054.png" alt="image-20220706230910054"></p>
+<li><p>又fps * durations of frame &#x3D;&#x3D; 1 ，為了讓玩家不管在怎樣的硬體上遊玩，玩起來都能有一樣的感覺，所以應在程式上加上橘色框框的部分</p>
+<p><img src="/2022/07/07/Unity-DAY4/image-20220707225705851.png" alt="image-20220707225705851"></p>
 </li>
-</ol>
+<li><p>然而你也可以增加一個新的變量moveSpeed來改變物件移動的速度(程式參考上方的範例圖示)</p>
+</li>
+</ul>
+<h1 id="讓攝影機跟著物件移動"><a href="#讓攝影機跟著物件移動" class="headerlink" title="讓攝影機跟著物件移動"></a>讓攝影機跟著物件移動</h1><hr>
+<h2 id="什麼是Cinemachine"><a href="#什麼是Cinemachine" class="headerlink" title="什麼是Cinemachine?"></a>什麼是Cinemachine?</h2><p>是一個強大的package主要有以下幾個功能:</p>
+<ul>
+<li><p>在scence中管理多個camera</p>
+</li>
+<li><p>方便我們建立camera的運作規則</p>
+</li>
+<li><p>cinemachine brain 可以根據規則來決定目前要用哪個virtual camera的視角</p>
+<p><img src="/2022/07/07/Unity-DAY4/image-20220707230309044.png" alt="image-20220707230309044"></p>
+</li>
+</ul>
+<h2 id="step1-安裝-cinemachine"><a href="#step1-安裝-cinemachine" class="headerlink" title="step1 : 安裝 cinemachine"></a>step1 : 安裝 cinemachine</h2><p>windows &gt; package manager</p>
+<p><img src="/2022/07/07/Unity-DAY4/image-20220707230659794.png" alt="image-20220707230659794"></p>
+<p>Packages &gt; Unity Register : 這裡是我們可以安裝的一些package</p>
+<p><img src="/2022/07/07/Unity-DAY4/image-20220707230755989.png" alt="image-20220707230755989"></p>
+<p>搜尋Cinemachine並安裝</p>
+<p><img src="/2022/07/07/Unity-DAY4/image-20220707230919775.png" alt="image-20220707230919775"></p>
+<p>就可以在檔案&gt;package 中看到Cinemachine資料夾了</p>
+<h2 id="step2-加入-cinemachine-brain-component-到-camera"><a href="#step2-加入-cinemachine-brain-component-到-camera" class="headerlink" title="step2 : 加入 cinemachine brain component 到 camera"></a>step2 : 加入 cinemachine brain component 到 camera</h2><p>在main camera的inspector中，找到new componentn搜尋cinemachine</p>
+<p><img src="/2022/07/07/Unity-DAY4/image-20220707231256091.png" alt="image-20220707231256091"></p>
+<p>點擊找到cinemachine brain添加</p>
+<p><img src="/2022/07/07/Unity-DAY4/image-20220707231410070.png" alt="image-20220707231410070"></p>
+<h2 id="step3-加入virtual-camera並更名"><a href="#step3-加入virtual-camera並更名" class="headerlink" title="step3 : 加入virtual camera並更名"></a>step3 : 加入virtual camera並更名</h2><p>hierarchy中右鍵 &gt; Cinemachine &gt; Virtual Camera </p>
+<p><img src="/2022/07/07/Unity-DAY4/image-20220707231524122.png" alt="image-20220707231524122"></p>
+<p>並將其更名為”fallow camera”</p>
+<h2 id="將Camera調整到物件上方的位置"><a href="#將Camera調整到物件上方的位置" class="headerlink" title="將Camera調整到物件上方的位置"></a>將Camera調整到物件上方的位置</h2><p>移動fallow camera到正確的位置 :</p>
+<p>大致先用scenes看一下位置，然後再用game模式看看是否跟你想的視角一樣</p>
+<p><img src="/2022/07/07/Unity-DAY4/image-20220707231832233.png" alt="image-20220707231832233"></p>
+<h2 id="step5-調整距離"><a href="#step5-調整距離" class="headerlink" title="step5 調整距離"></a>step5 調整距離</h2><p>這邊的主要目標是讓攝影機能夠跟著Poooody物件</p>
+<p>因次需要在fallow camera 的地方選擇Body &gt; framing transposer</p>
+<p><img src="/2022/07/07/Unity-DAY4/image-20220707232207846.png" alt="image-20220707232207846"></p>
+<p>再來可以看到上面有兩個屬性 : </p>
+<ul>
+<li>look at : 攝影機在固定位置跟拍物件</li>
+<li>fallow : 攝影機會維持與物件的相對位置跟拍</li>
+</ul>
+<p>我們這裡選擇fallow，點擊旁邊的圈圈選擇視野中要跟隨的物件名稱</p>
+<p><img src="/2022/07/07/Unity-DAY4/image-20220707232405212.png" alt="image-20220707232405212"></p>
 
         </div>
 
@@ -280,10 +309,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2022/07/07/Unity-DAY4/">Unity-DAY4 加入操作&讓攝影機跟著物件移動</a>
             
-            
-            <a class="next" rel="next" href="/2022/07/05/Unity-DAY2/">Unity-DAY2 Prefabs & Script基礎</a>
+            <a class="next" rel="next" href="/2022/07/06/Unity-DAY3/">Unity-DAY3 功能認識&材質基礎</a>
             
         </section>
 
