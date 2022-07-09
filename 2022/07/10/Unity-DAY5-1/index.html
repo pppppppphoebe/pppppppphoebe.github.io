@@ -13,7 +13,7 @@
 
 
 
-<title>Unity-DAY4 加入操作&amp;讓攝影機跟著物件移動 | Niniiii&#39;s Blog</title>
+<title>Unity-DAY5(1) 碰撞建置&amp;method | Niniiii&#39;s Blog</title>
 
 
 
@@ -196,7 +196,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Unity-DAY4 加入操作&amp;讓攝影機跟著物件移動</h1>
+            <h1 class="post-title">Unity-DAY5(1) 碰撞建置&amp;method</h1>
             
                 <div class="post-meta">
                     
@@ -205,7 +205,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">July 7, 2022&nbsp;&nbsp;22:31:53</a>
+                        Date: <a href="#">July 10, 2022&nbsp;&nbsp;0:40:12</a>
                         </span>
                     
                     
@@ -221,63 +221,41 @@
         </header>
 
         <div class="post-content">
-            <h1 id="加入操作"><a href="#加入操作" class="headerlink" title="加入操作"></a>加入操作</h1><hr>
-<h2 id="查看原始設定"><a href="#查看原始設定" class="headerlink" title="查看原始設定"></a>查看原始設定</h2><p>可以先到Edit &gt; Project setting&gt;Input Manager的地方查看或修改物件的Input設定</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707232809710.png" alt="image-20220707232809710"></p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707223841448.png" alt="image-20220707223841448"></p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707223959609.png" alt="image-20220707223959609"></p>
-<p>這裡可以看到預設的設定是垂直:s,w 水平:a,d</p>
-<h2 id="練習-如何透過w-s-a-d這幾個輸入來移動物件前後左右"><a href="#練習-如何透過w-s-a-d這幾個輸入來移動物件前後左右" class="headerlink" title="練習 : 如何透過w s a d這幾個輸入來移動物件前後左右 ?"></a>練習 : 如何透過w s a d這幾個輸入來移動物件前後左右 ?</h2><h3 id="加入-Input-GetAxis-“Horizontal”-amp-Input-GetAxis-“Vertical”"><a href="#加入-Input-GetAxis-“Horizontal”-amp-Input-GetAxis-“Vertical”" class="headerlink" title="加入 Input.GetAxis(“Horizontal”)&amp; Input.GetAxis(“Vertical”)"></a>加入 Input.GetAxis(“Horizontal”)&amp; Input.GetAxis(“Vertical”)</h3><p><img src="/2022/07/07/Unity-DAY4/image-20220707224840073.png" alt="image-20220707224840073"></p>
-<h3 id="考量每個user的硬體差異，fps也會有差異"><a href="#考量每個user的硬體差異，fps也會有差異" class="headerlink" title="考量每個user的硬體差異，fps也會有差異"></a>考量每個user的硬體差異，fps也會有差異</h3><ul>
-<li><p>fps : frames per second.</p>
+            <h1 id="碰撞建置"><a href="#碰撞建置" class="headerlink" title="碰撞建置"></a>碰撞建置</h1><hr>
+<h2 id="先建置平面上四周的圍牆"><a href="#先建置平面上四周的圍牆" class="headerlink" title="先建置平面上四周的圍牆"></a>先建置平面上四周的圍牆</h2><p>直接新增四個cude物件</p>
+<p><img src="/image-20220710004308956.png" alt="image-20220710004308956"></p>
+<h2 id="查看collider的範圍"><a href="#查看collider的範圍" class="headerlink" title="查看collider的範圍"></a>查看collider的範圍</h2><ul>
+<li>點擊其中一個牆面，查看他的inspector</li>
+<li>找到mesh renderer 和 box collider (如果找不到可以透過下方add component添加)</li>
+<li>將mesh renderer旁邊的勾勾點掉</li>
+<li>可以看到綠色線的邊框就是collider的範圍了</li>
+</ul>
+<p><img src="/image-20220710005052491.png" alt="image-20220710005052491"></p>
+<p><img src="/image-20220710005100006.png" alt="image-20220710005100006"></p>
+<h2 id="更改collider的範圍"><a href="#更改collider的範圍" class="headerlink" title="更改collider的範圍"></a>更改collider的範圍</h2><ul>
+<li><p>透過調整collider”大小”來設定碰撞邊界，可以放大，給予緩衝，也可以縮小，例如射擊遊戲中你不想要這麼容易被射到，縮小就可以減少射擊面積。</p>
+<p>下方是collider半徑是0.5和1的差異</p>
+<p><img src="/image-20220710005316485.png" alt="image-20220710005316485"><img src="/image-20220710005325834.png" alt="image-20220710005325834"></p>
 </li>
-<li><p>較快的電腦 : fps→100, durations of frame→0.01s(frame時間較短)</p>
-<p>較慢的電腦 : fps→10, durations of frame→0.1s(frame時間較長)</p>
-</li>
-<li><p>又fps * durations of frame &#x3D;&#x3D; 1 ，為了讓玩家不管在怎樣的硬體上遊玩，玩起來都能有一樣的感覺，所以應在程式上加上橘色框框的部分</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707225705851.png" alt="image-20220707225705851"></p>
-</li>
-<li><p>然而你也可以增加一個新的變量moveSpeed來改變物件移動的速度(程式參考上方的範例圖示)</p>
+<li><p>改變collider的位置，透過滑動center屬性的x,y,z。<img src="/image-20220710005529140.png" alt="image-20220710005529140"></p>
 </li>
 </ul>
-<h1 id="讓攝影機跟著物件移動"><a href="#讓攝影機跟著物件移動" class="headerlink" title="讓攝影機跟著物件移動"></a>讓攝影機跟著物件移動</h1><hr>
-<h2 id="什麼是Cinemachine"><a href="#什麼是Cinemachine" class="headerlink" title="什麼是Cinemachine?"></a>什麼是Cinemachine?</h2><p>是一個強大的package主要有以下幾個功能:</p>
-<ul>
-<li><p>在scence中管理多個camera</p>
-</li>
-<li><p>方便我們建立camera的運作規則</p>
-</li>
-<li><p>cinemachine brain 可以根據規則來決定目前要用哪個virtual camera的視角</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707230309044.png" alt="image-20220707230309044"></p>
+<h2 id="讓物件成為rigid-body-剛體"><a href="#讓物件成為rigid-body-剛體" class="headerlink" title="讓物件成為rigid body(剛體)"></a>讓物件成為rigid body(剛體)</h2><ul>
+<li>由下方add component加入rigid body</li>
+<li>這裡會顯示物件將賦予一些物理性質</li>
+<li>而為了讓物件可以在x, z軸上面行走而且不讓它到處飄移旋轉，可以參考下發圖示參數。</li>
+</ul>
+<p><img src="/image-20220710010132641.png" alt="image-20220710010132641"></p>
+<h1 id="method"><a href="#method" class="headerlink" title="method"></a>method</h1><hr>
+<h2 id="什麼是method"><a href="#什麼是method" class="headerlink" title="什麼是method?"></a>什麼是method?</h2><ul>
+<li>就是類似c語言中的function，是一段程式碼具有特定的功能</li>
+<li>如果要讓method運作，我們需要<ol>
+<li>宣告&amp;定義method</li>
+<li>再需要此功能的時候呼叫method.</li>
+</ol>
 </li>
 </ul>
-<h2 id="step1-安裝-cinemachine"><a href="#step1-安裝-cinemachine" class="headerlink" title="step1 : 安裝 cinemachine"></a>step1 : 安裝 cinemachine</h2><p>windows &gt; package manager</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707230659794.png" alt="image-20220707230659794"></p>
-<p>Packages &gt; Unity Register : 這裡是我們可以安裝的一些package</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707230755989.png" alt="image-20220707230755989"></p>
-<p>搜尋Cinemachine並安裝</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707230919775.png" alt="image-20220707230919775"></p>
-<p>就可以在檔案&gt;package 中看到Cinemachine資料夾了</p>
-<h2 id="step2-加入-cinemachine-brain-component-到-camera"><a href="#step2-加入-cinemachine-brain-component-到-camera" class="headerlink" title="step2 : 加入 cinemachine brain component 到 camera"></a>step2 : 加入 cinemachine brain component 到 camera</h2><p>在main camera的inspector中，找到new componentn搜尋cinemachine</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707231256091.png" alt="image-20220707231256091"></p>
-<p>點擊找到cinemachine brain添加</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707231410070.png" alt="image-20220707231410070"></p>
-<h2 id="step3-加入virtual-camera並更名"><a href="#step3-加入virtual-camera並更名" class="headerlink" title="step3 : 加入virtual camera並更名"></a>step3 : 加入virtual camera並更名</h2><p>hierarchy中右鍵 &gt; Cinemachine &gt; Virtual Camera </p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707231524122.png" alt="image-20220707231524122"></p>
-<p>並將其更名為”fallow camera”</p>
-<h2 id="step4-將Camera調整到物件上方的位置"><a href="#step4-將Camera調整到物件上方的位置" class="headerlink" title="step4 : 將Camera調整到物件上方的位置"></a>step4 : 將Camera調整到物件上方的位置</h2><p>移動fallow camera到正確的位置 :</p>
-<p>大致先用scenes看一下位置，然後再用game模式看看是否跟你想的視角一樣</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707231832233.png" alt="image-20220707231832233"></p>
-<h2 id="step5-調整距離"><a href="#step5-調整距離" class="headerlink" title="step5 : 調整距離"></a>step5 : 調整距離</h2><p>這邊的主要目標是讓攝影機能夠跟著Poooody物件</p>
-<p>因次需要在fallow camera 的地方選擇Body &gt; framing transposer</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707232207846.png" alt="image-20220707232207846"></p>
-<p>再來可以看到上面有兩個屬性 : </p>
-<ul>
-<li>look at : 攝影機在固定位置跟拍物件</li>
-<li>fallow : 攝影機會維持與物件的相對位置跟拍</li>
-</ul>
-<p>我們這裡選擇fallow，點擊旁邊的圈圈選擇視野中要跟隨的物件名稱</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707232405212.png" alt="image-20220707232405212"></p>
+<h2 id="程式碼結構"><a href="#程式碼結構" class="headerlink" title="程式碼結構"></a>程式碼結構</h2><p><img src="/image-20220710010410511.png" alt="image-20220710010410511"></p>
 
         </div>
 
@@ -309,10 +287,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2022/07/10/Unity-DAY5-1/">Unity-DAY5(1) 碰撞建置&method</a>
+                <a class="prev" rel="prev" href="/2022/07/10/Unity-DAY5-2/">Unity-DAY5(2) OnCollisionEnter()練習</a>
             
             
-            <a class="next" rel="next" href="/2022/07/06/Unity-DAY3/">Unity-DAY3 功能認識&材質基礎</a>
+            <a class="next" rel="next" href="/2022/07/07/Unity-DAY4/">Unity-DAY4 加入操作&讓攝影機跟著物件移動</a>
             
         </section>
 

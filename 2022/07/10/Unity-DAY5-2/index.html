@@ -13,7 +13,7 @@
 
 
 
-<title>Unity-DAY4 加入操作&amp;讓攝影機跟著物件移動 | Niniiii&#39;s Blog</title>
+<title>Unity-DAY5(2) OnCollisionEnter()練習 | Niniiii&#39;s Blog</title>
 
 
 
@@ -196,7 +196,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Unity-DAY4 加入操作&amp;讓攝影機跟著物件移動</h1>
+            <h1 class="post-title">Unity-DAY5(2) OnCollisionEnter()練習</h1>
             
                 <div class="post-meta">
                     
@@ -205,7 +205,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">July 7, 2022&nbsp;&nbsp;22:31:53</a>
+                        Date: <a href="#">July 10, 2022&nbsp;&nbsp;0:40:28</a>
                         </span>
                     
                     
@@ -221,63 +221,40 @@
         </header>
 
         <div class="post-content">
-            <h1 id="加入操作"><a href="#加入操作" class="headerlink" title="加入操作"></a>加入操作</h1><hr>
-<h2 id="查看原始設定"><a href="#查看原始設定" class="headerlink" title="查看原始設定"></a>查看原始設定</h2><p>可以先到Edit &gt; Project setting&gt;Input Manager的地方查看或修改物件的Input設定</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707232809710.png" alt="image-20220707232809710"></p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707223841448.png" alt="image-20220707223841448"></p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707223959609.png" alt="image-20220707223959609"></p>
-<p>這裡可以看到預設的設定是垂直:s,w 水平:a,d</p>
-<h2 id="練習-如何透過w-s-a-d這幾個輸入來移動物件前後左右"><a href="#練習-如何透過w-s-a-d這幾個輸入來移動物件前後左右" class="headerlink" title="練習 : 如何透過w s a d這幾個輸入來移動物件前後左右 ?"></a>練習 : 如何透過w s a d這幾個輸入來移動物件前後左右 ?</h2><h3 id="加入-Input-GetAxis-“Horizontal”-amp-Input-GetAxis-“Vertical”"><a href="#加入-Input-GetAxis-“Horizontal”-amp-Input-GetAxis-“Vertical”" class="headerlink" title="加入 Input.GetAxis(“Horizontal”)&amp; Input.GetAxis(“Vertical”)"></a>加入 Input.GetAxis(“Horizontal”)&amp; Input.GetAxis(“Vertical”)</h3><p><img src="/2022/07/07/Unity-DAY4/image-20220707224840073.png" alt="image-20220707224840073"></p>
-<h3 id="考量每個user的硬體差異，fps也會有差異"><a href="#考量每個user的硬體差異，fps也會有差異" class="headerlink" title="考量每個user的硬體差異，fps也會有差異"></a>考量每個user的硬體差異，fps也會有差異</h3><ul>
-<li><p>fps : frames per second.</p>
-</li>
-<li><p>較快的電腦 : fps→100, durations of frame→0.01s(frame時間較短)</p>
-<p>較慢的電腦 : fps→10, durations of frame→0.1s(frame時間較長)</p>
-</li>
-<li><p>又fps * durations of frame &#x3D;&#x3D; 1 ，為了讓玩家不管在怎樣的硬體上遊玩，玩起來都能有一樣的感覺，所以應在程式上加上橘色框框的部分</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707225705851.png" alt="image-20220707225705851"></p>
-</li>
-<li><p>然而你也可以增加一個新的變量moveSpeed來改變物件移動的速度(程式參考上方的範例圖示)</p>
-</li>
-</ul>
-<h1 id="讓攝影機跟著物件移動"><a href="#讓攝影機跟著物件移動" class="headerlink" title="讓攝影機跟著物件移動"></a>讓攝影機跟著物件移動</h1><hr>
-<h2 id="什麼是Cinemachine"><a href="#什麼是Cinemachine" class="headerlink" title="什麼是Cinemachine?"></a>什麼是Cinemachine?</h2><p>是一個強大的package主要有以下幾個功能:</p>
+            <h1 id="加入OnCollisionEnter"><a href="#加入OnCollisionEnter" class="headerlink" title="加入OnCollisionEnter()"></a>加入OnCollisionEnter()</h1><hr>
 <ul>
-<li><p>在scence中管理多個camera</p>
+<li><p>加入一個c# script : ObjectHit</p>
 </li>
-<li><p>方便我們建立camera的運作規則</p>
+<li><p>將它放入到牆壁物件中</p>
 </li>
-<li><p>cinemachine brain 可以根據規則來決定目前要用哪個virtual camera的視角</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707230309044.png" alt="image-20220707230309044"></p>
+<li><p>刪除裡面的start(),update()</p>
+</li>
+<li><p>加入OnCollisionEnter()</p>
 </li>
 </ul>
-<h2 id="step1-安裝-cinemachine"><a href="#step1-安裝-cinemachine" class="headerlink" title="step1 : 安裝 cinemachine"></a>step1 : 安裝 cinemachine</h2><p>windows &gt; package manager</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707230659794.png" alt="image-20220707230659794"></p>
-<p>Packages &gt; Unity Register : 這裡是我們可以安裝的一些package</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707230755989.png" alt="image-20220707230755989"></p>
-<p>搜尋Cinemachine並安裝</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707230919775.png" alt="image-20220707230919775"></p>
-<p>就可以在檔案&gt;package 中看到Cinemachine資料夾了</p>
-<h2 id="step2-加入-cinemachine-brain-component-到-camera"><a href="#step2-加入-cinemachine-brain-component-到-camera" class="headerlink" title="step2 : 加入 cinemachine brain component 到 camera"></a>step2 : 加入 cinemachine brain component 到 camera</h2><p>在main camera的inspector中，找到new componentn搜尋cinemachine</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707231256091.png" alt="image-20220707231256091"></p>
-<p>點擊找到cinemachine brain添加</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707231410070.png" alt="image-20220707231410070"></p>
-<h2 id="step3-加入virtual-camera並更名"><a href="#step3-加入virtual-camera並更名" class="headerlink" title="step3 : 加入virtual camera並更名"></a>step3 : 加入virtual camera並更名</h2><p>hierarchy中右鍵 &gt; Cinemachine &gt; Virtual Camera </p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707231524122.png" alt="image-20220707231524122"></p>
-<p>並將其更名為”fallow camera”</p>
-<h2 id="step4-將Camera調整到物件上方的位置"><a href="#step4-將Camera調整到物件上方的位置" class="headerlink" title="step4 : 將Camera調整到物件上方的位置"></a>step4 : 將Camera調整到物件上方的位置</h2><p>移動fallow camera到正確的位置 :</p>
-<p>大致先用scenes看一下位置，然後再用game模式看看是否跟你想的視角一樣</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707231832233.png" alt="image-20220707231832233"></p>
-<h2 id="step5-調整距離"><a href="#step5-調整距離" class="headerlink" title="step5 : 調整距離"></a>step5 : 調整距離</h2><p>這邊的主要目標是讓攝影機能夠跟著Poooody物件</p>
-<p>因次需要在fallow camera 的地方選擇Body &gt; framing transposer</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707232207846.png" alt="image-20220707232207846"></p>
-<p>再來可以看到上面有兩個屬性 : </p>
+<p><img src="/image-20220710010808376.png" alt="image-20220710010808376"></p>
+<h2 id="程式碼元素"><a href="#程式碼元素" class="headerlink" title="程式碼元素"></a>程式碼元素</h2><p><img src="/image-20220710010948715.png" alt="image-20220710010948715"></p>
+<h2 id="測試結果"><a href="#測試結果" class="headerlink" title="測試結果"></a>測試結果</h2><p>當player碰撞到牆壁時，會呼叫OnCollisionEnter()，並會顯示如下圖 : </p>
+<p><img src="/image-20220710011044239.png" alt="image-20220710011044239"></p>
+<h1 id="碰撞後改變牆壁顏色"><a href="#碰撞後改變牆壁顏色" class="headerlink" title="碰撞後改變牆壁顏色"></a>碰撞後改變牆壁顏色</h1><hr>
+<p>Mesh renderer : 讓物件成為我們希望呈現出來的樣子。</p>
+<p>因此我們需要從mesh renderer中來改變物件的顏色。</p>
+<p>另外我們可以從網站<a target="_blank" rel="noopener" href="https://docs.unity3d.com/ScriptReference/Color.html">Unity - Scripting API: Color (unity3d.com)</a>中，找到Color套件對應的顏色，方便我們使用。</p>
+<p><img src="/image-20220710011856161.png" alt="image-20220710011856161"></p>
+<h2 id="程式碼元素-1"><a href="#程式碼元素-1" class="headerlink" title="程式碼元素"></a>程式碼元素</h2><p><img src="/image-20220710011913591.png" alt="image-20220710011913591"></p>
+<p>(補充 : 可以先將之前ObjectHit程式中的debug.log()那行刪掉，避免重複且混亂不清。)</p>
+<h2 id="測試結果-1"><a href="#測試結果-1" class="headerlink" title="測試結果"></a>測試結果</h2><p><img src="/image-20220710012011795.png" alt="image-20220710012011795"></p>
+<h1 id="加入碰撞分數"><a href="#加入碰撞分數" class="headerlink" title="加入碰撞分數"></a>加入碰撞分數</h1><hr>
 <ul>
-<li>look at : 攝影機在固定位置跟拍物件</li>
-<li>fallow : 攝影機會維持與物件的相對位置跟拍</li>
+<li><p>新增一個c# script: Scorer</p>
+</li>
+<li><p>將 c# script加入到Player的物件中</p>
+</li>
+<li><p>將程式碼加入</p>
+<p><img src="/image-20220710012131272.png" alt="image-20220710012131272"></p>
+</li>
 </ul>
-<p>我們這裡選擇fallow，點擊旁邊的圈圈選擇視野中要跟隨的物件名稱</p>
-<p><img src="/2022/07/07/Unity-DAY4/image-20220707232405212.png" alt="image-20220707232405212"></p>
+<h2 id="測試結果-2"><a href="#測試結果-2" class="headerlink" title="測試結果"></a>測試結果</h2><p><img src="/image-20220710012152595.png" alt="image-20220710012152595"></p>
 
         </div>
 
@@ -309,10 +286,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2022/07/10/Unity-DAY5-1/">Unity-DAY5(1) 碰撞建置&method</a>
             
-            
-            <a class="next" rel="next" href="/2022/07/06/Unity-DAY3/">Unity-DAY3 功能認識&材質基礎</a>
+            <a class="next" rel="next" href="/2022/07/10/Unity-DAY5-1/">Unity-DAY5(1) 碰撞建置&method</a>
             
         </section>
 
