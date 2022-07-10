@@ -13,7 +13,7 @@
 
 
 
-<title>Unity-DAY5(2) OnCollisionEnter()練習 | Niniiii&#39;s Blog</title>
+<title>Unity-DAY6 Time.time&amp;tags&amp;加入旋轉物件 | Niniiii&#39;s Blog</title>
 
 
 
@@ -196,7 +196,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Unity-DAY5(2) OnCollisionEnter()練習</h1>
+            <h1 class="post-title">Unity-DAY6 Time.time&amp;tags&amp;加入旋轉物件</h1>
             
                 <div class="post-meta">
                     
@@ -205,7 +205,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">July 10, 2022&nbsp;&nbsp;0:40:28</a>
+                        Date: <a href="#">July 10, 2022&nbsp;&nbsp;23:43:47</a>
                         </span>
                     
                     
@@ -221,40 +221,48 @@
         </header>
 
         <div class="post-content">
-            <h1 id="加入OnCollisionEnter"><a href="#加入OnCollisionEnter" class="headerlink" title="加入OnCollisionEnter()"></a>加入OnCollisionEnter()</h1><hr>
+            <h1 id="Time-time"><a href="#Time-time" class="headerlink" title="Time.time"></a>Time.time</h1><hr>
+<h2 id="練習"><a href="#練習" class="headerlink" title="練習"></a>練習</h2><p>目標 : 讓一個物件在遊戲開始三秒鐘後掉落</p>
+<p>作法 : </p>
 <ul>
-<li><p>加入一個c# script : ObjectHit</p>
+<li><p>需要一個timer</p>
 </li>
-<li><p>將它放入到牆壁物件中</p>
+<li><p>查看是否經過三秒鐘了 : if判斷式</p>
 </li>
-<li><p>刪除裡面的start(),update()</p>
-</li>
-<li><p>加入OnCollisionEnter()</p>
+<li><p>讓物件開始掉落 : 三秒鐘前禁用，三秒鐘後能藉由地心引力掉落</p>
 </li>
 </ul>
-<p><img src="/2022/07/10/Unity-DAY5-2/image-20220710010808376.png" alt="image-20220710010808376"></p>
-<h2 id="程式碼元素"><a href="#程式碼元素" class="headerlink" title="程式碼元素"></a>程式碼元素</h2><p><img src="/2022/07/10/Unity-DAY5-2/image-20220710010948715.png" alt="image-20220710010948715"></p>
-<h2 id="測試結果"><a href="#測試結果" class="headerlink" title="測試結果"></a>測試結果</h2><p>當player碰撞到牆壁時，會呼叫OnCollisionEnter()，並會顯示如下圖 : </p>
-<p><img src="/2022/07/10/Unity-DAY5-2/image-20220710011044239.png" alt="image-20220710011044239"></p>
-<h1 id="碰撞後改變牆壁顏色"><a href="#碰撞後改變牆壁顏色" class="headerlink" title="碰撞後改變牆壁顏色"></a>碰撞後改變牆壁顏色</h1><hr>
-<p>Mesh renderer : 讓物件成為我們希望呈現出來的樣子。</p>
-<p>因此我們需要從mesh renderer中來改變物件的顏色。</p>
-<p>另外我們可以從網站<a target="_blank" rel="noopener" href="https://docs.unity3d.com/ScriptReference/Color.html">Unity - Scripting API: Color (unity3d.com)</a>中，找到Color套件對應的顏色，方便我們使用。</p>
-<p><img src="/2022/07/10/Unity-DAY5-2/image-20220710011856161.png" alt="image-20220710011856161"></p>
-<h2 id="程式碼元素-1"><a href="#程式碼元素-1" class="headerlink" title="程式碼元素"></a>程式碼元素</h2><p><img src="/2022/07/10/Unity-DAY5-2/image-20220710011913591.png" alt="image-20220710011913591"></p>
-<p>(補充 : 可以先將之前ObjectHit程式中的debug.log()那行刪掉，避免測試結果重複且混亂不清。)</p>
-<h2 id="測試結果-1"><a href="#測試結果-1" class="headerlink" title="測試結果"></a>測試結果</h2><p><img src="/2022/07/10/Unity-DAY5-2/image-20220710012011795.png" alt="image-20220710012011795"></p>
-<h1 id="加入碰撞分數"><a href="#加入碰撞分數" class="headerlink" title="加入碰撞分數"></a>加入碰撞分數</h1><hr>
-<ul>
-<li><p>新增一個c# script: Scorer</p>
+<h2 id="作法"><a href="#作法" class="headerlink" title="作法"></a>作法</h2><h3 id="step1-先建立一個懸浮在空中的cude"><a href="#step1-先建立一個懸浮在空中的cude" class="headerlink" title="step1 : 先建立一個懸浮在空中的cude"></a>step1 : 先建立一個懸浮在空中的cude</h3><p><img src="/2022/07/10/Unity-DAY6/image-20220710234856518.png" alt="image-20220710234856518"></p>
+<h3 id="step2-建立並加入新的script-Dropper"><a href="#step2-建立並加入新的script-Dropper" class="headerlink" title="step2 : 建立並加入新的script : Dropper"></a>step2 : 建立並加入新的script : Dropper</h3><h3 id="step3-加入rigid-body"><a href="#step3-加入rigid-body" class="headerlink" title="step3 : 加入rigid body"></a>step3 : 加入rigid body</h3><h3 id="step4-先將mesh-renderer-amp-use-gravity的enable設為false"><a href="#step4-先將mesh-renderer-amp-use-gravity的enable設為false" class="headerlink" title="step4 : 先將mesh renderer&amp;use gravity的enable設為false"></a>step4 : 先將mesh renderer&amp;use gravity的enable設為false</h3><h3 id="step5-再用if判斷3秒過後，將mesh-renderer-amp-use-gravity的enable設為true"><a href="#step5-再用if判斷3秒過後，將mesh-renderer-amp-use-gravity的enable設為true" class="headerlink" title="step5 : 再用if判斷3秒過後，將mesh renderer&amp;use gravity的enable設為true"></a>step5 : 再用if判斷3秒過後，將mesh renderer&amp;use gravity的enable設為true</h3><p><img src="/2022/07/10/Unity-DAY6/image-20220710235512163.png" alt="image-20220710235512163"></p>
+<h1 id="tags"><a href="#tags" class="headerlink" title="tags"></a>tags</h1><hr>
+<h2 id="練習1-讓物件落到地面時不會改變顏色"><a href="#練習1-讓物件落到地面時不會改變顏色" class="headerlink" title="練習1 : 讓物件落到地面時不會改變顏色"></a>練習1 : 讓物件落到地面時不會改變顏色</h2><p>點擊player並查看inspector，可以看到上方有tag的屬性，按下下拉式選單，裡面就已經有一些預設好的tag名稱，這裡我們先將其選擇為player。</p>
+<p><img src="/2022/07/10/Unity-DAY6/image-20220710235619737.png" alt="image-20220710235619737"></p>
+<p>更改HitObject.cs程式碼如下</p>
+<p><img src="/2022/07/10/Unity-DAY6/image-20220711001120024.png" alt="image-20220711001120024"></p>
+<h2 id="練習2-一個物件碰撞只顯示一次"><a href="#練習2-一個物件碰撞只顯示一次" class="headerlink" title="練習2 : 一個物件碰撞只顯示一次"></a>練習2 : 一個物件碰撞只顯示一次</h2><h3 id="解決"><a href="#解決" class="headerlink" title="解決 :"></a>解決 :</h3><p>讓被碰撞到的物件tag從untagged-&gt;hit</p>
+<p>並且分數只在碰撞到tag不是hit的物件時增加</p>
+<h3 id="新增tag並命名為Hit"><a href="#新增tag並命名為Hit" class="headerlink" title="新增tag並命名為Hit"></a>新增tag並命名為Hit</h3><p><img src="/2022/07/10/Unity-DAY6/image-20220711001321069.png" alt="image-20220711001321069"></p>
+<p><img src="/2022/07/10/Unity-DAY6/image-20220711001333202.png" alt="image-20220711001333202"></p>
+<h3 id="更改程式碼"><a href="#更改程式碼" class="headerlink" title="更改程式碼"></a>更改程式碼</h3><p>ObjectHit.cs</p>
+<p><img src="/2022/07/10/Unity-DAY6/image-20220711001429267.png" alt="image-20220711001429267"></p>
+<p>Scorer.cs</p>
+<p><img src="/2022/07/10/Unity-DAY6/image-20220711001443444.png" alt="image-20220711001443444"></p>
+<h1 id="加入旋轉物件"><a href="#加入旋轉物件" class="headerlink" title="加入旋轉物件"></a>加入旋轉物件</h1><hr>
+<h2 id="新增物件"><a href="#新增物件" class="headerlink" title="新增物件"></a>新增物件</h2><ul>
+<li><p>加入cude物件(&amp;加入它的material讓它變成你喜歡的樣子)</p>
 </li>
-<li><p>將 c# script加入到Player的物件中</p>
+<li><p>新增一個script(name: Spinner)並添加到物件</p>
 </li>
-<li><p>將程式碼加入</p>
-<p><img src="/2022/07/10/Unity-DAY5-2/image-20220710012131272.png" alt="image-20220710012131272"></p>
+<li><p>把之前寫好的ObjectHit.cs也添加進去</p>
 </li>
 </ul>
-<h2 id="測試結果-2"><a href="#測試結果-2" class="headerlink" title="測試結果"></a>測試結果</h2><p><img src="/2022/07/10/Unity-DAY5-2/image-20220710012152595.png" alt="image-20220710012152595"></p>
+<h2 id="練習-1"><a href="#練習-1" class="headerlink" title="練習"></a>練習</h2><h3 id="目標"><a href="#目標" class="headerlink" title="目標"></a>目標</h3><p>讓y軸值更動，讓物件旋轉起來。</p>
+<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><p>這裡會使用到Unity docs 中的transform </p>
+<p>參考 : <a target="_blank" rel="noopener" href="https://docs.unity3d.com/ScriptReference/Transform.html">Unity</a><a target="_blank" rel="noopener" href="https://docs.unity3d.com/ScriptReference/Transform.html"> </a><a target="_blank" rel="noopener" href="https://docs.unity3d.com/ScriptReference/Transform.html">- Scripting API: Transform (unity3d.com</a><a target="_blank" rel="noopener" href="https://docs.unity3d.com/ScriptReference/Transform.html">)</a></p>
+<p>其中我們會用到這個 <a target="_blank" rel="noopener" href="https://docs.unity3d.com/ScriptReference/Transform.html">Transform</a>.Rotate</p>
+<p><img src="/2022/07/10/Unity-DAY6/image-20220711001906034.png" alt="image-20220711001906034"></p>
+<h3 id="更改程式碼及參數"><a href="#更改程式碼及參數" class="headerlink" title="更改程式碼及參數"></a>更改程式碼及參數</h3><p><img src="/2022/07/10/Unity-DAY6/image-20220711002045281.png" alt="image-20220711002045281"></p>
+<h3 id="結果"><a href="#結果" class="headerlink" title="結果"></a>結果</h3><p><img src="/2022/07/10/Unity-DAY6/image-20220711002116086.png" alt="image-20220711002116086"></p>
 
         </div>
 
@@ -286,10 +294,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2022/07/10/Unity-DAY6/">Unity-DAY6 Time.time&tags&加入旋轉物件</a>
             
-            
-            <a class="next" rel="next" href="/2022/07/10/Unity-DAY5-1/">Unity-DAY5(1) 碰撞建置&method</a>
+            <a class="next" rel="next" href="/2022/07/10/Unity-DAY5-2/">Unity-DAY5(2) OnCollisionEnter()練習</a>
             
         </section>
 
