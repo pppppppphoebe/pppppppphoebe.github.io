@@ -78,14 +78,14 @@ function buildSurvey(cfg){
         </div>
       </div>`;
 
-    const choices = shuffle((c.options || []).map(o => ({ value:o.value, imageLink:o.image })));
+    const choices = shuffle((c.options || []).map(o => ({ value:o.value, imageLink:o.image, text:o.value })));
 
     pages.push({
       name: c.id,
       elements: [
         { type: "html", name: `${c.id}_intro`, html: intro },
         { type: "imagepicker", name: c.id, title: "請選擇整體融合最佳的一張",
-          isRequired: true, imageHeight: 220, imageWidth: 220, choicesOrder: "none", showLabel: true, choices }
+          isRequired: true, imageHeight: 220, imageWidth: 220, choicesOrder: "none", showLabel: false, choices }
       ]
     });
   });
