@@ -7,10 +7,10 @@
         "logo": "images/q001_A.jpg",
         "options": [
           { "value": "A", "image": "images/q001_A.jpg" },
-          { "value": "B", "image": "images/q001_A.jpg" },
-          { "value": "C", "image": "images/q001_A.jpg" },
-          { "value": "D", "image": "images/q001_A.jpg" },
-          { "value": "E", "image": "images/q001_A.jpg" }
+          { "value": "B", "image": "images/q001_B.jpg" },
+          { "value": "C", "image": "images/q001_C.jpg" },
+          { "value": "D", "image": "images/q001_D.jpg" },
+          { "value": "E", "image": "images/q001_E.jpg" }
         ]
       }
     ]
