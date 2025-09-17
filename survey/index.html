@@ -38,32 +38,7 @@
   </div>
 
   <script>
-  // === 可調整設定 ===
-  const STORAGE_KEY     = "hexo-survey-image-study-v1";   // 續填用 localStorage key
-  const DATA_URL        = "./data.json";                   // 題庫檔（與 index.html 同資料夾）
-  const SUBMIT_ENDPOINT = "";                              // 送出結果的 API（可留空做測試）
-
-  const container = document.getElementById("surveyContainer");
-
-  // 讀 data.json 並建構問卷
-  fetch(DATA_URL)
-    .then(r => {
-      if (!r.ok) throw new Error(`讀取 data.json 失敗：HTTP ${r.status}`);
-      return r.json();
-    })
-    .then(cfg => {
-      if (!cfg || !Array.isArray(cfg.cases)) {
-        throw new Error("data.json 格式錯誤，缺少 cases 陣列");
-      }
-      buildSurvey(cfg);
-    })
-    .catch(err => {
-      console.error(err);
-      container.innerHTML =
-        `<div class="notice">⚠ 無法載入題庫：${String(err.message)}<br>
-        請確認 <b>data.json</b> 與 <b>images/</b> 路徑、檔名大小寫。</div>`;
-    });
-
+    // === 可調整設定 ===
     import { Model } from "survey-core";
     /*
     Don't forget to import or reference the `survey-core.css` style sheet
@@ -71,108 +46,133 @@
     */
     import { LayeredDarkPanelless } from "survey-core/themes";
 
-  function buildSurvey(cfg){
-    const pages = [];
-    cfg.cases.forEach((c, idx) => {
-      const htmlIntro =
-      `<div class="intro">
-        <div>第 ${idx+1} 題｜請綜合考慮 <b>結構</b>（logo 形狀）、<b>顏色</b>（與設計稿一致性）、
-        <b>材質</b>（紋理是否自然），選出最適合的一張。</div>
-        <div class="metaRow">
-          <div class="metaCol">
-            <div style="font-size:12px;color:#555;">材質圖</div>
-            <img src="${c.material}" alt="material" onerror="this.style.opacity=0.2; this.title='找不到材質圖';"/>
-          </div>
-          <div class="metaCol">
-            <div style="font-size:12px;color:#555;">設計圖</div>
-            <img src="${c.logo}" alt="logo" onerror="this.style.opacity=0.2; this.title='找不到設計圖';"/>
-          </div>
-        </div>
-      </div>`;
+    const STORAGE_KEY     = "hexo-survey-image-study-v1";   // 續填用 localStorage key
+    const DATA_URL        = "./data.json";                   // 題庫檔（與 index.html 同資料夾）
+    const SUBMIT_ENDPOINT = "";                              // 送出結果的 API（可留空做測試）
 
-      // 每題選項先複製一份再隨機
-      const choices = shuffle((c.options || []).map(o => ({
-        value: o.value, imageLink: o.image, text: o.value // 文字顯示 A~E
-      })));
+    const container = document.getElementById("surveyContainer");
 
-      pages.push({
-        name: c.id,
-        elements: [
-          { type:"html", name:c.id+"_intro", html:htmlIntro },
-          {
-            type:"imagepicker",
-            name:c.id,
-            title:"請選擇整體融合最佳的一張",
-            isRequired:true,
-            imageHeight:220,
-            imageWidth:220,
-            choicesOrder:"none",  // 我們已自行隨機
-            showLabel:true,
-            choices
-          }
-        ]
-      });
-    });
-
-    const json = {
-      title: cfg.title || "材質 × LOGO 融合問卷",
-      showProgressBar: "top",
-      progressBarType: "questions",
-      firstPageIsStarted: false,
-      pageNextText: "下一題 ▶",
-      pagePrevText: "◀ 上一題",
-      completeText: "提交",
-      showQuestionNumbers: "off",
-      pages
-    };
-
-    const survey = new Survey.Model(json);
-
-    // 斷點續填：讀取 / 寫入
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      try { survey.data = JSON.parse(saved); } catch(_) {}
-    }
-    survey.onValueChanged.add(() => {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(survey.data));
-    });
-    survey.onCurrentPageChanged.add(() => {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(survey.data));
-    });
-
-    // 送出
-    survey.onComplete.add(async (sender) => {
-      const payload = {
-        ts: new Date().toISOString(),
-        ua: navigator.userAgent,
-        answers: sender.data   // { q001: "C", q002: "A", ... }
-      };
-      console.log("提交結果", payload);
-
-      if (SUBMIT_ENDPOINT) {
-        try {
-          await fetch(SUBMIT_ENDPOINT, {
-            method: "POST",
-            headers: {"Content-Type":"application/json"},
-            body: JSON.stringify(payload)
-          });
-          alert("已提交，感謝你的填答！");
-        } catch (e) {
-          alert("送出失敗，但你的答案已保存在本機。請稍後再試。");
-          console.error(e);
+    // 讀 data.json 並建構問卷
+    fetch(DATA_URL)
+        .then(r => {
+        if (!r.ok) throw new Error(`讀取 data.json 失敗：HTTP ${r.status}`);
+        return r.json();
+        })
+        .then(cfg => {
+        if (!cfg || !Array.isArray(cfg.cases)) {
+            throw new Error("data.json 格式錯誤，缺少 cases 陣列");
         }
-      } else {
-        alert("測試模式：結果已在瀏覽器 Console 顯示。設定 SUBMIT_ENDPOINT 可上傳到你的後端。");
-      }
-      localStorage.removeItem(STORAGE_KEY);
-    });
+        buildSurvey(cfg);
+        })
+        .catch(err => {
+        console.error(err);
+        container.innerHTML =
+            `<div class="notice">⚠ 無法載入題庫：${String(err.message)}<br>
+            請確認 <b>data.json</b> 與 <b>images/</b> 路徑、檔名大小寫。</div>`;
+        });
 
-    
-    //Survey.StylesManager.applyTheme("defaultV2");
-    Survey.StylesManager.applyTheme(LayeredDarkPanelless);
-    container.innerHTML = "";
-    survey.render(container);
-  }
+    function buildSurvey(cfg){
+        const pages = [];
+        cfg.cases.forEach((c, idx) => {
+        const htmlIntro =
+        `<div class="intro">
+            <div>第 ${idx+1} 題｜請綜合考慮 <b>結構</b>（logo 形狀）、<b>顏色</b>（與設計稿一致性）、
+            <b>材質</b>（紋理是否自然），選出最適合的一張。</div>
+            <div class="metaRow">
+            <div class="metaCol">
+                <div style="font-size:12px;color:#555;">材質圖</div>
+                <img src="${c.material}" alt="material" onerror="this.style.opacity=0.2; this.title='找不到材質圖';"/>
+            </div>
+            <div class="metaCol">
+                <div style="font-size:12px;color:#555;">設計圖</div>
+                <img src="${c.logo}" alt="logo" onerror="this.style.opacity=0.2; this.title='找不到設計圖';"/>
+            </div>
+            </div>
+        </div>`;
+
+        // 每題選項先複製一份再隨機
+        const choices = shuffle((c.options || []).map(o => ({
+            value: o.value, imageLink: o.image, text: o.value // 文字顯示 A~E
+        })));
+
+        pages.push({
+            name: c.id,
+            elements: [
+            { type:"html", name:c.id+"_intro", html:htmlIntro },
+            {
+                type:"imagepicker",
+                name:c.id,
+                title:"請選擇整體融合最佳的一張",
+                isRequired:true,
+                imageHeight:220,
+                imageWidth:220,
+                choicesOrder:"none",  // 我們已自行隨機
+                showLabel:true,
+                choices
+            }
+            ]
+        });
+        });
+
+        const json = {
+        title: cfg.title || "材質 × LOGO 融合問卷",
+        showProgressBar: "top",
+        progressBarType: "questions",
+        firstPageIsStarted: false,
+        pageNextText: "下一題 ▶",
+        pagePrevText: "◀ 上一題",
+        completeText: "提交",
+        showQuestionNumbers: "off",
+        pages
+        };
+
+        const survey = new Survey.Model(json);
+
+        // 斷點續填：讀取 / 寫入
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+        try { survey.data = JSON.parse(saved); } catch(_) {}
+        }
+        survey.onValueChanged.add(() => {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(survey.data));
+        });
+        survey.onCurrentPageChanged.add(() => {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(survey.data));
+        });
+
+        // 送出
+        survey.onComplete.add(async (sender) => {
+        const payload = {
+            ts: new Date().toISOString(),
+            ua: navigator.userAgent,
+            answers: sender.data   // { q001: "C", q002: "A", ... }
+        };
+        console.log("提交結果", payload);
+
+        if (SUBMIT_ENDPOINT) {
+            try {
+            await fetch(SUBMIT_ENDPOINT, {
+                method: "POST",
+                headers: {"Content-Type":"application/json"},
+                body: JSON.stringify(payload)
+            });
+            alert("已提交，感謝你的填答！");
+            } catch (e) {
+            alert("送出失敗，但你的答案已保存在本機。請稍後再試。");
+            console.error(e);
+            }
+        } else {
+            alert("測試模式：結果已在瀏覽器 Console 顯示。設定 SUBMIT_ENDPOINT 可上傳到你的後端。");
+        }
+        localStorage.removeItem(STORAGE_KEY);
+        });
+
+        
+        //Survey.StylesManager.applyTheme("defaultV2");
+        Survey.StylesManager.applyTheme(LayeredDarkPanelless);
+        container.innerHTML = "";
+        survey.render(container);
+    }
 
   // 洗牌
   function shuffle(arr){
