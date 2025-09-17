@@ -1,5 +1,31 @@
 ﻿{
     "title": "測試用問卷",
+    "samples": [
+    {
+      "title": "範例一",
+      "logo": "images/samples/s1_logo.jpg",
+      "material": "images/samples/s1_material.jpg",
+      "result": "images/samples/s1_result.jpg"
+    },
+    {
+      "title": "範例二",
+      "logo": "images/samples/s2_logo.jpg",
+      "material": "images/samples/s2_material.jpg",
+      "result": "images/samples/s2_result.jpg"
+    },
+    {
+      "title": "範例三",
+      "logo": "images/samples/s3_logo.jpg",
+      "material": "images/samples/s3_material.jpg",
+      "result": "images/samples/s3_result.jpg"
+    },
+    {
+      "title": "範例四",
+      "logo": "images/samples/s4_logo.jpg",
+      "material": "images/samples/s4_material.jpg",
+      "result": "images/samples/s4_result.jpg"
+    }
+  ],
     "cases": [
       {
         "id": "q001",
