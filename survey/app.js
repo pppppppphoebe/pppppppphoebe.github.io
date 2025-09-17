@@ -8,6 +8,7 @@ const SUBMIT_ENDPOINT = "";                         // 後端 API（留空=只�
 
 const container = document.getElementById("surveyContainer");
 
+
 // 健檢：確認 SurveyJS 已載入
 if (typeof Survey === "undefined" || !Survey.Model) {
   container.innerHTML = '<div class="notice">⚠ 無法載入 SurveyJS。若你使用離線版，請確保 <b>vendor/modern.min.css</b>、<b>vendor/survey.core.min.js</b>、<b>vendor/survey-ui.min.js</b> 已正確引入；或改用 CDN。</div>';
