@@ -1,1 +1,112 @@
-﻿
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>材質 × LOGO 融合問卷</title>
+  <link href="https://unpkg.com/survey-core/survey.min.css" rel="stylesheet"/>
+  <script src="https://unpkg.com/survey-core/survey.core.min.js"></script>
+  <script src="https://unpkg.com/survey-ui/survey-ui.min.js"></script>
+  <style>
+    body { font-family: -apple-system,BlinkMacSystemFont,"Noto Sans TC",Arial,sans-serif; background:#f7f7f8; margin:0; }
+    .sv-root-modern { max-width: 980px; margin: 24px auto; background:#fff; border-radius:16px; box-shadow: 0 8px 24px rgba(0,0,0,.08); padding: 24px; }
+    .intro { margin-bottom: 8px; color:#333; }
+    .metaRow { display:flex; gap:16px; margin:12px 0 4px; align-items:center; flex-wrap:wrap; }
+    .metaCol { display:flex; flex-direction:column; gap:6px; }
+    .metaCol img { width: 220px; height: 220px; object-fit: cover; border-radius:12px; border:1px solid #ddd; }
+    .sv-progress__text { font-weight:600; }
+  </style>
+</head>
+<body>
+  <div id="surveyContainer"></div>
+
+  <script>
+  const STORAGE_KEY = "hexo-survey-image-study-v1";
+  const SUBMIT_ENDPOINT = ""; // 可填 Google Apps Script / 自家 API，留空就只 console 顯示
+
+  const el = document.getElementById("surveyContainer");
+    fetch("./data.json")
+    .then(r => {
+        if (!r.ok) throw new Error(`讀取 data.json 失敗：HTTP ${r.status}`);
+        return r.json();
+    })
+    .then(cfg => {
+        if (!cfg || !Array.isArray(cfg.cases)) {
+        throw new Error("data.json 格式錯誤，缺少 cases 陣列");
+        }
+        buildSurvey(cfg);
+    })
+    .catch(err => {
+        console.error(err);
+        el.innerHTML = `<div style="padding:16px;background:#fff3cd;border:1px solid #ffeeba;border-radius:8px;color:#856404">
+        ⚠ 無法載入題庫：${String(err.message)}<br>請確認 <b>data.json</b> 檔案路徑與檔名大小寫。
+        </div>`;
+    });
+
+  function buildSurvey(cfg){
+    const pages = [];
+    cfg.cases.forEach((c, idx) => {
+      const htmlIntro = `
+        <div class="intro">
+          <div>第 ${idx+1} 題｜請綜合考慮 <b>結構</b>（logo 形狀）、<b>顏色</b>（與設計稿一致性）、<b>材質</b>（紋理是否自然），選出最適合的一張。</div>
+          <div class="metaRow">
+            <div class="metaCol">
+              <div style="font-size:12px;color:#555;">材質圖</div>
+              <img src="${c.material}" alt="material"/>
+            </div>
+            <div class="metaCol">
+              <div style="font-size:12px;color:#555;">設計圖</div>
+              <img src="${c.logo}" alt="logo"/>
+            </div>
+          </div>
+        </div>`;
+      const choices = shuffle(c.options.map(o => ({ value:o.value, imageLink:o.image })));
+      pages.push({
+        name: c.id,
+        elements: [
+          { type:"html", name:c.id+"_intro", html:htmlIntro },
+          { type:"imagepicker", name:c.id, title:"請選擇整體融合最佳的一張", isRequired:true,
+            imageHeight:220, imageWidth:220, choicesOrder:"none", showLabel:true,
+            choices
+          }
+        ]
+      });
+    });
+
+    const json = {
+      title: cfg.title || "材質 × LOGO 融合問卷",
+      showProgressBar:"top", progressBarType:"questions",
+      showQuestionNumbers:"off", pageNextText:"下一題 ▶", pagePrevText:"◀ 上一題", completeText:"提交",
+      pages
+    };
+
+    const survey = new Survey.Model(json);
+
+    // 續填
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if(saved){ try{ survey.data = JSON.parse(saved); }catch(_){} }
+    survey.onValueChanged.add(()=>localStorage.setItem(STORAGE_KEY, JSON.stringify(survey.data)));
+    survey.onCurrentPageChanged.add(()=>localStorage.setItem(STORAGE_KEY, JSON.stringify(survey.data)));
+
+    survey.onComplete.add(async (sender)=>{
+      const payload = { ts:new Date().toISOString(), ua:navigator.userAgent, answers: sender.data };
+      console.log("結果", payload);
+      if(SUBMIT_ENDPOINT){
+        try{
+          await fetch(SUBMIT_ENDPOINT,{ method:"POST", headers:{ "Content-Type":"application/json" }, body:JSON.stringify(payload) });
+          alert("已提交，感謝填答！");
+        }catch(e){ alert("送出失敗，但答案已保存在本機。稍後再試。"); }
+      }else{
+        alert("測試模式：結果已在瀏覽器 Console 顯示。設定 SUBMIT_ENDPOINT 可上傳到你的後端。");
+      }
+      localStorage.removeItem(STORAGE_KEY);
+    });
+
+    Survey.StylesManager.applyTheme("defaultV2");
+    survey.render(document.getElementById("surveyContainer"));
+  }
+
+  function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+  </script>
+</body>
+</html>
