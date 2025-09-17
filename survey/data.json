@@ -2,7 +2,7 @@
     "title": "測試用問卷",
     "cases": [
       {
-        "id": "q001_A",
+        "id": "q001",
         "material": "images/q001_A.jpg",
         "logo": "images/q001_A.jpg",
         "options": [
