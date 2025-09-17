@@ -78,7 +78,7 @@ function buildSurvey(cfg){
         </div>
       </div>`;
 
-    const choices = shuffle((c.options || []).map(o => ({ value:o.value, imageLink:o.image, text:o.value })));
+    const choices = shuffle((c.options || []).map(o => ({ value:o.value, imageLink:o.image })));
 
     pages.push({
       name: c.id,
