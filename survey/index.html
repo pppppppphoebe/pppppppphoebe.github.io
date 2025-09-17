@@ -5,10 +5,29 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>材質 × LOGO 融合問卷</title>
 
-  <!-- SurveyJS（鎖定版本以免 CDN 變動） -->
-  <link href="https://unpkg.com/survey-core@1.11.9/survey.min.css" rel="stylesheet"/>
-  <script src="https://unpkg.com/survey-core@1.11.9/survey.core.min.js"></script>
-  <script src="https://unpkg.com/survey-ui@1.11.9/survey-ui.min.js"></script>
+    <!-- SurveyJS CSS：雙 CDN 後備 -->
+    <link id="svcss" rel="stylesheet" href="https://unpkg.com/survey-core@1.11.9/modern.min.css"
+    onerror="this.href='https://cdn.jsdelivr.net/npm/survey-core@1.11.9/modern.min.css'">
+
+    <!-- Survey Core -->
+    <script id="svcore" src="https://unpkg.com/survey-core@1.11.9/survey.core.min.js"
+    onerror="this.onerror=null; this.src='https://cdn.jsdelivr.net/npm/survey-core@1.11.9/survey.core.min.js'"></script>
+
+    <!-- Survey UI（No-framework UI） -->
+    <script id="svui" src="https://unpkg.com/survey-ui@1.11.9/survey-ui.min.js"
+    onerror="this.onerror=null; this.src='https://cdn.jsdelivr.net/npm/survey-ui@1.11.9/survey-ui.min.js'"></script>
+
+    <script>
+    // 若兩個 CDN 都失敗，給出明確提示
+    window.addEventListener('error', function (e) {
+    if (e.target && e.target.id === 'svui') {
+    document.getElementById('surveyContainer').innerHTML =
+    '<div style="padding:16px;background:#fde2e2;border:1px solid #f5b5b5;border-radius:8px;color:#b42318">' +
+    '⚠ 無法載入 SurveyJS UI。請檢查網路是否封鎖 CDN，或改用其它網路再試。' +
+    '</div>';
+    }
+    }, true);
+    </script>
 
   <style>
     :root { color-scheme: light; }
@@ -39,7 +58,7 @@
   <script>
   // === 可調整設定 ===
   const STORAGE_KEY     = "hexo-survey-image-study-v1";   // 續填用 localStorage key
-  const DATA_URL        = "data.json";                   // 題庫檔（與 index.html 同資料夾）
+  const DATA_URL        = "./data.json";                   // 題庫檔（與 index.html 同資料夾）
   const SUBMIT_ENDPOINT = "";                              // 送出結果的 API（可留空做測試）
 
   const container = document.getElementById("surveyContainer");
