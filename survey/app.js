@@ -30,19 +30,19 @@ function buildSurvey(cfg){
   // ===== 第 1 頁：範例頁（若 data.json 有 samples 就顯示） =====
   if (Array.isArray(cfg.samples) && cfg.samples.length > 0) {
     const cards = cfg.samples.slice(0, 4).map(s => `
-      <div class="sampleCard">
-        <div class="sampleTitle">${escapeHTML(s.title || "")}</div>
+      <div class="sampleBlock">
+        <div class="sampleHeader">${escapeHTML(s.title || "")}</div>
         <div class="sampleRow">
           <div class="sampleCol">
-            <img src="${s.logo}" alt="設計圖" onerror="this.style.opacity=0.25">
+            <img class="sampleImg" src="${s.logo}" alt="設計圖" onerror="this.style.opacity=0.25">
             <div class="sampleLabel">設計圖</div>
           </div>
           <div class="sampleCol">
-            <img src="${s.material}" alt="材質圖" onerror="this.style.opacity=0.25">
+            <img class="sampleImg" src="${s.material}" alt="材質圖" onerror="this.style.opacity=0.25">
             <div class="sampleLabel">材質圖</div>
           </div>
           <div class="sampleCol">
-            <img src="${s.result}" alt="真實結果" onerror="this.style.opacity=0.25">
+            <img class="sampleImg" src="${s.result}" alt="真實結果" onerror="this.style.opacity=0.25">
             <div class="sampleLabel">真實結果</div>
           </div>
         </div>
@@ -53,7 +53,7 @@ function buildSurvey(cfg){
       <div class="intro">
         <h3 style="margin:0 0 6px">說明與範例</h3>
         <div>下列四組為真實案例示意：由「設計圖」與「材質圖」融合後產生「真實結果」。接下來請在每題 5 張候選圖中，依 <b>結構</b>、<b>顏色</b>、<b>材質</b> 三面向，選出整體最合適的一張。</div>
-        <div class="sampleGrid" style="margin-top:12px">${cards}</div>
+        <div class="sampleList">${cards}</div>
         <button class="startBtn" onclick="window.__startSurvey && window.__startSurvey()">開始作答 ▶</button>
       </div>
     `;
