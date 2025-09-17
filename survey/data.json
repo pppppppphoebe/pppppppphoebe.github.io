@@ -1,1 +1,17 @@
-﻿
+﻿{
+    "title": "標籤與材質融合效果的使用者調查",
+    "cases": [
+      {
+        "id": "q001",
+        "material": "images/material_001.jpg",
+        "logo": "images/logo_001.png",
+        "options": [
+          {"value": "A", "image": "images/q001_A.jpg"},
+          {"value": "B", "image": "images/q001_B.jpg"},
+          {"value": "C", "image": "images/q001_C.jpg"},
+          {"value": "D", "image": "images/q001_D.jpg"},
+          {"value": "E", "image": "images/q001_E.jpg"}
+        ]
+      }
+    ]
+  }
