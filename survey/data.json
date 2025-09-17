@@ -3,14 +3,14 @@
     "cases": [
       {
         "id": "q001",
-        "material": "images/material_001.jpg",
-        "logo": "images/logo_001.png",
+        "material": "images/p_01-09.jpg",
+        "logo": "images/p_01-09.jpg",
         "options": [
-          { "value": "A", "image": "images/q001_A.jpg" },
-          { "value": "B", "image": "images/q001_B.jpg" },
-          { "value": "C", "image": "images/q001_C.jpg" },
-          { "value": "D", "image": "images/q001_D.jpg" },
-          { "value": "E", "image": "images/q001_E.jpg" }
+          { "value": "A", "image": "images/ours.jpg" },
+          { "value": "B", "image": "images/p_01-09.jpg" },
+          { "value": "C", "image": "images/p_01-09.jpg" },
+          { "value": "D", "image": "images/p_01-09.jpg" },
+          { "value": "E", "image": "images/p_01-09.jpg" }
         ]
       }
     ]
