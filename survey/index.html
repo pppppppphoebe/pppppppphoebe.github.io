@@ -37,14 +37,10 @@
     <footer>若頁面長時間無法載入，請檢查 <code>data.json</code> 與圖片路徑。</footer>
   </div>
 
-  <script>
-    // === 可調整設定 ===
-    import { Model } from "survey-core";
-    /*
-    Don't forget to import or reference the `survey-core.css` style sheet
-    as described in the Get Started with SurveyJS article for your framework
-    */
+  <script type="module">
+    import { Model } from "survey-core"; /* Don't forget to import or reference the survey-core.css style sheet as described in the Get Started with SurveyJS article for your framework */ 
     import { LayeredDarkPanelless } from "survey-core/themes";
+    // === 可調整設定 ===
 
     const STORAGE_KEY     = "hexo-survey-image-study-v1";   // 續填用 localStorage key
     const DATA_URL        = "./data.json";                   // 題庫檔（與 index.html 同資料夾）
@@ -72,6 +68,7 @@
         });
 
     function buildSurvey(cfg){
+        
         const pages = [];
         cfg.cases.forEach((c, idx) => {
         const htmlIntro =
@@ -167,7 +164,6 @@
         localStorage.removeItem(STORAGE_KEY);
         });
 
-        
         //Survey.StylesManager.applyTheme("defaultV2");
         Survey.StylesManager.applyTheme(LayeredDarkPanelless);
         container.innerHTML = "";
