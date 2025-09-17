@@ -1,5 +1,5 @@
 // app.js - SurveyJS 問卷主程式（配合 index.html 使用）
-import { Model } from "survey-core";
+//import { Model } from "survey-core";
 import { LayeredDarkPanelless } from "survey-core/themes";
 // === 可調設定 ===
 const STORAGE_KEY     = "surveyjs-image-study-v1";  // 續填
