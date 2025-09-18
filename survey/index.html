@@ -67,46 +67,6 @@
       .qPairRow{flex-wrap:wrap}
     }
 
-    /* ===== ImagePicker：關閉遮罩、改為藍框 + 右上圓點，不會改變圖片亮度 ===== */
-
-    /* 讓角落圓點能定位 */
-    .sv-imagepicker__item { position: relative; }
-
-    /* 永遠不要幫圖片加淡化或濾鏡 */
-    .sv-imagepicker__image {
-      opacity: 1 !important;
-      filter: none !important;
-      transition: box-shadow .15s, border .15s, transform .05s;
-    }
-
-    /* 徹底移除各種 overlay（即使主題加了偽元素或子元素） */
-    .sv-imagepicker__image .sv-imagepicker__image--overlay { display: none !important; opacity: 0 !important; }
-    .sv-imagepicker__image::before { display: none !important; content: none !important; }
-
-    /* ★ 以 input:checked 判定「被選取」，版本最不會踩雷 */
-    .sv-imagepicker__item input:checked ~ .sv-imagepicker__image {
-      border: 3px solid #2563eb !important;      /* 藍色外框 */
-      box-shadow: 0 0 0 3px rgba(37,99,235,.18);
-    }
-
-    /* 右上角小圓點作為選取指示 */
-    .sv-imagepicker__item input:checked ~ .sv-imagepicker__image::after {
-      content: "";
-      position: absolute;
-      top: 10px; right: 10px;
-      width: 14px; height: 14px;
-      border-radius: 50%;
-      background: #2563eb;
-      box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2563eb; /* 白邊 + 藍外圈，任何底色都清楚 */
-    }
-
-    /* hover / 鍵盤聚焦：弱提示，不變白 */
-    .sv-imagepicker__item:hover .sv-imagepicker__image,
-    .sv-imagepicker__item:focus-within .sv-imagepicker__image {
-      box-shadow: 0 0 0 3px rgba(37,99,235,.12);
-      transform: translateZ(0);
-    }
-
   </style>
 </head>
 <body>
