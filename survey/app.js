@@ -54,7 +54,7 @@ function buildSurvey(cfg){
         <h3 style="margin:0 0 6px">說明與範例</h3>
         <div>下列四組為真實案例示意：由「設計圖」與「材質圖」融合後產生「真實結果」。接下來請在每題 5 張候選圖中，依 <b>結構</b>、<b>顏色</b>、<b>材質</b> 三面向，選出整體最合適的一張。</div>
         <div class="sampleList">${cards}</div>
-        <button class="startBtn" onclick="window.__startSurvey && window.__startSurvey()">開始作答 ▶</button>
+        <!--<button class="startBtn" onclick="window.__startSurvey && window.__startSurvey()">開始作答 ▶</button>-->
       </div>
     `;
 
@@ -106,7 +106,7 @@ function buildSurvey(cfg){
   const survey = new Survey.Model(json);
 
   // 讓「開始作答」按鈕可以直接到下一頁（intro 用自訂按鈕時）
-  window.__startSurvey = () => survey.nextPage();
+  // window.__startSurvey = () => survey.nextPage();
 
   // 續填
   const saved = localStorage.getItem(STORAGE_KEY);
