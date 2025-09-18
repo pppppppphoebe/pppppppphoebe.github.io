@@ -51,6 +51,21 @@
     @media (max-width: 760px){
       .sampleRow{flex-wrap:wrap}
     }
+    /* —— 每題的材質圖 × 設計圖：左右併排 —— */
+    .qPairRow{display:flex;gap:16px;align-items:flex-start;flex-wrap:nowrap}
+    .qPairCol{flex:1 1 0;min-width:0;display:flex;flex-direction:column}
+    .qPairImg{
+      width:100%;      /* 等寬 */
+      height:auto;     /* 依比例縮放，不限制高度 */
+      object-fit:contain;
+      border:1px solid #ddd;border-radius:10px;background:#fff;
+    }
+    .qPairLabel{font-size:12px;color:#555;margin-top:6px;text-align:center}
+
+    /* 窄螢幕時允許換行（各欄仍等寬） */
+    @media (max-width: 760px){
+      .qPairRow{flex-wrap:wrap}
+    }
   </style>
 </head>
 <body>
