@@ -1,7 +1,7 @@
 // script.js — 帶「範例起始頁」版本
 const STORAGE_KEY     = "ml-image-study-v1";
 const DATA_URL        = "./data.json";
-const SUBMIT_ENDPOINT = "";
+const SUBMIT_ENDPOINT = "https://script.google.com/macros/s/AKfycbyxcCSB3I3px9DjxjwqBix0UG-ij2lBWLI05NvFfr8mPraMK3wjmgt_iwA3O86nCXRivw/exec";
 
 const container = document.getElementById("surveyContainer");
 
@@ -130,14 +130,24 @@ function buildSurvey(cfg){
 
   // 送出
   survey.onComplete.add(async (sender) => {
-    const payload = { ts: new Date().toISOString(), ua: navigator.userAgent, answers: sender.data };
+    const payload = {
+      ts: new Date().toISOString(),
+      ua: navigator.userAgent,
+      answers: sender.data
+    };
     console.log("提交結果", payload);
+
     if (SUBMIT_ENDPOINT) {
       try {
-        await fetch(SUBMIT_ENDPOINT, { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(payload) });
+        await fetch(SUBMIT_ENDPOINT, {
+          method: "POST",
+          // 用 text/plain 降低預檢機率（GAS 端仍以 JSON.parse 嘗試解析）
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(payload)
+        });
         alert("已提交，感謝你的填答！");
       } catch (e) {
-        alert("送出失敗，但答案已保存在本機。稍後再試。");
+        alert("送出失敗，但你的答案已保存在本機。稍後再試。");
         console.error(e);
       }
     } else {
@@ -145,6 +155,7 @@ function buildSurvey(cfg){
     }
     localStorage.removeItem(STORAGE_KEY);
   });
+
 
   container.innerHTML = "";
   survey.render(container);
