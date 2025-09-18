@@ -7,7 +7,7 @@ const container = document.getElementById("surveyContainer");
 
 // 主題
 if (window.Survey && Survey.StylesManager) {
-  Survey.StylesManager.applyTheme("modern");
+  //Survey.StylesManager.applyTheme("modern");
 } else {
   container.innerHTML = warn("無法載入 SurveyJS（請改用 vendor 離線檔或檢查 CDN 連線）");
 }
