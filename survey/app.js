@@ -66,7 +66,10 @@ function buildSurvey(cfg){
 
     const intro = `
       <div class="intro">
-        <div>第 ${idx + 1} 題｜請綜合考慮 <b>結構</b>（Logo 形狀）、<b>顏色</b>（與設計圖一致性）、<b>材質</b>（紋理是否自然），選出最適合的一張。</div>
+        <div>
+        第 ${idx + 1} 題\n
+        請綜合考慮 <b>結構</b>（Logo 形狀）、<b>顏色</b>（與設計圖一致性）、<b>材質</b>（紋理是否自然），選出最適合的一張。
+        </div>
         <div class="qPairRow">
           <div class="qPairCol">
             <img class="qPairImg" src="${c.material}" alt="material" onerror="this.style.opacity=0.25">
