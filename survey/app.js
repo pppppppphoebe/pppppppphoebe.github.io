@@ -119,7 +119,12 @@ function buildSurvey(cfg){
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved) { try { survey.data = JSON.parse(saved); } catch(_){} }
   survey.onValueChanged.add(() => localStorage.setItem(STORAGE_KEY, JSON.stringify(survey.data)));
-  survey.onCurrentPageChanged.add(() => localStorage.setItem(STORAGE_KEY, JSON.stringify(survey.data)));
+  survey.onCurrentPageChanged.add(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(survey.data));
+    // 新增：換頁時回到頁面頂端
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+  
 
   // 送出
   survey.onComplete.add(async (sender) => {
