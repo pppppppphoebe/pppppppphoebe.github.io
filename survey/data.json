@@ -29,14 +29,14 @@
     "cases": [
       {
         "id": "q001",
-        "material": "images/q001_A.jpg",
-        "logo": "images/q001_A.jpg",
+        "material": "images/q001/texture.jpg",
+        "logo": "images/q001/logo.jpg",
         "options": [
-          { "value": "A", "image": "images/q001_A.jpg" },
-          { "value": "B", "image": "images/q001_B.jpg" },
-          { "value": "C", "image": "images/q001_C.jpg" },
-          { "value": "D", "image": "images/q001_D.jpg" },
-          { "value": "E", "image": "images/q001_E.jpg" }
+          { "value": "A", "image": "images/q001/ours.jpg" },
+          { "value": "B", "image": "images/q001/p_01-09.jpg" },
+          { "value": "C", "image": "images/q001/p_10-19.jpg" },
+          { "value": "D", "image": "images/q001/p_30-39.jpg" },
+          { "value": "E", "image": "images/q001/p_40-49.jpg" }
         ]
       }
     ]
