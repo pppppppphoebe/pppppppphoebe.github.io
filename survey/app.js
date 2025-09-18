@@ -99,7 +99,7 @@ function buildSurvey(cfg){
 
   const json = {
     title: cfg.title || "材質 × LOGO 融合問卷",
-    firstPageIsStarted: !!(cfg.samples && cfg.samples.length),
+    firstPageIsStarted: false,//!!(cfg.samples && cfg.samples.length),
     startSurveyText: "開始作答 ▶", // 若 firstPageIsStarted=true，會出現在第一頁下方
     showProgressBar: "top",
     progressBarType: "questions",
@@ -123,8 +123,6 @@ function buildSurvey(cfg){
     localStorage.setItem(STORAGE_KEY, JSON.stringify(survey.data));
     // 新增：換頁時回到頁面頂端
     window.scrollTo({ top: 0, behavior: "smooth" });
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
   });
   
 
