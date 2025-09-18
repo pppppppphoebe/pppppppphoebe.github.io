@@ -87,14 +87,36 @@ function buildSurvey(cfg){
 
     const choices = shuffle((c.options || []).map(o => ({ value:o.value, imageLink:o.image, text:o.value })));
 
+    // pages.push({
+    //   name: c.id,
+    //   elements: [
+    //     { type: "html", name: `${c.id}_intro`, html: intro },
+    //     { type: "imagepicker", name: c.id, title: "請選擇整體融合最佳的一張",
+    //       isRequired: true, imageHeight: 220, imageWidth: 220, choicesOrder: "none", showLabel: false, choices }
+    //   ]
+    // });
     pages.push({
       name: c.id,
       elements: [
-        { type: "html", name: `${c.id}_intro`, html: intro },
-        { type: "imagepicker", name: c.id, title: "請選擇整體融合最佳的一張",
-          isRequired: true, imageHeight: 220, imageWidth: 220, choicesOrder: "none", showLabel: false, choices }
+        { type: "html", name: c.id + "_intro", html: intro },
+        {
+          type: "radiogroup",
+          name: c.id,
+          title: "請選擇整體融合最佳的一張",
+          isRequired: true,
+          allowHtml: true,
+          choicesOrder: "none",
+          choices: (c.options || []).map(o => ({
+            value: o.value,
+            text: `<div style="display:flex;gap:8px;align-items:center">
+                     <img src="${o.image}" style="width:220px;height:auto;border:1px solid #ddd;border-radius:10px"/>
+                     <span style="font-size:12px;color:#555">選項 ${o.value}</span>
+                   </div>`
+          }))
+        }
       ]
     });
+    
   });
 
   const json = {
