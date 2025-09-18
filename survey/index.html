@@ -85,7 +85,6 @@
     .sv-imagepicker__image::before, .sd-imagepicker__image::before { display: none !important; content: none !important; }
 
     /* ★ 被選取：用 input:checked 判斷，最不挑版本的方式 */
-    .sv-imagepicker__item input:checked ~ .sv-imagepicker__image,
     .sd-imagepicker__item input:checked ~ .sd-imagepicker__image {
       border: 3px solid #2563eb !important;
       box-shadow: 0 0 0 3px rgba(37,99,235,.18);
@@ -108,7 +107,7 @@
     .sv-imagepicker__item:focus-within .sv-imagepicker__image,
     .sd-imagepicker__item:hover .sd-imagepicker__image,
     .sd-imagepicker__item:focus-within .sd-imagepicker__image {
-      box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+      box-shadow: 0 0 0 3px rgba(37,99,235,.3);
       transform: translateZ(0);
     }
 
