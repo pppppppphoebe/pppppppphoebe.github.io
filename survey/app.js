@@ -123,6 +123,8 @@ function buildSurvey(cfg){
     localStorage.setItem(STORAGE_KEY, JSON.stringify(survey.data));
     // 新增：換頁時回到頁面頂端
     window.scrollTo({ top: 0, behavior: "smooth" });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   });
   
 
