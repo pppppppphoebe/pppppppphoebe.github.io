@@ -82,9 +82,6 @@
     /* 徹底移除各種 overlay（即使主題加了偽元素或子元素） */
     .sv-imagepicker__image .sv-imagepicker__image--overlay { display: none !important; opacity: 0 !important; }
     .sv-imagepicker__image::before { display: none !important; content: none !important; }
-    .sv-imagepicker__image::after  { /* 先清空，下面選取狀態會重新用 ::after 畫圓點 */
-      /* 不加內容，避免主題的 ::after 造成泛白 */
-    }
 
     /* ★ 以 input:checked 判定「被選取」，版本最不會踩雷 */
     .sv-imagepicker__item input:checked ~ .sv-imagepicker__image {
