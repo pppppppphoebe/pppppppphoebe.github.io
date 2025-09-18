@@ -66,6 +66,36 @@
     @media (max-width: 760px){
       .qPairRow{flex-wrap:wrap}
     }
+
+    /* 取消 ImagePicker 預設的白色半透明遮罩，改用外框＋角落圓點指示 */
+    .sv-imagepicker__item { position: relative; }                  /* 讓 ::after 能定位 */
+    .sv-imagepicker__image { transition: box-shadow .15s, border .15s, transform .05s; }
+
+    /* 選到時：不要變暗、不要覆蓋；改成藍色外框與柔光 */
+    .sv-imagepicker__item--selected .sv-imagepicker__image {
+      opacity: 1 !important;                 /* 關掉遮罩造成的淡化 */
+      filter: none !important;
+      border: 3px solid #2563eb !important;  /* 藍色外框 */
+      box-shadow: 0 0 0 3px rgba(37,99,235,.18);
+    }
+
+    /* 選到時：右上角顯示小圓點（類 radio） */
+    .sv-imagepicker__item--selected::after {
+      content: "";
+      position: absolute;
+      top: 10px; right: 10px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: #2563eb;                   /* 實心藍點 */
+      box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2563eb; /* 白邊＋外環 */
+    }
+
+    /* hover / 鍵盤聚焦時的可視化（更友善） */
+    .sv-imagepicker__item:hover .sv-imagepicker__image,
+    .sv-imagepicker__item:focus-within .sv-imagepicker__image {
+      box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+      transform: translateZ(0); /* 抗鋸齒 */
+    }
   </style>
 </head>
 <body>
