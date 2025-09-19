@@ -92,7 +92,7 @@ function buildSurvey(cfg){
       elements: [
         { type: "html", name: `${c.id}_intro`, html: intro },
         { type: "imagepicker", name: c.id, title: "請選擇整體融合最佳的一張",
-          isRequired: true, imageHeight: 300, imageWidth: 300, choicesOrder: "none", showLabel: false, choices }
+          isRequired: true, imageHeight: 250, imageWidth: 250, choicesOrder: "none", showLabel: false, choices }
       ]
     });
     
