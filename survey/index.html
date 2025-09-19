@@ -47,9 +47,10 @@
     }
     .sampleLabel{font-size:12px;color:#555;margin-top:6px;text-align:center}
 
-    /* 小螢幕時允許換行；仍保持每張圖等寬 */
-    @media (max-width: 990px){ /*760*/
+    /* 小螢幕時允許換行；仍保持每張圖等寬各欄等寬 */
+    @media (max-width: 900px){
       .sampleRow{flex-wrap:wrap}
+      .qPairRow{flex-wrap:wrap}
     }
     /* —— 每題的材質圖 × 設計圖：左右併排 —— */
     .qPairRow{display:flex;gap:16px;align-items:flex-start;flex-wrap:nowrap}
@@ -61,11 +62,6 @@
       border:1px solid #ddd;border-radius:10px;background:#fff;
     }
     .qPairLabel{font-size:12px;color:#555;margin-top:6px;text-align:center}
-
-    /* 窄螢幕時允許換行（各欄仍等寬） */
-    @media (max-width: 760px){
-      .qPairRow{flex-wrap:wrap}
-    }
 
     /* ===== ImagePicker：移除遮罩，改藍框＋右上圓點（同時支援 .sv- 與 .sd- 前綴） ===== */
 
