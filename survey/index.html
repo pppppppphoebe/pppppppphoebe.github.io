@@ -57,9 +57,26 @@
       .sampleRow{flex-wrap:wrap}
       .qPairRow{flex-wrap:wrap}
     }
-    /* —— 每題的材質圖 × 設計圖：左右併排 —— */
+    /* —— 每題的材質圖 × 設計圖：左右併排 —— 
     .qPairRow{display:flex;gap:16px;align-items:flex-start;flex-wrap:nowrap}
-    .qPairCol{flex:1 1 0;min-width:0;display:flex;flex-direction:column}
+    .qPairCol{flex:1 1 0;min-width:0;display:flex;flex-direction:column}*/
+
+    /* 整排置中排版 */
+    .qPairRow{
+      display: flex;
+      gap: 16px;
+      justify-content: center;   /* 讓兩張圖置中 */
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    /* 單一欄：把 DOM 的「圖片在上、文字在下」反轉成「文字在上、圖片在下」 */
+    .qPairCol{
+      display: flex;
+      flex-direction: column-reverse; /* 反轉順序 */
+      align-items: center;            /* 內容置中 */
+      text-align: center;
+    }
     .qPairImg{
       /* 不超過容器與變數上限，且不會被強制放大 */
       width: auto;
