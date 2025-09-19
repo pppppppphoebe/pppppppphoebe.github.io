@@ -61,8 +61,11 @@
     .qPairRow{display:flex;gap:16px;align-items:flex-start;flex-wrap:nowrap}
     .qPairCol{flex:1 1 0;min-width:0;display:flex;flex-direction:column}
     .qPairImg{
-      width: var(--img-size);
-      height: var(--img-size);
+      /* 不超過容器與變數上限，且不會被強制放大 */
+      width: auto;
+      height: auto;
+      max-width: min(100%, var(--img-size));
+      max-height: var(--img-size);
       object-fit: contain;      /* 不裁切、不變形；要鋪滿可改 cover */
       border-radius: 12px;
       border: 1px solid #ddd;
