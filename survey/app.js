@@ -92,14 +92,14 @@ function buildSurvey(cfg){
       elements: [
         { type: "html", name: `${c.id}_intro`, html: intro },
         { type: "imagepicker", name: c.id, title: "請選擇整體融合最佳的一張",
-          isRequired: true, imageHeight: 220, imageWidth: 220, choicesOrder: "none", showLabel: false, choices }
+          isRequired: true, imageHeight: 300, imageWidth: 300, choicesOrder: "none", showLabel: false, choices }
       ]
     });
     
   });
 
   const json = {
-    title: cfg.title || "材質 × LOGO 融合問卷",
+    title: cfg.title || "LOGO × 材質 融合問卷",
     firstPageIsStarted: !!(cfg.samples && cfg.samples.length),
     startSurveyText: "開始作答 ▶", // 若 firstPageIsStarted=true，會出現在第一頁下方
     showProgressBar: "top",

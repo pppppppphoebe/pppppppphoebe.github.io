@@ -36,7 +36,32 @@ OPTION_FILES = {
 # Acceptable extensions when searching logo/texture if .jpg not found
 FALLBACK_EXTS = [".jpg", ".jpeg", ".png", ".webp"]
 # =====================================
-
+def resolve_stems_by_existing_files(folder_name: str, logo_dir: Path, tex_dir: Path):
+    """
+    folder_name: e.g. "my_super_logo_texture_v2_light_gray"
+    會嘗試每個底線切點：
+      "my" | "super_logo_texture_v2_light_gray"
+      "my_super" | "logo_texture_v2_light_gray"
+      ...
+    並用 find_first() 去 logo_dir / tex_dir 找實際檔案（.jpg/.jpeg/.png/.webp）
+    回傳 (logo_stem, texture_stem, found_score)
+      found_score: 2=兩邊都找到、1=找到一邊、0=都找不到
+    """
+    parts = folder_name.split("_")
+    best = (parts[0], "_".join(parts[1:]), -1)  # 預設用第一個切點
+    for i in range(1, len(parts)):  # i 是切點位置，左邊至少一段、右邊至少一段
+        logo_stem = "_".join(parts[:i])
+        tex_stem  = "_".join(parts[i:])
+        score = 0
+        if find_first(logo_dir, logo_stem): score += 1
+        if find_first(tex_dir,  tex_stem):  score += 1
+        # 先選 score 高的；分數相同就選較長的 logo_stem（通常較接近實名）
+        best_logo, best_tex, best_score = best
+        if (score > best_score) or (score == best_score and len(logo_stem) > len(best_logo)):
+            best = (logo_stem, tex_stem, score)
+            if score == 2:  # 已經兩邊都命中，直接可以用
+                break
+    return best  # (logo_stem, tex_stem, score)
 
 def pad3(i: int) -> str:
     return f"{i:03d}"
@@ -91,12 +116,16 @@ def main():
             continue
 
         # split only at first underscore: logo_stem, texture_stem(with underscores kept)
-        logo_stem, texture_stem = name.split("_", 1)
+        #logo_stem, texture_stem = name.split("_", 1)
+        logo_stem, texture_stem, hit = resolve_stems_by_existing_files(name, LOGO_ROOT, TEX_ROOT)
+        if hit < 2:
+            print(f"[WARN] 模糊切分：'{name}' → logo='{logo_stem}', texture='{texture_stem}'（命中 {hit}/2）。請確認檔名或圖庫。")
 
         # copy option images
         for key, fname in OPTION_FILES.items():
             src_img = g / fname
             if not src_img.exists():
+
                 print(f"[WARN] Missing option image: {src_img}")
                 continue
             shutil.copy2(src_img, out_dir / fname)
