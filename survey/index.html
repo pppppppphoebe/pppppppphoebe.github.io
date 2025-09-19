@@ -48,15 +48,15 @@
     .sampleLabel{font-size:12px;color:#555;margin-top:6px;text-align:center}
 
     /* 小螢幕時允許換行；仍保持每張圖等寬 */
-    @media (max-width: 760px){
+    @media (max-width: 990px){ /*760*/
       .sampleRow{flex-wrap:wrap}
     }
     /* —— 每題的材質圖 × 設計圖：左右併排 —— */
     .qPairRow{display:flex;gap:16px;align-items:flex-start;flex-wrap:nowrap}
     .qPairCol{flex:1 1 0;min-width:0;display:flex;flex-direction:column}
     .qPairImg{
-      width:100%;      /* 等寬 */
-      height:auto;     /* 依比例縮放，不限制高度 */
+      width:250;/*100%;*/      /* 等寬 */
+      height:250;/*auto;*/     /* 依比例縮放，不限制高度 */
       object-fit:contain;
       border:1px solid #ddd;border-radius:10px;background:#fff;
     }
