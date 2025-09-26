@@ -28,14 +28,14 @@
       }
     ],
     "structureLoss": {
-      "logo": "images/q001/logo.jpg",
-      "material": "images/q001/texture.jpg",
-      "result": "images/q001/ours.jpg"
+      "logo": "images/samples/unitednations.jpg",
+      "material": "images/samples/yarn_04.jpg",
+      "result": "images/samples/result_42_8.jpg"
     },
     "textureLoss": {
-      "logo": "images/q001/logo.jpg",
-      "material": "images/q001/texture.jpg",
-      "result": "images/q001/ours.jpg"
+      "logo": "images/samples/unitednations.jpg",
+      "material": "images/samples/yarn_04.jpg",
+      "result": "images/samples/result_4_44.jpg"
     }
   },
   "cases": [

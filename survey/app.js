@@ -70,7 +70,7 @@ function buildSurvey(cfg){
           <div class="sampleHeader" style="font-size: 1.2em; color: #c0392b; margin-top: 30px;">❌ 不理想的融合範例 (使用同一組 Logo/材質對比)</div>
 
           <div class="sampleBlock bad">
-            <div class="sampleSubHeader"><b>1. 結構模糊 :</b> Logo 的輪廓變得模糊、扭曲，或重要細節消失，失去了品牌的識別度。</b></div>
+            <div class="sampleSubHeader"><b>1. 結構模糊 :</b> Logo 的輪廓變得模糊，色彩被覆蓋，或重要細節消失，失去了品牌的識別度。</b></div>
             <div class="sampleRow">
               <div class="sampleCol"><img class="sampleImg" src="${examples.structureLoss.logo}" alt="設計圖"><div class="sampleLabel">設計圖</div></div>
               <div class="sampleCol"><img class="sampleImg" src="${examples.structureLoss.material}" alt="材質圖"><div class="sampleLabel">材質圖</div></div>
@@ -79,7 +79,7 @@ function buildSurvey(cfg){
           </div>
 
           <div class="sampleBlock bad">
-            <div class="sampleSubHeader"><b>2. 材質感不足 :</b> Logo 結構雖然清晰，但看起來僅像顏色覆蓋，未能有效呈現材質的紋理與質感。</div>
+            <div class="sampleSubHeader"><b>2. 材質感不足 :</b> Logo 結構雖然清晰，但未能有效呈現材質的紋理與質感。</div>
             <div class="sampleRow">
               <div class="sampleCol"><img class="sampleImg" src="${examples.textureLoss.logo}" alt="設計圖"><div class="sampleLabel">設計圖</div></div>
               <div class="sampleCol"><img class="sampleImg" src="${examples.textureLoss.material}" alt="材質圖"><div class="sampleLabel">材質圖</div></div>
