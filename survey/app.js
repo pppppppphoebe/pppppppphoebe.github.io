@@ -133,7 +133,7 @@ function buildSurvey(cfg){
       name: c.id,
       elements: [
         { type: "html", name: `${c.id}_intro`, html: intro },
-        { type: "imagepicker", name: c.id, title: "請選擇整體融合最佳的一張",
+        { type: "imagepicker", name: c.id, title: "請比較各張圖片的融合效果，選擇您認為最佳的一張。",
           isRequired: true, imageHeight: 250, imageWidth: 250, choicesOrder: "none", showLabel: false, choices }
       ]
     });
