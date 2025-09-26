@@ -1928,6 +1928,141 @@
           "image": "images/q070/p_40-49.jpg"
         }
       ]
+    },
+    {
+      "id": "q071",
+      "material": "images/q071/texture.jpg",
+      "logo": "images/q071/logo.jpg",
+      "options": [
+        {
+          "value": "A",
+          "image": "images/q071/ours.jpg"
+        },
+        {
+          "value": "B",
+          "image": "images/q071/p_01-09.jpg"
+        },
+        {
+          "value": "C",
+          "image": "images/q071/p_10-19.jpg"
+        },
+        {
+          "value": "D",
+          "image": "images/q071/p_30-39.jpg"
+        },
+        {
+          "value": "E",
+          "image": "images/q071/p_40-49.jpg"
+        }
+      ]
+    },
+    {
+      "id": "q072",
+      "material": "images/q072/texture.jpg",
+      "logo": "images/q072/logo.jpg",
+      "options": [
+        {
+          "value": "A",
+          "image": "images/q072/ours.jpg"
+        },
+        {
+          "value": "B",
+          "image": "images/q072/p_01-09.jpg"
+        },
+        {
+          "value": "C",
+          "image": "images/q072/p_10-19.jpg"
+        },
+        {
+          "value": "D",
+          "image": "images/q072/p_30-39.jpg"
+        },
+        {
+          "value": "E",
+          "image": "images/q072/p_40-49.jpg"
+        }
+      ]
+    },
+    {
+      "id": "q073",
+      "material": "images/q073/texture.jpg",
+      "logo": "images/q073/logo.jpg",
+      "options": [
+        {
+          "value": "A",
+          "image": "images/q073/ours.jpg"
+        },
+        {
+          "value": "B",
+          "image": "images/q073/p_01-09.jpg"
+        },
+        {
+          "value": "C",
+          "image": "images/q073/p_10-19.jpg"
+        },
+        {
+          "value": "D",
+          "image": "images/q073/p_30-39.jpg"
+        },
+        {
+          "value": "E",
+          "image": "images/q073/p_40-49.jpg"
+        }
+      ]
+    },
+    {
+      "id": "q074",
+      "material": "images/q074/texture.jpg",
+      "logo": "images/q074/logo.jpg",
+      "options": [
+        {
+          "value": "A",
+          "image": "images/q074/ours.jpg"
+        },
+        {
+          "value": "B",
+          "image": "images/q074/p_01-09.jpg"
+        },
+        {
+          "value": "C",
+          "image": "images/q074/p_10-19.jpg"
+        },
+        {
+          "value": "D",
+          "image": "images/q074/p_30-39.jpg"
+        },
+        {
+          "value": "E",
+          "image": "images/q074/p_40-49.jpg"
+        }
+      ]
+    },
+    {
+      "id": "q075",
+      "material": "images/q075/texture.jpg",
+      "logo": "images/q075/logo.jpg",
+      "options": [
+        {
+          "value": "A",
+          "image": "images/q075/ours.jpg"
+        },
+        {
+          "value": "B",
+          "image": "images/q075/p_01-09.jpg"
+        },
+        {
+          "value": "C",
+          "image": "images/q075/p_10-19.jpg"
+        },
+        {
+          "value": "D",
+          "image": "images/q075/p_30-39.jpg"
+        },
+        {
+          "value": "E",
+          "image": "images/q075/p_40-49.jpg"
+        }
+      ]
     }
   ]
 }
