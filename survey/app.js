@@ -181,7 +181,7 @@ function buildSurvey(cfg){
       // 恢復上次所在的頁碼 (關鍵！)
       if(typeof savedProgress.currentPageNo !== 'undefined') {
         survey.currentPageNo = savedProgress.currentPageNo;
-        json.firstPageIsStarted = false;
+        survey.firstPageIsStarted = false;
       }
     } catch(e) {
       console.error("無法解析儲存的進度", e);
