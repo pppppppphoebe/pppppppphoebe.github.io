@@ -92,7 +92,6 @@ function buildSurvey(cfg){
             <h3>注意事項</h3>
             <ul style="padding-left: 20px; margin: 0; color: #555;">
                 <li>本問卷共 ${cfg.cases.length} 題。</li>
-                <li>您的判斷沒有絕對的對錯，請依照您的直覺選擇即可。</li>
                 <li>建議使用色彩顯示正常的螢幕填答。</li>
             </ul>
         </div>
