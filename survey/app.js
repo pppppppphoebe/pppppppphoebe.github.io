@@ -161,15 +161,48 @@ function buildSurvey(cfg){
   })
 
   // 續填
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if (saved) { try { survey.data = JSON.parse(saved); } catch(_){} }
-  survey.onValueChanged.add(() => localStorage.setItem(STORAGE_KEY, JSON.stringify(survey.data)));
+  // const saved = localStorage.getItem(STORAGE_KEY);
+  // if (saved) { try { survey.data = JSON.parse(saved); } catch(_){} }
+  // survey.onValueChanged.add(() => localStorage.setItem(STORAGE_KEY, JSON.stringify(survey.data)));
+  // survey.onCurrentPageChanged.add(() => {
+  //   localStorage.setItem(STORAGE_KEY, JSON.stringify(survey.data));
+  //   // 新增：換頁時回到頁面頂端
+  //   window.scrollTo({ top: 0, behavior: "smooth" });
+  // });
+  // 1. 【讀取進度】在 survey 載入初期，嘗試從 localStorage 讀取舊進度
+  const savedProgressJSON = localStorage.getItem(STORAGE_KEY);
+  if (savedProgressJSON) {
+    try {
+      const savedProgress = JSON.parse(savedProgressJSON);
+      // 恢復答題內容
+      if(savedProgress.data) {
+        survey.data = savedProgress.data;
+      }
+      // 恢復上次所在的頁碼 (關鍵！)
+      if(typeof savedProgress.currentPageNo !== 'undefined') {
+        survey.currentPageNo = savedProgress.currentPageNo;
+      }
+    } catch(e) {
+      console.error("無法解析儲存的進度", e);
+      localStorage.removeItem(STORAGE_KEY); // 如果解析失敗，清除壞掉的資料
+    }
+  }
+
+  // 2. 【儲存進度】當答案或頁面改變時，將新進度存回 localStorage
+  function saveProgress() {
+    const dataToSave = {
+      currentPageNo: survey.currentPageNo, // 儲存目前的頁碼
+      data: survey.data                 // 儲存所有答案
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(dataToSave));
+  }
+
+  survey.onValueChanged.add(saveProgress);
   survey.onCurrentPageChanged.add(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(survey.data));
-    // 新增：換頁時回到頁面頂端
+    saveProgress();
+    // 換頁時回到頁面頂端
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
-  
 
   // 送出
   survey.onComplete.add(async (sender) => {
