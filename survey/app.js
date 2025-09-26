@@ -142,7 +142,7 @@ function buildSurvey(cfg){
 
   const json = {
     title: cfg.title || "LOGO × 材質 融合問卷",
-    firstPageIsStarted: !!(cfg.instructionExamples && cfg.instructionExamples.length),
+    firstPageIsStarted: !!(cfg.instructionExamples),
     startSurveyText: "開始作答 ▶", // 若 firstPageIsStarted=true，會出現在第一頁下方
     showProgressBar: "top",
     progressBarType: "questions",
