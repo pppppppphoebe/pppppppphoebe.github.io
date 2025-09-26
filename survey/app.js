@@ -67,7 +67,7 @@ function buildSurvey(cfg){
           <div class="sampleSubHeader">說明：能清楚辨識 Logo 的原始輪廓與細節，同時又能真實、自然地呈現材質的紋理與質感。</div>
           ${goodExampleCardsHTML}
 
-          <div class="sampleHeader" style="font-size: 1.2em; color: #c0392b; margin-top: 30px;">❌ 不理想的融合範例 (使用同一組 Logo/材質對比)</div>
+          <div class="sampleHeader" style="font-size: 1.2em; color: #c0392b; margin-top: 30px;">❌ 不理想的融合範例 </div>
 
           <div class="sampleBlock bad">
             <div class="sampleSubHeader"><b>1. 結構模糊 :</b> Logo 的輪廓變得模糊，色彩被覆蓋，或重要細節消失，失去了品牌的識別度。</b></div>
