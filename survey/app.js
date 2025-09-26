@@ -180,7 +180,7 @@ function buildSurvey(cfg){
       }
       // 恢復上次所在的頁碼 (關鍵！)
       if(typeof savedProgress.currentPageNo !== 'undefined') {
-        survey.currentPageNo = savedProgress.currentPageNo;
+        survey.currentPageNo = savedProgress.currentPageNo - 1;
         survey.firstPageIsStarted = false;
       }
     } catch(e) {
