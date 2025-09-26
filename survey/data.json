@@ -1,31 +1,43 @@
 {
   "title": "LOGO x 材質 融合問卷",
-  "samples": [
-    {
-      "title": "範例一",
-      "logo": "images/samples/s1_logo.jpg",
-      "material": "images/samples/s1_material.jpg",
-      "result": "images/samples/s1_result.jpg"
+  "instructionExamples": {
+    "good": [
+      {
+        "title": "範例一",
+        "logo": "images/samples/s1_logo.jpg",
+        "material": "images/samples/s1_material.jpg",
+        "result": "images/samples/s1_result.jpg"
+      },
+      {
+        "title": "範例二",
+        "logo": "images/samples/s2_logo.jpg",
+        "material": "images/samples/s2_material.jpg",
+        "result": "images/samples/s2_result.jpg"
+      },
+      {
+        "title": "範例三",
+        "logo": "images/samples/s3_logo.jpg",
+        "material": "images/samples/s3_material.jpg",
+        "result": "images/samples/s3_result.jpg"
+      },
+      {
+        "title": "範例四",
+        "logo": "images/samples/s4_logo.jpg",
+        "material": "images/samples/s4_material.jpg",
+        "result": "images/samples/s4_result.jpg"
+      }
+    ],
+    "structureLoss": {
+      "logo": "images/q001/logo.jpg",
+      "material": "images/q001/texture.jpg",
+      "result": "images/q001/ours.jpg"
     },
-    {
-      "title": "範例二",
-      "logo": "images/samples/s2_logo.jpg",
-      "material": "images/samples/s2_material.jpg",
-      "result": "images/samples/s2_result.jpg"
-    },
-    {
-      "title": "範例三",
-      "logo": "images/samples/s3_logo.jpg",
-      "material": "images/samples/s3_material.jpg",
-      "result": "images/samples/s3_result.jpg"
-    },
-    {
-      "title": "範例四",
-      "logo": "images/samples/s4_logo.jpg",
-      "material": "images/samples/s4_material.jpg",
-      "result": "images/samples/s4_result.jpg"
+    "textureLoss": {
+      "logo": "images/q001/logo.jpg",
+      "material": "images/q001/texture.jpg",
+      "result": "images/q001/ours.jpg"
     }
-  ],
+  },
   "cases": [
     {
       "id": "q001",
@@ -1268,6 +1280,33 @@
           "image": "images/q046/p_40-49.jpg"
         }
       ]
-    }
+    },
+    {
+        "id": "q047",
+        "material": "images/q047/texture.jpg",
+        "logo": "images/q047/logo.jpg",
+        "options": [
+          {
+            "value": "A",
+            "image": "images/q047/ours.jpg"
+          },
+          {
+            "value": "B",
+            "image": "images/q047/p_01-09.jpg"
+          },
+          {
+            "value": "C",
+            "image": "images/q047/p_10-19.jpg"
+          },
+          {
+            "value": "D",
+            "image": "images/q047/p_30-39.jpg"
+          },
+          {
+            "value": "E",
+            "image": "images/q047/p_40-49.jpg"
+          }
+        ]
+      }
   ]
 }

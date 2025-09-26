@@ -27,34 +27,76 @@ fetch(DATA_URL)
 function buildSurvey(cfg){
   const pages = [];
 
-  // ===== 第 1 頁：範例頁（若 data.json 有 samples 就顯示） =====
-  if (Array.isArray(cfg.samples) && cfg.samples.length > 0) {
-    const cards = cfg.samples.slice(0, 4).map(s => `
-      <div class="sampleBlock">
-        <div class="sampleHeader">${escapeHTML(s.title || "")}</div>
+  // ===== 第 1 頁：範例與說明頁 =====
+  // 檢查 data.json 中是否有我們定義好的 instructionExamples 物件
+  if (cfg.instructionExamples) {
+    const examples = cfg.instructionExamples;
+
+    // 動態生成 "理想範例" 的 HTML 卡片
+    // 我們使用 .map() 迴圈來處理 good 陣列中的每一個範例
+    const goodExampleCardsHTML = examples.good.map(s => `
+      <div class="sampleBlock ideal">
+        <div class="sampleHeader">${escapeHTML(s.title || "理想範例")}</div>
         <div class="sampleRow">
-          <div class="sampleCol">
-            <img class="sampleImg" src="${s.logo}" alt="設計圖" onerror="this.style.opacity=0.25">
-            <div class="sampleLabel">設計圖</div>
-          </div>
-          <div class="sampleCol">
-            <img class="sampleImg" src="${s.material}" alt="材質圖" onerror="this.style.opacity=0.25">
-            <div class="sampleLabel">材質圖</div>
-          </div>
-          <div class="sampleCol">
-            <img class="sampleImg" src="${s.result}" alt="真實結果" onerror="this.style.opacity=0.25">
-            <div class="sampleLabel">真實結果</div>
-          </div>
+          <div class="sampleCol"><img class="sampleImg" src="${s.logo}" alt="設計圖"><div class="sampleLabel">設計圖</div></div>
+          <div class="sampleCol"><img class="sampleImg" src="${s.material}" alt="材質圖"><div class="sampleLabel">材質圖</div></div>
+          <div class="sampleCol"><img class="sampleImg" src="${s.result}" alt="理想結果"><div class="sampleLabel">理想結果</div></div>
         </div>
       </div>
     `).join("");
 
+    // 組裝完整的介紹頁 HTML
     const introHTML = `
-      <div class="intro">
-        <h3 style="margin:0 0 6px">說明與範例</h3>
-        <div>下列四組為真實案例示意：由「設計圖」與「材質圖」融合後產生「真實結果」。接下來請在每題 5 張候選圖中，依 <b>結構</b>、<b>顏色</b>、<b>材質</b> 三面向，選出整體最合適的一張。</div>
-        <div class="sampleList">${cards}</div>
-        <!--<button class="startBtn" onclick="window.__startSurvey && window.__startSurvey()">開始作答 ▶</button>-->
+      <div class="intro-page">
+        
+        <div class="intro-section">
+          <h3>歡迎與研究簡介</h3>
+          <p>您好，非常感謝您撥冗參與本次的研究問卷。<br>本問卷旨在評估一種人工智慧模型，在「品牌 Logo」與「真實材質」進行視覺融合時的表現。您的寶貴意見將是我們改進技術的關鍵依據。</p>
+        </div>
+
+        <div class="intro-section">
+          <h3>任務說明</h3>
+          <p>接下來，在每一題中您都會看到「設計圖」、「材質圖」、以及由模型融合生成的多張「結果圖」。<br>您的任務是，從這些結果圖中，選出您認為<b>整體視覺效果最平衡、最自然</b>的一張。</p>
+        </div>
+
+        <div class="intro-section">
+          <h3>判斷標準與範例</h3>
+          <p>為了讓大家的判斷標準更一致，請參考以下的好壞範例。我們希望您從<b>「結構清晰度」</b>與<b>「材質真實感」</b>兩個主要面向進行權衡。</p>
+
+          <div class="sampleHeader" style="font-size: 1.2em; color: #27ae60; margin-top: 15px;">✅ 理想的融合範例</div>
+          <div class="sampleSubHeader">說明：能清楚辨識 Logo 的原始輪廓與細節，同時又能真實、自然地呈現材質的紋理與質感。</div>
+          ${goodExampleCardsHTML}
+
+          <div class="sampleHeader" style="font-size: 1.2em; color: #c0392b; margin-top: 30px;">❌ 不理想的融合範例 (使用同一組 Logo/材質對比)</div>
+
+          <div class="sampleBlock bad">
+            <div class="sampleSubHeader"><b>1. 結構失真 (Structure Loss):</b> Logo 的輪廓變得模糊、扭曲，或重要細節消失，失去了品牌的識別度。</div>
+            <div class="sampleRow">
+              <div class="sampleCol"><img class="sampleImg" src="${examples.structureLoss.logo}" alt="設計圖"><div class="sampleLabel">設計圖</div></div>
+              <div class="sampleCol"><img class="sampleImg" src="${examples.structureLoss.material}" alt="材質圖"><div class="sampleLabel">材質圖</div></div>
+              <div class="sampleCol"><img class="sampleImg" src="${examples.structureLoss.result}" alt="結構失真結果"><div class="sampleLabel">結構失真結果</div></div>
+            </div>
+          </div>
+
+          <div class="sampleBlock bad">
+            <div class="sampleSubHeader"><b>2. 材質感不足 (Texture Loss):</b> Logo 結構雖然清晰，但看起來僅像顏色覆蓋，未能有效呈現材質的紋理與質感。</div>
+            <div class="sampleRow">
+              <div class="sampleCol"><img class="sampleImg" src="${examples.textureLoss.logo}" alt="設計圖"><div class="sampleLabel">設計圖</div></div>
+              <div class="sampleCol"><img class="sampleImg" src="${examples.textureLoss.material}" alt="材質圖"><div class="sampleLabel">材質圖</div></div>
+              <div class="sampleCol"><img class="sampleImg" src="${examples.textureLoss.result}" alt="材質不足結果"><div class="sampleLabel">材質不足結果</div></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="intro-section">
+            <h3>注意事項</h3>
+            <ul style="padding-left: 20px; margin: 0; color: #555;">
+                <li>本問卷共 ${cfg.questions.length} 題，預計花費您 5-10 分鐘。</li>
+                <li>您的判斷沒有絕對的對錯，請依照您的直覺選擇即可。</li>
+                <li>建議使用色彩顯示正常的電腦螢幕填答，以獲得最佳體驗。</li>
+            </ul>
+        </div>
+
       </div>
     `;
 
