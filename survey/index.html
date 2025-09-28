@@ -89,12 +89,15 @@
 
     /* 整排置中排版 */
     .qPairRow{
+      position: fixed;     /* 固定位置 */
+      top: 10; 
       display: flex;
       gap: 16px;
       justify-content: center;   /* 讓兩張圖置中 */
       align-items: flex-start;
       flex-wrap: nowrap;
-
+      background-color: white; /* 建議加背景色避免內容被遮住 */
+      z-index: 1000; 
     }
 
     /* 單一欄：把 DOM 的「圖片在上、文字在下」反轉成「文字在上、圖片在下」 */
