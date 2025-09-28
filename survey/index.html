@@ -177,6 +177,23 @@
       transform: translateZ(0);
     }
 
+    .stickyLogoBlock {
+      position: sticky;
+      top: 0;
+      background-color: white;
+      z-index: 100;
+      padding: 8px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    @media (max-width: 768px) {
+      .stickyLogoBlock {
+        padding: 4px;
+      }
+      .stickyLogoBlock img {
+        max-width: 80px;
+      }
+    }
 
   </style>
 </head>
