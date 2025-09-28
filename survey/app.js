@@ -51,20 +51,18 @@ function buildSurvey(cfg){
         
         <div class="intro-section">
           <h3>研究簡介</h3>
-          <p>您好，非常感謝您撥冗參與本次的研究問卷。<br>本問卷旨在評估在「品牌 Logo」與「真實材質」進行視覺融合時的表現。</p>
+          <p>您好，感謝您撥冗參與本次的研究問卷。<br>本問卷旨在評估在「品牌 Logo」與「真實材質」進行視覺融合時的表現。</p>
         </div>
 
         <div class="intro-section">
           <h3>任務說明</h3>
-          <p>接下來，在每一題中您都會看到「設計圖」、「材質圖」、以及由模型融合生成的多張「結果圖」。<br>從這些結果圖中，選出您認為<b>整體視覺效果最平衡、最自然</b>的一張。</p>
+          <p>接下來，在每一題中您都會看到「設計圖」、「材質圖」、以及由模型融合生成的多張「結果圖」。<br>從這些結果圖中，選出您認為<b>整體視覺效果最平衡</b>的一張。</p>
         </div>
 
         <div class="intro-section">
           <h3>判斷標準與範例</h3>
-          <p>為了讓大家的判斷標準更一致，請參考以下的好壞範例。</p>
-
           <div class="sampleHeader" style="font-size: 1.2em; color: #27ae60; margin-top: 15px;">✅ 理想的融合範例</div>
-          <div class="sampleSubHeader">說明：能清楚辨識 Logo 的原始輪廓與細節，同時又能真實、自然地呈現材質的紋理與質感。</div>
+          <div class="sampleSubHeader">說明：能清楚辨識 Logo 的原始結構與色彩，同時又能真實、自然地呈現材質的紋理與質感。</div>
           ${goodExampleCardsHTML}
 
           <div class="sampleHeader" style="font-size: 1.2em; color: #c0392b; margin-top: 30px;">❌ 不理想的融合範例 </div>
