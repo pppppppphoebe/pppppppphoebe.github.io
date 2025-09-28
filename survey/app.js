@@ -43,7 +43,7 @@ function buildSurvey(cfg){
           <div class="sampleCol resultCol">
             <img class="sampleImg" src="${s.result}" alt="理想結果">
             <div class="checkmark">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="#27ae60" xmlns="http://www.w3.org/2000/svg">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="#27ae60" xmlns="http://www.w3.org/2000/svg">
                 <path d="M20.285 6.709a1 1 0 0 0-1.414-1.418l-9.192 9.192-4.243-4.243a1 1 0 0 0-1.414 1.414l4.95 4.95a1 1 0 0 0 1.414 0l9.899-9.895z"/>
               </svg>
             </div>
@@ -84,7 +84,7 @@ function buildSurvey(cfg){
               <div class="sampleCol resultCol">
                 <img class="sampleImg" src="${examples.structureLoss.result}" alt="結構失真結果">
                 <div class="checkmark">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#e74c3c" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="#e74c3c" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18.364 5.636a1 1 0 0 0-1.414 0L12 10.586 7.05 5.636a1 1 0 0 0-1.414 1.414L10.586 12l-4.95 4.95a1 1 0 1 0 1.414 1.414L12 13.414l4.95 4.95a1 1 0 0 0 1.414-1.414L13.414 12l4.95-4.95a1 1 0 0 0 0-1.414z"/>
                   </svg>
                 </div>
@@ -101,7 +101,7 @@ function buildSurvey(cfg){
               <div class="sampleCol resultCol">
                 <img class="sampleImg" src="${examples.textureLoss.result}" alt="材質不足結果">
                 <div class="checkmark">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#e74c3c" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="#e74c3c" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18.364 5.636a1 1 0 0 0-1.414 0L12 10.586 7.05 5.636a1 1 0 0 0-1.414 1.414L10.586 12l-4.95 4.95a1 1 0 1 0 1.414 1.414L12 13.414l4.95 4.95a1 1 0 0 0 1.414-1.414L13.414 12l4.95-4.95a1 1 0 0 0 0-1.414z"/>
                   </svg>
                 </div>
