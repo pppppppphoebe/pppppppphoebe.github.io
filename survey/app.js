@@ -81,7 +81,15 @@ function buildSurvey(cfg){
             <div class="sampleRow">
               <div class="sampleCol"><img class="sampleImg" src="${examples.structureLoss.logo}" alt="設計圖"><div class="sampleLabel">設計圖</div></div>
               <div class="sampleCol"><img class="sampleImg" src="${examples.structureLoss.material}" alt="材質圖"><div class="sampleLabel">材質圖</div></div>
-              <div class="sampleCol"><img class="sampleImg" src="${examples.structureLoss.result}" alt="結構失真結果"><div class="sampleLabel">結構失真結果</div></div>
+              <div class="sampleCol resultCol">
+                <img class="sampleImg" src="${examples.structureLoss.result}" alt="結構失真結果">
+                <div class="checkmark">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#e74c3c" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.364 5.636a1 1 0 0 0-1.414 0L12 10.586 7.05 5.636a1 1 0 0 0-1.414 1.414L10.586 12l-4.95 4.95a1 1 0 1 0 1.414 1.414L12 13.414l4.95 4.95a1 1 0 0 0 1.414-1.414L13.414 12l4.95-4.95a1 1 0 0 0 0-1.414z"/>
+                  </svg>
+                </div>
+                <div class="sampleLabel">結構失真結果</div>
+              </div>
             </div>
           </div>
 
@@ -90,7 +98,15 @@ function buildSurvey(cfg){
             <div class="sampleRow">
               <div class="sampleCol"><img class="sampleImg" src="${examples.textureLoss.logo}" alt="設計圖"><div class="sampleLabel">設計圖</div></div>
               <div class="sampleCol"><img class="sampleImg" src="${examples.textureLoss.material}" alt="材質圖"><div class="sampleLabel">材質圖</div></div>
-              <div class="sampleCol"><img class="sampleImg" src="${examples.textureLoss.result}" alt="材質不足結果"><div class="sampleLabel">材質不足結果</div></div>
+              <div class="sampleCol resultCol">
+                <img class="sampleImg" src="${examples.textureLoss.result}" alt="材質不足結果">
+                <div class="checkmark">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#e74c3c" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.364 5.636a1 1 0 0 0-1.414 0L12 10.586 7.05 5.636a1 1 0 0 0-1.414 1.414L10.586 12l-4.95 4.95a1 1 0 1 0 1.414 1.414L12 13.414l4.95 4.95a1 1 0 0 0 1.414-1.414L13.414 12l4.95-4.95a1 1 0 0 0 0-1.414z"/>
+                  </svg>
+                </div>
+                <div class="sampleLabel">材質不足結果</div>
+              </div>
             </div>
           </div>
         </div>
