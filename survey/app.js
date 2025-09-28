@@ -40,7 +40,12 @@ function buildSurvey(cfg){
         <div class="sampleRow">
           <div class="sampleCol"><img class="sampleImg" src="${s.logo}" alt="設計圖"><div class="sampleLabel">設計圖</div></div>
           <div class="sampleCol"><img class="sampleImg" src="${s.material}" alt="材質圖"><div class="sampleLabel">材質圖</div></div>
-          <div class="sampleCol"><img class="sampleImg" src="${s.result}" alt="理想結果"><div class="sampleLabel">理想結果</div></div>
+          <div class="sampleCol">
+            <img class="sampleImg" src="${s.result}" alt="理想結果">
+            <div class="checkmark">✔</div>
+            <div class="sampleLabel">理想結果</div>
+          </div>
+
         </div>
       </div>
     `).join("");
