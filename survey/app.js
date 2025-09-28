@@ -42,7 +42,11 @@ function buildSurvey(cfg){
           <div class="sampleCol"><img class="sampleImg" src="${s.material}" alt="材質圖"><div class="sampleLabel">材質圖</div></div>
           <div class="sampleCol resultCol">
             <img class="sampleImg" src="${s.result}" alt="理想結果">
-            <div class="checkmark">✔</div>
+            <div class="checkmark">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#27ae60" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.285 6.709a1 1 0 0 0-1.414-1.418l-9.192 9.192-4.243-4.243a1 1 0 0 0-1.414 1.414l4.95 4.95a1 1 0 0 0 1.414 0l9.899-9.895z"/>
+              </svg>
+            </div>
             <div class="sampleLabel">理想結果</div>
           </div>
 
