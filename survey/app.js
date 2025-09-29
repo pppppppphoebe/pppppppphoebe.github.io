@@ -229,9 +229,17 @@ function buildSurvey(cfg){
 
   // 送出
   survey.onComplete.add(async (sender) => {
+
+    // 先取得 IP
+    const ipInfo = await fetch('https://ipinfo.io/json').then(res => res.json());
+    const ip = ipInfo.ip || '';
+
+    // 組合 UA + IP
+    const uaWithIp = navigator.userAgent + (ip ? ` [IP: ${ip}]` : '');
+
     const payload = {
       ts: new Date().toISOString(),
-      ua: navigator.userAgent,
+      ua: uaWithIp,//navigator.userAgent,
       answers: sender.data
     };
     console.log("提交結果", payload);
