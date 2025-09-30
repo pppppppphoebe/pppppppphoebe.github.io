@@ -125,6 +125,56 @@ function buildSurvey(cfg){
     pages.push({ name: "intro", elements: [{ type: "html", name: "intro_html", html: introHTML }] });
   }
 
+  // =======================================================
+  // ===== 新增：第 2 頁，使用者資料頁 =====
+  // =======================================================
+  const demographicsPage = {
+    name: "user_data", // 頁面名稱
+    elements: [
+      {
+        type: "html",
+        name: "user_data_intro",
+        html: "<h3>在開始前，請讓我們了解一些關於您的基本資訊</h3><p style='color:#555;margin-top:0;'>這些資訊僅供學術研究分析使用，不會外洩。</p>"
+      },
+      {
+        type: "text",
+        name: "user_name",
+        title: "您的姓名或暱稱",
+        description: "方便我們在論文致謝中提及（可留空）",
+        isRequired: false // isRequired: false 代表此題為選填
+      },
+      {
+        type: "radiogroup",
+        name: "user_gender",
+        title: "您的性別",
+        isRequired: true, // isRequired: true 代表此題為必填
+        choices: [
+          "男性",
+          "女性",
+          "其他",
+          "不願透露"
+        ]
+      },
+      {
+        type: "radiogroup",
+        name: "user_age",
+        title: "您的年齡段",
+        isRequired: true,
+        choices: [
+          "18 歲以下",
+          "18-24 歲",
+          "25-34 歲",
+          "35-44 歲",
+          "45-54 歲",
+          "55 歲及以上"
+        ]
+      }
+    ]
+  };
+
+  // 將這個新頁面加到所有頁面陣列中
+  pages.push(demographicsPage);
+
   // ===== 後續各題 =====
   cfg.cases.forEach((c, idx) => {
 
