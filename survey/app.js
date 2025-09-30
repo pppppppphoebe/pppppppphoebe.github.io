@@ -139,8 +139,8 @@ function buildSurvey(cfg){
       {
         type: "text",
         name: "user_name",
-        title: "您的姓名或暱稱",
-        isRequired: false // isRequired: false 代表此題為選填
+        title: "您的姓名",
+        isRequired: true // isRequired: false 代表此題為選填
       },
       {
         type: "radiogroup",
@@ -150,8 +150,7 @@ function buildSurvey(cfg){
         choices: [
           "男性",
           "女性",
-          "其他",
-          "不願透露"
+          "其他"
         ]
       },
       {
