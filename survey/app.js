@@ -134,13 +134,12 @@ function buildSurvey(cfg){
       {
         type: "html",
         name: "user_data_intro",
-        html: "<h3>在開始前，請讓我們了解一些關於您的基本資訊</h3><p style='color:#555;margin-top:0;'>這些資訊僅供學術研究分析使用，不會外洩。</p>"
+        html: "<h3>在開始填答前，請協助填寫一些基本資料。</h3>"
       },
       {
         type: "text",
         name: "user_name",
         title: "您的姓名或暱稱",
-        description: "方便我們在論文致謝中提及（可留空）",
         isRequired: false // isRequired: false 代表此題為選填
       },
       {
@@ -161,11 +160,10 @@ function buildSurvey(cfg){
         title: "您的年齡段",
         isRequired: true,
         choices: [
-          "18 歲以下",
-          "18-24 歲",
-          "25-34 歲",
-          "35-44 歲",
-          "45-54 歲",
+          "25 歲以下",
+          "26-35 歲",
+          "36-45 歲",
+          "46-55 歲",
           "55 歲及以上"
         ]
       }
