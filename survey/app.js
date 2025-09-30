@@ -134,7 +134,7 @@ function buildSurvey(cfg){
       {
         type: "html",
         name: "user_data_intro",
-        html: "<h3>在開始填答前，請協助填寫一些基本資料。</h3>"
+        html: "<h3>基本資料</h3>"
       },
       {
         type: "text",
