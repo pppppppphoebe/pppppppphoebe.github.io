@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Nini's Blog
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
-language: en
+author: HsingYin Hsieh
+language: en/zh
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://pppppppphoebe.github.io/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -21,8 +21,7 @@ pretty_urls:
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
 
 # Directory
-source_dir: pppppppphoebe.github.io
-#source_dir: source
+source_dir: source
 public_dir: public
 tag_dir: tags
 archive_dir: archives
@@ -41,7 +40,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 syntax_highlighter: highlight.js
@@ -97,10 +96,12 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-#theme: Chic
-theme: None
+theme: Chic
+#theme: landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repository: https://github.com/pppppppphoebe/pppppppphoebe.github.io.git
+  branch: master
