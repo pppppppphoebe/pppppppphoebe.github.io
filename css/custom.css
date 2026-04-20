@@ -1,0 +1,74 @@
+/* themes/chic/source/css/custom.styl */
+/* 1. 父分類標題：加大並加粗，作為頁面區塊主標 */
+.parent-title {
+  margin: 40px 0 20px 0;
+  color: #160b06;
+  font-size: 1.6rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+.parent-title i {
+  margin-right: 10px;
+  color: #160b06;
+}
+/* 2. 子分類組：改為更簡約的卡片感 */
+.sub-category-group {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+/* 核心修復：確保內容可以撐開高度，且不隱藏溢出內容 */
+  height: auto;
+  overflow: visible;
+  display: block;
+}
+/* 3. 子分類標題：藍色底線與間距 */
+.sub-category-title {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #160b06 !important;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 5px;
+}
+/* 4. 文章列表：移除左側粗線，改用更優雅的縮排 */
+.sub-post-list {
+  margin-left: 5px;
+}
+.sub-post-list .archive-item {
+  margin: 12px 0;
+  display: flex;
+  align-items: flex-start; /* 讓小圓點對齊第一行文字 */
+  line-height: 1.5; /* 增加行高，閱讀更舒服 */
+}
+/* 在文章標題前加一個小點點，增加精緻感 */
+.sub-post-list .archive-item::before {
+  content: "•";
+  color: #ccc;
+  margin-right: 10px;
+}
+.sub-post-list .archive-item-link {
+  white-space: normal; /* 允許文字自動換行 */
+  word-break: break-word; /* 遇到長單字自動斷行 */
+  overflow: visible;
+  text-overflow: clip;
+  display: inline; /* 確保它是行內流動 */
+  color: #4a4a4a !important;
+}
+.sub-post-list .archive-item-link:hover {
+  color: #160b06 !important;
+}
+/* 5. 響應式：手機版改為一排一個 */
+@media (max-width: 768px) {
+  .card-item {
+    width: 100% !important;
+  }
+}
+.card-item {
+  width: 100%; /* 改成 100% 會最穩，不容易砍字 */
+  margin-bottom: 30px;
+}
