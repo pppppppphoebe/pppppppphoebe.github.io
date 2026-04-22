@@ -530,9 +530,7 @@ header .menu label {
   height: 128px;
   object-fit: cover;
   display: block;
-  overflow: hidden;
-  background: none !important;
-  border-radius: 100%;
+  border-radius: 50%;
   -webkit-box-shadow: 0 0 0 0.3618em rgba(0,0,0,0.05);
   box-shadow: 0 0 0 0.3618em rgba(0,0,0,0.05);
   margin: 0 auto;
@@ -563,6 +561,10 @@ header .menu label {
 }
 .links .iconfont {
   font-size: 2em;
+}
+.avatar-item {
+  background: transparent !important;
+  background-color: rgba(0,0,0,0) !important;
 }
 .post-wrap {
   position: relative;
