@@ -530,6 +530,8 @@ header .menu label {
   height: 128px;
   object-fit: cover;
   display: block;
+  overflow: hidden;
+  background: none !important;
   border-radius: 100%;
   -webkit-box-shadow: 0 0 0 0.3618em rgba(0,0,0,0.05);
   box-shadow: 0 0 0 0.3618em rgba(0,0,0,0.05);
