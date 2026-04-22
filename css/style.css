@@ -527,7 +527,7 @@ header .menu label {
 }
 .intro .avatar img {
   width: 128px;
-  height: auto;
+  height: 128px;
   display: inline-block;
   -webkit-border-radius: 100%;
   border-radius: 100%;
