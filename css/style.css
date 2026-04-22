@@ -565,6 +565,7 @@ header .menu label {
 .avatar-item {
   background: transparent !important;
   background-color: rgba(0,0,0,0) !important;
+  margin-bottom: 50px !important;
 }
 .post-wrap {
   position: relative;
