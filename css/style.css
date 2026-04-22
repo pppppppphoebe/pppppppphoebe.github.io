@@ -1322,70 +1322,12 @@ body.dark-theme .highlight .code .deletion,
 body.dark-theme .highlight .code .meta {
   color: #7f7f7f;
 }
-.parent-title {
-  margin: 40px 0 20px 0;
-  color: #160b06;
-  font-size: 1.6rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-}
-.parent-title i {
-  margin-right: 10px;
-  color: #160b06;
-}
-.sub-category-group {
-  margin-bottom: 20px;
-  padding: 20px;
-  background: #fff;
-  border: 1px solid #f0f0f0;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-/* 核心修復：確保內容可以撐開高度，且不隱藏溢出內容 */
-  height: auto;
-  overflow: visible;
-  display: block;
-}
-.sub-category-title {
-  display: inline-block;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #160b06 !important;
-  margin-bottom: 15px;
-  position: relative;
-  padding-bottom: 5px;
-}
-.sub-post-list {
-  margin-left: 5px;
-}
-.sub-post-list .archive-item {
-  margin: 12px 0;
-  display: flex;
-  align-items: flex-start; /* 讓小圓點對齊第一行文字 */
-  line-height: 1.5; /* 增加行高，閱讀更舒服 */
-}
-.sub-post-list .archive-item::before {
-  content: "•";
-  color: #ccc;
-  margin-right: 10px;
-}
-.sub-post-list .archive-item-link {
-  white-space: normal; /* 允許文字自動換行 */
-  word-break: break-word; /* 遇到長單字自動斷行 */
-  overflow: visible;
-  text-overflow: clip;
-  display: inline; /* 確保它是行內流動 */
-  color: #4a4a4a !important;
-}
-.sub-post-list .archive-item-link:hover {
-  color: #160b06 !important;
-}
-@media (max-width: 768px) {
-  .card-item {
-    width: 100% !important;
-  }
-}
-.card-item {
-  width: 100%; /* 改成 100% 會最穩，不容易砍字 */
-  margin-bottom: 30px;
+.parent-title,
+.sub-category-title,
+.archive-item-link {
+  white-space: normal !important; /* 強制允許換行 */
+  word-break: break-all; /* 碰到長英文或網址也會強制折行 */
+  overflow: visible !important; /* 確保內容不會被隱藏 */
+  display: inline-block; /* 讓換行更自然 */
+  line-height: 1.5; /* 增加行高，換行後才不會擠在一起 */
 }
