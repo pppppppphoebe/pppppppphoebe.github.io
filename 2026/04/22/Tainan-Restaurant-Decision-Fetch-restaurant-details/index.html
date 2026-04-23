@@ -154,9 +154,9 @@
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/Side-Projectm/">Side Projectm</a>
+                                <a href="/categories/Side-Project/">Side Project</a>
                             
-                                <a href="/categories/Side-Projectm/Tainan-Restaurant-Decision/">Tainan Restaurant Decision</a>
+                                <a href="/categories/Side-Project/Tainan-Restaurant-Decision/">Tainan Restaurant Decision</a>
                             
                         </span>
                     
@@ -175,7 +175,34 @@
 <li>選擇用SQL的原因 :<br>  需要 ID + 餐廳資料結構固定 + 未來可能要做篩選&#x2F;排序(複雜操作)</li>
 <li>相比於MySQL，有擴增套件PostGIS能讓資料庫能直接處理地理資訊。</li>
 </ul>
-<h3 id="ERM-Entity-Relationship-Model"><a href="#ERM-Entity-Relationship-Model" class="headerlink" title="ERM(Entity Relationship Model)"></a>ERM(Entity Relationship Model)</h3>
+<h3 id="ERM-Entity-Relationship-Model"><a href="#ERM-Entity-Relationship-Model" class="headerlink" title="ERM(Entity Relationship Model)"></a>ERM(Entity Relationship Model)</h3><ol>
+<li><p>確認核心資料</p>
+<ul>
+<li>目前主要核心實體是<strong>餐廳</strong></li>
+</ul>
+</li>
+<li><p>定義欄位</p>
+<ul>
+<li>實體有哪些屬性</li>
+<li>欄位 : <ul>
+<li>ID</li>
+<li>餐廳名稱(name)</li>
+<li>地址(address)</li>
+<li>營業時間(opening_hours)</li>
+<li>座標(location)</li>
+<li>種類(category)</li>
+<li>連結(google_maps_url)</li>
+<li>評分(rating)</li>
+<li>評價人數(review_count)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Primary Key確保每筆資料獨立 : ID</p>
+</li>
+<li></li>
+</ol>
+
         </div>
 
         
