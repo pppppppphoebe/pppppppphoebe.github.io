@@ -154,7 +154,9 @@
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/Tainan-Restaurant-Decision/">Tainan Restaurant Decision</a>
+                                <a href="/categories/Side-Projectm/">Side Projectm</a>
+                            
+                                <a href="/categories/Side-Projectm/Tainan-Restaurant-Decision/">Tainan Restaurant Decision</a>
                             
                         </span>
                     
@@ -167,9 +169,13 @@
 <h3 id="餐廳資料來源"><a href="#餐廳資料來源" class="headerlink" title="餐廳資料來源"></a>餐廳資料來源</h3><ul>
 <li>需要資料 : <strong>餐廳名稱、地址、電話、google map連結、營業時間、一張縮圖</strong></li>
 <li>2026-4-22紀錄 : 我先讓OpenClaw想辦法幫我取得。</li>
-<li></li>
+<li>2026-4-23紀錄 : OpenClaw需要google map api有連線費用限制，印此先用目前抓到的四十筆資料來做測試。</li>
 </ul>
-
+<h3 id="資料庫選擇-PostgreSQL"><a href="#資料庫選擇-PostgreSQL" class="headerlink" title="資料庫選擇 : PostgreSQL"></a>資料庫選擇 : PostgreSQL</h3><ul>
+<li>選擇用SQL的原因 :<br>  需要 ID + 餐廳資料結構固定 + 未來可能要做篩選&#x2F;排序(複雜操作)</li>
+<li>相比於MySQL，有擴增套件PostGIS能讓資料庫能直接處理地理資訊。</li>
+</ul>
+<h3 id="ERM-Entity-Relationship-Model"><a href="#ERM-Entity-Relationship-Model" class="headerlink" title="ERM(Entity Relationship Model)"></a>ERM(Entity Relationship Model)</h3>
         </div>
 
         
@@ -191,6 +197,8 @@
             </div>
         </section>
         <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2026/04/23/Tainan-Restaurant-Decision-2-About-System/">Tainan Restaurant Decision(2): About System</a>
             
             
             <a class="next" rel="next" href="/2026/04/21/Web-Design-Keyword/">Web Design Keyword</a>
