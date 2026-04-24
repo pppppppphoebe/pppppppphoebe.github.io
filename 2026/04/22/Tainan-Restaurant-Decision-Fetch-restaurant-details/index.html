@@ -170,6 +170,7 @@
 <li>需要資料 : <strong>餐廳名稱、地址、電話、google map連結、營業時間、一張縮圖</strong></li>
 <li>2026-4-22紀錄 : 我先讓OpenClaw想辦法幫我取得。</li>
 <li>2026-4-23紀錄 : OpenClaw需要Google Map API有連線費用限制，印此先用目前抓到的四十筆資料來做測試。</li>
+<li>2026-4-23紀錄 : 透先暫時透過OpenClaw抓取所有ERM需要的資料以及生成SQL Insert。</li>
 </ul>
 <h3 id="資料庫選擇-PostgreSQL"><a href="#資料庫選擇-PostgreSQL" class="headerlink" title="資料庫選擇 : PostgreSQL"></a>資料庫選擇 : PostgreSQL</h3><ul>
 <li>選擇用SQL的原因 :<br>  需要 ID + 餐廳資料結構固定 + 未來可能要做篩選&#x2F;排序(複雜操作)</li>
@@ -200,8 +201,32 @@
 </li>
 <li><p>Primary Key確保每筆資料獨立 : ID</p>
 </li>
-<li></li>
+<li><p>Normalization正規化 :</p>
+<ul>
+<li>1NF : 分類欄位可能有多值 (ex. 台南小吃、早餐…)</li>
+<li>2026-4-23暫定table</li>
+</ul>
+</li>
+<li><p>Schema 設計</p>
+<ol>
+<li>餐廳表 (Restaurants Table)</li>
 </ol>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> restaurants (</span><br><span class="line">    id SERIAL <span class="keyword">PRIMARY KEY</span>,</span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">255</span>) <span class="keyword">NOT NULL</span>,</span><br><span class="line">    address TEXT <span class="keyword">NOT NULL</span>,</span><br><span class="line">    opening_hours TEXT,</span><br><span class="line">    location POINT,</span><br><span class="line">    google_maps_url TEXT,</span><br><span class="line">    rating <span class="type">DECIMAL</span>(<span class="number">3</span>,<span class="number">2</span>),</span><br><span class="line">    review_count <span class="type">INTEGER</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>,</span><br><span class="line">    created_at <span class="type">TIMESTAMP</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>分類表 (Categories Table)</li>
+</ol>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> categories (</span><br><span class="line">    id SERIAL <span class="keyword">PRIMARY KEY</span>,</span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">UNIQUE</span> <span class="keyword">NOT NULL</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>餐廳-分類關係表 (Relationship Table)</li>
+</ol>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> restaurant_categories (</span><br><span class="line">    restaurant_id <span class="type">INT</span> <span class="keyword">REFERENCES</span> restaurants(id),</span><br><span class="line">    category_id <span class="type">INT</span> <span class="keyword">REFERENCES</span> categories(id),</span><br><span class="line">    <span class="keyword">PRIMARY KEY</span> (restaurant_id, category_id)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="資料庫建置"><a href="#資料庫建置" class="headerlink" title="資料庫建置"></a>資料庫建置</h3><p>考慮到求職要展示，可能還是需要雲端伺服器來提供後端服務。</p>
+<ul>
+<li>2026-4-23紀錄 : 暫時用render作為資料庫以及後端的雲端伺服器平台。</li>
+<li>使用dbeaver來連接控制雲端資料庫，下載連結: <a target="_blank" rel="noopener" href="https://dbeaver.io/download/">https://dbeaver.io/download/</a></li>
+<li>2026-4-24紀錄 : 資料上傳與schema建置完畢。</li>
+</ul>
 
         </div>
 
