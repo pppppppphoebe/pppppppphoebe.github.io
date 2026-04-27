@@ -2,6 +2,7 @@
 title: Web Design Keyword
 date: 2026-04-21 20:19:46
 tags: web
+categories: Basic Knowledge
 ---
 ## 前端/後端
 
@@ -107,3 +108,6 @@ CRUD 是資料操作的四大基本功能，分別代表 Create（建立）、Re
   - Read：查看使用者清單 → GET /users
   - Update：修改使用者資料 → PUT /users/{id}
   - Delete：刪除使用者 → DELETE /users/{id}
+
+
+### SQL & noSQL

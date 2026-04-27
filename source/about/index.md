@@ -24,10 +24,10 @@ One of those passions is drawing—I even have my own LINE sticker sets called "
 ### About engineering
 However, I also have a deep drive to ***solve real-world problems***. I believe strongly in doing work that aligns with my values, which is why I’ve set my sights on becoming a software engineer.
 
-I want to build tools that help people and businesses overcome challenges, and I’m starting that journey by mastering Frontend development. I’m launching this blog today, April 20th, to track my growth and share what I learn. Let’s go!
+I want to build tools that help people and businesses overcome challenges, and I’m starting that journey by mastering Frontend development. I’m launching this blog to track my growth and share what I learn. Let’s go!
 
 除了藝術創作，我也有一顆渴望「解決真實問題」的心。我深信人應該投身於自己所信仰的事物，這也是為什麼我想成為一名軟體工程師。
 
-我的目標是開發出能真正幫助個人或企業克服挑戰的工具，而我的工程師之路，將從 Frontend（前端開發）開始。我選擇在 4 月 20 日這一天開啟這個部落格，紀錄我的成長並分享所學。
+我的目標是開發出能真正幫助個人或企業克服挑戰的工具，而我的工程師之路，將從 Frontend（前端開發）開始。我會在這邊持續紀錄我的成長並分享所學。
 
 朝著更好的工程師邁進，Let's go！
