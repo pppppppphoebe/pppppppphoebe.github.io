@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en/zh">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="HsingYin Hsieh">
+
+
+
+
+
+<title>2026-5-16 AI工作坊 | Nini&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/image/rabbit.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const pagebody = document.getElementsByTagName('body')[0]
+
+            function setTheme(status) {
+
+                if (status === 'dark') {
+                    window.sessionStorage.theme = 'dark'
+                    pagebody.classList.add('dark-theme');
+
+                } else if (status === 'light') {
+                    window.sessionStorage.theme = 'light'
+                    pagebody.classList.remove('dark-theme');
+                }
+            };
+
+            setTheme(window.sessionStorage.theme)
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Nini&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                <a class="menu-item" href="/archives">Posts</a>
+                
+                <a class="menu-item" href="/category">Categories</a>
+                
+                <a class="menu-item" href="/tag">Tags</a>
+                
+                <a class="menu-item" href="/about">About</a>
+                
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Nini&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">
+                    <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 17.27q-.213 0-.356-.145T4 16.768t.144-.356t.356-.143h15q.213 0 .356.144q.144.144.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.144T4 11.999t.144-.356t.356-.143h15q.213 0 .356.144t.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.143Q4 7.443 4 7.23t.144-.356t.356-.143h15q.213 0 .356.144T20 7.23t-.144.356t-.356.144z"/></svg>
+                    <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols Light by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="m12 12.708l-5.246 5.246q-.14.14-.344.15t-.364-.15t-.16-.354t.16-.354L11.292 12L6.046 6.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16L12 11.292l5.246-5.246q.14-.14.345-.15q.203-.01.363.15t.16.354t-.16.354L12.708 12l5.246 5.246q.14.14.15.345q.01.203-.15.363t-.354.16t-.354-.16z"/></svg>
+                </div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                <a class="menu-item" href="/archives">Posts</a>
+                
+                <a class="menu-item" href="/category">Categories</a>
+                
+                <a class="menu-item" href="/tag">Tags</a>
+                
+                <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.classList.contains("active")) {
+            toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        } else {
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">2026-5-16 AI工作坊</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">HsingYin Hsieh</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">May 16, 2026&nbsp;&nbsp;9:22:39</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="Prompt工程"><a href="#Prompt工程" class="headerlink" title="Prompt工程"></a>Prompt工程</h2><p>Prompt工程目的 : 設計任務規格</p>
+<p>在還沒開始學之前需要了解的事</p>
+<ol>
+<li>最重要的放前面</li>
+<li>重要的事重複說 ( 與1相關都跟權重有關 )</li>
+<li>結構化 : 列點</li>
+<li>溝通與專案管理能夠幫助拆解工作流程</li>
+<li>了解一般的模組是通用模型，並非專業模組，可能會生成錯誤資訊</li>
+<li>一個聊天室窗中盡量專注在一個任務，不要混雜更多其他問題，避免混淆視聽。</li>
+<li>1比5原則(老師經驗) : 比如要生成1000字就要提供5000字資訊</li>
+<li>根據<strong>任務</strong>與<strong>平台</strong>選擇適合的提示詞結構，只要具備邏輯與測試結果符合需求即可。</li>
+<li>練習與AI深入溝通，收斂結果，不要太相信第一版回答的內容</li>
+</ol>
+<p><em><strong>推薦一些可用工具</strong></em></p>
+<ul>
+<li>查證AI工具 : Perplexity、Felo &#x3D;&gt; 使用爬蟲</li>
+<li>圖表生成工具 : napkin</li>
+<li>語音轉文字 : SRT檔 ( 時間線、標示發言者 )</li>
+<li>設計格式 : YAML</li>
+</ul>
+<h3 id="一次性明確提示語-VISTA"><a href="#一次性明確提示語-VISTA" class="headerlink" title="一次性明確提示語 : VISTA"></a>一次性明確提示語 : VISTA</h3><h4 id="VISION-你想要達成什麼結果-可檢視的結果"><a href="#VISION-你想要達成什麼結果-可檢視的結果" class="headerlink" title="VISION: 你想要達成什麼結果? 可檢視的結果"></a>VISION: 你想要達成什麼結果? <strong>可檢視</strong>的結果</h4><ul>
+<li>幫我準備面試[X]</li>
+<li>我想要準備一場軟體工程師的人員面試，希望整理出常見的面試題回答範例語表現建議[O]<br>但以上兩點都非常模糊…</li>
+</ul>
+<h4 id="INFORMATION-需要更多背景資料"><a href="#INFORMATION-需要更多背景資料" class="headerlink" title="INFORMATION: 需要更多背景資料"></a>INFORMATION: 需要更多背景資料</h4><ul>
+<li>你的身分</li>
+<li>對象是誰</li>
+<li>已知條件</li>
+<li>可用資源</li>
+<li>重要限制</li>
+<li>目前狀態</li>
+<li>參考資料</li>
+<li>人、事、時、地、物、材</li>
+<li>EX. 我是剛畢業的學生，沒有正式的工作經驗，有一些產學合作遊戲前端開發的經驗，個性比較內向，要應徵軟體工程師。</li>
+</ul>
+<h4 id="STRATEGY-已經試過什麼偏好什麼"><a href="#STRATEGY-已經試過什麼偏好什麼" class="headerlink" title="STRATEGY: 已經試過什麼偏好什麼?"></a>STRATEGY: 已經試過什麼偏好什麼?</h4><ul>
+<li>已經做過哪些嘗試?</li>
+<li>哪些方法有效無效?</li>
+<li><strong>必須避開那些?</strong></li>
+<li>建議 : 不要把自己偏好帶入 ( ex.你喜歡什麼… )</li>
+<li>EX. 我之前查過面試題，但回答很像背稿，我希望有自己的故事背景且真誠，不要太誇張。</li>
+</ul>
+<h4 id="TIMELINE-時間語節奏"><a href="#TIMELINE-時間語節奏" class="headerlink" title="TIMELINE: 時間語節奏"></a>TIMELINE: 時間語節奏</h4><ul>
+<li>期限、可投入的時間</li>
+<li>階段安排</li>
+<li>優先順序</li>
+<li>是否需要短期版本</li>
+<li>EX. 我三天後要面試，每天可以準備30分鐘，希望聚焦在最終要的題目</li>
+</ul>
+<h4 id="ASK-明確告訴AI怎麼輸出-格式"><a href="#ASK-明確告訴AI怎麼輸出-格式" class="headerlink" title="ASK: 明確告訴AI怎麼輸出(格式)"></a>ASK: 明確告訴AI怎麼輸出(格式)</h4><ul>
+<li>表格、條列</li>
+<li>MARKDOWN、HTML</li>
+<li>清單、腳本</li>
+<li>簡報大綱、檢查列表、WORD格式?</li>
+<li>EX.我希望列出五個常見得面試問題，提供自然版的回答技巧與範例，用條列式呈現。</li>
+</ul>
+<h4 id="將以上條列式VISTA列點"><a href="#將以上條列式VISTA列點" class="headerlink" title="將以上條列式VISTA列點"></a>將以上條列式VISTA列點</h4><p>使用上面的條例文字後，提示詞可以這樣打 : </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- Vision : 我想要準備一場軟體工程師的人員面試，希望整理出常見的面試題回答範例語表現建議。</span><br><span class="line">- Information : 我是剛畢業的學生，沒有正式的工作經驗，有一些產學合作遊戲前端開發的經驗，個性比較內向，要應徵軟體工程師。</span><br><span class="line">- Strategy : 我之前查過面試題，但回答很像背稿，我希望有自己的故事背景且真誠，不要太誇張。 </span><br><span class="line">- Timeline : 我三天後要面試，每天可以準備30分鐘，希望聚焦在最終要的題目。 </span><br><span class="line">- Ask : 我希望列出五個常見得面試問題，提供自然版的回答技巧與範例，用條列式呈現。</span><br></pre></td></tr></table></figure>
+
+<h4 id="小測驗-製作課程宣傳頁面"><a href="#小測驗-製作課程宣傳頁面" class="headerlink" title="小測驗 : 製作課程宣傳頁面"></a>小測驗 : 製作課程宣傳頁面</h4><ul>
+<li>使用GEMINI 其中的Canva功能測試生成可編輯的網頁資料，並察看結果的差異。</li>
+<li>示意圖 : 開啟canva並貼上你寫好的VISTA結構化提示詞，測試結果。<ul>
+<li>CANVA開啟位置 :</li>
+</ul>
+</li>
+</ul>
+<img src="/2026/05/16/2026-5-16-AI%E5%B7%A5%E4%BD%9C%E5%9D%8A/CANVA%E9%96%8B%E5%95%9F%E4%BD%8D%E7%BD%AE.png" class="" title="CANVA開啟位置">
+<ul>
+<li>輸入提示詞後網頁展示與修正畫面 :</li>
+</ul>
+<img src="/2026/05/16/2026-5-16-AI%E5%B7%A5%E4%BD%9C%E5%9D%8A/%E7%B6%B2%E9%A0%81%E5%B1%95%E7%A4%BA%E8%88%87%E4%BF%AE%E6%AD%A3%E7%95%AB%E9%9D%A2.png" class="" title="網頁展示與修正畫面">
+<ul>
+<li>我的個人練習於此頁面最下方的連結中</li>
+</ul>
+<h3 id="複雜案例-以社群貼文為例"><a href="#複雜案例-以社群貼文為例" class="headerlink" title="複雜案例 : 以社群貼文為例"></a>複雜案例 : 以社群貼文為例</h3><p>任務可能包含許多流程，比如需要 : </p>
+<ol>
+<li>目標、定位 : 相關數據 ( 像是利用perplexity查詢資訊 )</li>
+<li>發想  </li>
+<li>製作</li>
+<li>分析 (2~4利用前一個步驟資訊接續進行)</li>
+</ol>
+<h3 id="複雜案例建議結構"><a href="#複雜案例建議結構" class="headerlink" title="複雜案例建議結構"></a>複雜案例建議結構</h3><p>可帶入思考的流程與prompt架構 : </p>
+<p><strong>角色設定 &rArr; 背景資訊 &rArr; 任務拆解 &rArr; 操作步驟 &rArr; 限制條件 &rArr; 輸出格式 &rArr; 驗收標準(什麼時候結束) &rArr; 例外處理</strong></p>
+<h4 id="1-角色設定"><a href="#1-角色設定" class="headerlink" title="1. 角色設定"></a>1. 角色設定</h4><p>三種對象要分清楚 : AI、使用者、受眾</p>
+<ul>
+<li>AI : 他要扮演誰? (以職位或是專業說明or實際作為成果之類的)</li>
+<li>使用者 : 誰會操作AI?</li>
+<li>受眾 : 產出給誰看? 誰驗收? (利害關係者)</li>
+</ul>
+<p>但…如何了解AI有哪些角色可以扮演呢?<br>我們可以嘗試從資料庫中抓取相關有用的角色資訊。我們向下面這樣寫 :<br><code>我想要撰寫與請教行銷社群的相關文章，請問AI可以扮演那些角色幫忙，這個角色有哪些優勢，請列出三個。</code></p>
+<ul>
+<li>注意1 : 不要太快接受AI第一次給你的資訊，可以重複驗證或深入了解</li>
+<li>注意2 : 要跟AI明確說明文字是要用到哪裡去的? (EX.你想要打包目前的資料結果，要明確告知是要在新視窗中使用的資訊)</li>
+</ul>
+<h4 id="2-提供AI判斷所需的背景"><a href="#2-提供AI判斷所需的背景" class="headerlink" title="2. 提供AI判斷所需的背景"></a>2. 提供AI判斷所需的背景</h4><ul>
+<li>使用情境</li>
+<li>任務來源</li>
+<li>對象條件</li>
+<li>已有資料</li>
+</ul>
+<p>比如說履歷的話 : 基本資料、<strong>軟實力</strong>、<strong>硬實力</strong>、確認職位</p>
+<h4 id="3-將模糊的事情定義清楚"><a href="#3-將模糊的事情定義清楚" class="headerlink" title="3. 將模糊的事情定義清楚"></a>3. 將模糊的事情定義清楚</h4><p>當你有資料時，不一定要直接用PDF或Word，更好的做法是 : </p>
+<ul>
+<li>整理標題或短落</li>
+<li>轉換成列點式</li>
+<li>必要的表格與資料來源 </li>
+<li>直接給<strong>使用資料範例</strong></li>
+</ul>
+<h4 id="5-限制條件"><a href="#5-限制條件" class="headerlink" title="5. 限制條件"></a>5. 限制條件</h4><p>AI要做得好就是要把限制做好，常見的限制用詞如下 : </p>
+<ul>
+<li>若資料不足，請標註”待補”</li>
+<li>僅能重新整理</li>
+<li>不能杜撰數據內容</li>
+<li>不得捏造人名&#x2F;來源</li>
+<li>不要使用專業術語</li>
+<li><strong>請使用台灣用語</strong></li>
+<li>個資請提醒使用者刪除</li>
+</ul>
+<h4 id="6-完成的標準"><a href="#6-完成的標準" class="headerlink" title="6. 完成的標準"></a>6. 完成的標準</h4><p>沒有驗收標準就很難判斷好不好，基本上就是讓AI做迭代</p>
+<h4 id="用來更明確定義目標的做法-Few-Shot-示範-Few-Shot-Demonstration"><a href="#用來更明確定義目標的做法-Few-Shot-示範-Few-Shot-Demonstration" class="headerlink" title="用來更明確定義目標的做法 : Few-Shot 示範 ( Few-Shot Demonstration )"></a>用來更明確定義目標的做法 : Few-Shot 示範 ( Few-Shot Demonstration )</h4><p>**利用少量的資訊讓AI清楚了解接下來的目標。**可以做以下的練習 : </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">你是［角色］，我將依序提供多組不同風格的「輸入文字」與「對應的輸出範例」。</span><br><span class="line">你的任務是：</span><br><span class="line">1. 觀察並歸納每組範例的文字風格、結構、語氣與特色。</span><br><span class="line">2.每看完一組範例，先用你自己的話總結它的風格特徵，並問我是否正確，以及哪些部分是我喜歡的、哪些我不喜歡。</span><br><span class="line">3.當我提供所有範例並完成確認後，你需整合我喜歡的特徵，形成一份「最終風格指南」。</span><br><span class="line">4.等我給你「原始文字」時，你要依據這份最終風格指南來改寫或生成內容。</span><br><span class="line">如果理解，請先回覆「我已準備好接收第一組範例」。</span><br></pre></td></tr></table></figure>
+
+<h3 id="Refine-prompts-提示詞模組化"><a href="#Refine-prompts-提示詞模組化" class="headerlink" title="Refine prompts 提示詞模組化"></a>Refine prompts 提示詞模組化</h3><h4 id="提示詞模組化目的"><a href="#提示詞模組化目的" class="headerlink" title="提示詞模組化目的"></a>提示詞模組化目的</h4><ul>
+<li>可重複使用</li>
+<li>可逐段修改</li>
+<li>可交付</li>
+<li>可測試與迭代</li>
+<li>可使用gems&#x2F;GTPs</li>
+</ul>
+<h4 id="相關範例"><a href="#相關範例" class="headerlink" title="相關範例"></a>相關範例</h4><p><strong>協助幫忙修正提示詞小幫手</strong><br>但其實比較好做法是直接寫在AI個性中。但若沒有使用AGENT的情況下可以使用以下範例:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">你現在是一位「跨平台 Prompt 優化顧問」，精通不同 AI 平台（例如 ChatGPT、Claude、Midjourney、DALL·E、Gemini、Notion AI 等）的語法特性與最佳實踐。</span><br><span class="line">目標：協助使用者針對不同平台需求，將原始 prompt 逐步修正並優化（Refine Prompts 模式），直到符合該平台最佳效果。</span><br><span class="line">=== 使用流程 ===</span><br><span class="line">1. **確認平台與用途**</span><br><span class="line">   - 詢問：「請問你要在哪個平台使用這個 prompt？該平台的用途是什麼？」</span><br><span class="line">   - 確認該平台的特殊要求（格式、語法、輸出特性、限制等）。</span><br><span class="line">2. **取得初版 Prompt**</span><br><span class="line">   - 請使用者提供原始需求或現有 prompt。</span><br><span class="line">   - 若資訊不足，詢問背景、情境、限制條件、期望輸出範例。</span><br><span class="line">3. **平台化轉換（Platform Adaptation）**</span><br><span class="line">   - 根據平台特性，將初版 prompt 調整成該平台可執行的版本。</span><br><span class="line">   - 說明每個修改的原因與作用。</span><br><span class="line">4. **提示優化模式（Refine Prompts Loop）**</span><br><span class="line">   - 在每次輸出後，詢問：</span><br><span class="line">     「是否需要針對清晰度、精準度或風格進一步優化？」</span><br><span class="line">   - 提供 2–3 個可選的優化方向（例如：加限制條件、加入範例輸出、改變語氣）。</span><br><span class="line">   - 根據使用者選擇進行更新，直到滿意為止。</span><br><span class="line">5. **最終確認與測試**</span><br><span class="line">   - 提供最終版本 prompt。</span><br><span class="line">   - 附上簡短說明：</span><br><span class="line">     - 平台適配度</span><br><span class="line">     - 可達成的效果</span><br><span class="line">     - 潛在限制</span><br><span class="line">=== 規則 ===</span><br><span class="line">- 每一步都要互動式詢問使用者再繼續。</span><br><span class="line">- 優化時要保留原本的核心需求，不偏離目標。</span><br><span class="line">- 可以主動提醒使用者該平台的最佳實踐或注意事項。</span><br><span class="line">- 若使用者需求過於模糊，先引導補充再進行轉換。</span><br><span class="line">開始前請先問我：</span><br><span class="line">「你要在哪個平台使用這個 prompt？該平台的用途是什麼？」</span><br></pre></td></tr></table></figure>
+
+<p><strong>確認任務的小助手</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">你現在是一個專業顧問，我有一個任務：【在這裡輸入你的目標任務，例如：幫我選出最適合的行銷方案】。</span><br><span class="line">請使用「內心獨白（Internal Monologue）」的方式，逐步展示你的思考過程與理由，並在每個階段清楚標示：</span><br><span class="line">思考過程（內心獨白）：</span><br><span class="line">你目前在考慮什麼？</span><br><span class="line">為什麼這樣想？</span><br><span class="line">有哪些假設或可能的限制？</span><br><span class="line">中間結論（本階段的暫時判斷）</span><br><span class="line">問我：「要不要針對某個面向深入分析？」</span><br><span class="line">重複以上步驟直到所有面向分析完成，最後：</span><br><span class="line"> 4. 最終結論 / 建議：</span><br><span class="line">彙整全部推理與分析結果</span><br><span class="line">提供可行方案與比較理由</span><br><span class="line">如果有風險或不確定性，請說明如何降低或監測</span><br></pre></td></tr></table></figure>
+
+<p><strong>拆解大任務的提問(Step by step)</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[目標] 你是[角色]，請使用「思維鍊方式」（將大問題拆成多個小問題，一步步詢問）逐步向我提問。</span><br><span class="line"></span><br><span class="line">[操作步驟]  </span><br><span class="line">1. 每次只問一個問題。  </span><br><span class="line">2. 在我回答後，先確認答案無誤再進下一題。  </span><br><span class="line">3. 若需要，可以針對我的回答直接提出修改建議。  </span><br><span class="line"></span><br><span class="line">[注意]  </span><br><span class="line">- 持續循環上述步驟，直到你獲得足夠的資訊以完成最終結果或達成限制條件。  </span><br><span class="line"></span><br><span class="line">[範例]  </span><br><span class="line">你：你想解決的主要問題是什麼？  </span><br><span class="line">我：增加網站流量。  </span><br><span class="line">你：你的網站類型是什麼？（進入下一個問題）</span><br></pre></td></tr></table></figure>
+
+<p>基本上就是<strong>依任務選擇框架: 方法論</strong>，可以查詢行銷學或管理學的相關關鍵字，例如下方社群文案提示詞範例:<br>其中 “<strong>{}</strong>“ 的部分是需要修改的部分。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">請協助撰寫一則社群貼文，目的是&#123;目的&#125;，針對目標受眾&#123;目標受眾&#125;撰寫，使用&#123;語氣&#125;（例如輕鬆、專業、幽默），以吸引受眾共鳴並促進互動。</span><br><span class="line"></span><br><span class="line">撰寫架構：</span><br><span class="line">請以&#123;寫作方式&#125;（例如 AIDA、4U、PAS）為基礎安排貼文邏輯，並確保內容自然流暢、有吸引力。段落長度可靈活調整，以符合閱讀習慣。</span><br><span class="line"></span><br><span class="line">內容要求，請包含以下元素：</span><br><span class="line">1.引人注意的開場。</span><br><span class="line">2.可使用問題、數據、趨勢觀察或趣味引言來抓住目標受眾的注意力。</span><br><span class="line">3.清楚傳達主要訊息。</span><br><span class="line">4.內容應簡單易懂，並提供實用價值或洞見，可搭配簡單案例或示例。</span><br><span class="line">5.鼓勵互動的結尾</span><br><span class="line">6.可透過提問、行動呼籲（CTA），或引導留言討論來促進參與感。</span><br><span class="line">7.字數範圍：【字數範圍】（如 150-300 字）</span><br><span class="line">8.可適度使用表情符號（Emoji），提升貼文的親和力與吸引力。</span><br><span class="line">9.需包含以下關鍵字：&#123;關鍵字&#125;，確保 SEO 或社群曝光度最佳化。</span><br></pre></td></tr></table></figure>
+
+<h3 id="練習-自傳優化大師"><a href="#練習-自傳優化大師" class="headerlink" title="練習 : 自傳優化大師"></a>練習 : 自傳優化大師</h3><p>一些相關條件如下…</p>
+<ul>
+<li><p>目標 : 生成履歷內容，可能包含…</p>
+<ul>
+<li>工作目標</li>
+<li>專注於軟實力性格</li>
+<li>每一段300字左右</li>
+<li>四個段落</li>
+</ul>
+</li>
+<li><p>限制參考 : </p>
+<ul>
+<li>需要符合事實</li>
+<li>減少形容詞使用</li>
+</ul>
+</li>
+<li><p>上課練習連結 : <a target="_blank" rel="noopener" href="https://www.notion.so/35cd3cefb53d8020a2fee95b93ad3635">https://www.notion.so/35cd3cefb53d8020a2fee95b93ad3635</a></p>
+</li>
+</ul>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/prompt/"># prompt</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2026/04/26/2026-4-26%E8%81%B7%E6%B6%AF%E8%AA%B2%E7%A8%8B%E7%B4%80%E9%8C%84/">職涯課程 - 履歷與面試</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <!-- <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© HsingYin Hsieh | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer> -->
+
+    </div>
+</body>
+
+</html>
