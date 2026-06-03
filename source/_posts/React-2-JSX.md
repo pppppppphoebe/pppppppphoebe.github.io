@@ -5,16 +5,11 @@ tags: React
 categories: React
 ---
 
-## 這邊簡單複習一些ES6重要的知識點
-
-### let & const & var
-- var :  
-- let : 
-- const : 
-
+## 為什麼使用JSX(Javascript XML)?
 
 ## 相關學習資源
 - JavaScript ES6 : <https://ithelp.ithome.com.tw/articles/10197716> (這邊太多需要重新學習了先以React為主)
+- JSX官方學習 : <https://zh-hant.legacy.reactjs.org/docs/introducing-jsx.html>
 
 
 

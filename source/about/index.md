@@ -1,17 +1,30 @@
 ---
-title: Hsing Yin Hsieh
+title: About me
 date: 2026-04-17 23:52:19
 layout: about
 ---
 
-### About me
+### **我的正式履歷與自傳內容** 
+
+- **我的自傳 ( Autobiography ) : [click here](/2026/05/20/autobiography/)**
+- **English Resume : [click here](/2026/05/20/English-Resume/)**
+- **中文履歷 : [click here](/2026/05/20/Chinese-Resume/)**
+
+---
+
+**以下是比較輕鬆的自我介紹(๑•̀ω•́)ノ:** 
+
 Hi there! I’m Hsing Yin, but you can call me Phoebe or Nini.
+哈囉！我是 Hsing Yin，你也可以叫我 Phoebe 或 Nini。
+
+### About life
 
 To me, the most important things in life are simple: work, friends, and family. While I’m an introvert by nature, I find a lot of joy and energy in spending time with the people and hobbies I love.
 
-哈囉！我是 Hsing Yin，你也可以叫我 Phoebe 或 Nini。
-
 對我而言，生命中最重要的三件事非常簡單：工作、朋友與家人。雖然我天生是個內向的人，但我非常享受與所愛的人、事、物待在一起，那是我最有動力的時候。
+
+
+
 
 ### About drawing
 One of those passions is drawing—I even have my own LINE sticker sets called "I am Nini!" which allows me to blend my creativity with my daily life. 
