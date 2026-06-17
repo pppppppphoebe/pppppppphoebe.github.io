@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en/zh">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="HsingYin Hsieh">
+
+
+
+
+
+<title>LeetCode Review: Dynamic Programming | Nini&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/image/rabbit.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const pagebody = document.getElementsByTagName('body')[0]
+
+            function setTheme(status) {
+
+                if (status === 'dark') {
+                    window.sessionStorage.theme = 'dark'
+                    pagebody.classList.add('dark-theme');
+
+                } else if (status === 'light') {
+                    window.sessionStorage.theme = 'light'
+                    pagebody.classList.remove('dark-theme');
+                }
+            };
+
+            setTheme(window.sessionStorage.theme)
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Nini&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                <a class="menu-item" href="/archives">Posts</a>
+                
+                <a class="menu-item" href="/category">Categories</a>
+                
+                <a class="menu-item" href="/tag">Tags</a>
+                
+                <a class="menu-item" href="/about">About</a>
+                
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Nini&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">
+                    <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 17.27q-.213 0-.356-.145T4 16.768t.144-.356t.356-.143h15q.213 0 .356.144q.144.144.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.144T4 11.999t.144-.356t.356-.143h15q.213 0 .356.144t.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.143Q4 7.443 4 7.23t.144-.356t.356-.143h15q.213 0 .356.144T20 7.23t-.144.356t-.356.144z"/></svg>
+                    <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols Light by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="m12 12.708l-5.246 5.246q-.14.14-.344.15t-.364-.15t-.16-.354t.16-.354L11.292 12L6.046 6.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16L12 11.292l5.246-5.246q.14-.14.345-.15q.203-.01.363.15t.16.354t-.16.354L12.708 12l5.246 5.246q.14.14.15.345q.01.203-.15.363t-.354.16t-.354-.16z"/></svg>
+                </div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                <a class="menu-item" href="/archives">Posts</a>
+                
+                <a class="menu-item" href="/category">Categories</a>
+                
+                <a class="menu-item" href="/tag">Tags</a>
+                
+                <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.classList.contains("active")) {
+            toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        } else {
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">LeetCode Review: Dynamic Programming</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">HsingYin Hsieh</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">June 17, 2026&nbsp;&nbsp;16:57:13</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/LeetCode-Review/">LeetCode Review</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <iframe 
+  src="markmap.html" 
+  style="width: 100%; height: 60vh; min-height: 400px; max-height: 800px; border: none; border-radius: 8px;"
+  allowfullscreen>
+</iframe>
+
+<h1 id="DP核心概念"><a href="#DP核心概念" class="headerlink" title="DP核心概念"></a>DP核心概念</h1><ul>
+<li>以空間換時間</li>
+<li>把大問題拆解成子問題，並記錄下來避免重新計算</li>
+</ul>
+<h1 id="分解問題框架"><a href="#分解問題框架" class="headerlink" title="分解問題框架"></a>分解問題框架</h1><ul>
+<li>定義陣列: 儲存子問題的答案</li>
+<li>狀態轉移方程式: 大小問題之間的關係</li>
+<li>初始化條件: 條件邊界是什麼</li>
+<li>確定歷遍順序: Top- Down 還是 Bottom-Up</li>
+</ul>
+<h1 id="實作方法"><a href="#實作方法" class="headerlink" title="實作方法"></a>實作方法</h1><h2 id="Top-Down"><a href="#Top-Down" class="headerlink" title="Top-Down"></a>Top-Down</h2><ul>
+<li>遞迴 : 從最大目標一步步拆解問題</li>
+<li>(費式數列為例)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fib_top_down</span>(<span class="params">n</span>):</span><br><span class="line">    memo = &#123;&#125; <span class="comment">#以dictionary記錄每一層費式數列的數值避免重複計算</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fib</span>(<span class="params">m</span>):</span><br><span class="line">        <span class="keyword">if</span> m <span class="keyword">in</span> memo:</span><br><span class="line">            <span class="keyword">return</span> memo[m] <span class="comment">#如果有算過就直接從memo中拿</span></span><br><span class="line">        <span class="keyword">if</span> m &lt;= <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> m</span><br><span class="line">        memo[m] = fib(m-<span class="number">1</span>) + fib(m-<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> memo[m]</span><br><span class="line">    <span class="keyword">return</span> fib(n)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Bottom-Up"><a href="#Bottom-Up" class="headerlink" title="Bottom-Up"></a>Bottom-Up</h2><ul>
+<li>迴圈 : 從最基礎(底層)的已知條件中計算</li>
+<li>費式數列為例</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fib_bottom_up</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n&lt;=<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> n</span><br><span class="line">    dp = [<span class="number">0</span>]*(n+<span class="number">1</span>) <span class="comment">#實際上為優化空間不需要(這邊是為了演示dp做法)</span></span><br><span class="line">    dp[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,n+<span class="number">1</span>):</span><br><span class="line">        dp[i] = dp[i-<span class="number">1</span>] + dp[i-<span class="number">2</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> dp[n]</span><br></pre></td></tr></table></figure>
+
+<h2 id="Top-Down-和-Bottom-Up-使用上差別"><a href="#Top-Down-和-Bottom-Up-使用上差別" class="headerlink" title="Top-Down 和 Bottom-Up 使用上差別"></a>Top-Down 和 Bottom-Up 使用上差別</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">【Top-Down (遞迴 + 記憶化)】                【Bottom-Up (迴圈填表)】</span><br><span class="line"></span><br><span class="line">       f(5)  (從大問題開始看)                 dp[5]  (最後才算出來)</span><br><span class="line">      /    \                                    ▲</span><br><span class="line">    f(4)   f(3)                                 │  for 迴圈</span><br><span class="line">    /   \                                       │  向上累積</span><br><span class="line">  f(3)  f(2)                                    │</span><br><span class="line">  /  \                                        dp[2] = dp[1] + dp[0]</span><br><span class="line">f(2) f(1)                                     dp[1] = 1</span><br><span class="line"> / \                                          dp[0] = 0</span><br><span class="line">f(1) f(0) (一路向下探底)                      **(從最基礎的已知條件開始)**</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="常見題型"><a href="#常見題型" class="headerlink" title="常見題型"></a>常見題型</h1><h2 id="爬樓梯-路徑問題-Linear-Matrix-DP"><a href="#爬樓梯-路徑問題-Linear-Matrix-DP" class="headerlink" title="爬樓梯&#x2F;路徑問題(Linear&#x2F;Matrix DP)"></a>爬樓梯&#x2F;路徑問題(Linear&#x2F;Matrix DP)</h2><ul>
+<li>常見題目： LeetCode 70. Climbing Stairs, LeetCode 62. Unique Paths</li>
+<li>核心思維： 到達當前格子的方法數 &#x3D; 到達前幾個可能格子的方法數之和。</li>
+</ul>
+<h2 id="背包問題-Knapsack-Problem"><a href="#背包問題-Knapsack-Problem" class="headerlink" title="背包問題(Knapsack Problem)"></a>背包問題(Knapsack Problem)</h2><ul>
+<li>常見題目： LeetCode 322. Coin Change (完全背包), LeetCode 416. Partition Equal Subset Sum (0-1背包)</li>
+<li>核心思維： 對於每一個物品，我們只有「選」或「不選」兩種抉擇。</li>
+</ul>
+<h2 id="序列、字串對齊問題-Sequence-DP"><a href="#序列、字串對齊問題-Sequence-DP" class="headerlink" title="序列、字串對齊問題(Sequence DP)"></a>序列、字串對齊問題(Sequence DP)</h2><ul>
+<li>常見題目： LeetCode 300. Longest Increasing Subsequence (LIS), LeetCode 1143. Longest Common Subsequence (LCS)</li>
+<li>核心思維： 通常需要用雙指針或二維陣列來比較兩個字串的結尾字元是否相同。</li>
+</ul>
+<h2 id="股票買賣、狀態機-StateMachine-DP"><a href="#股票買賣、狀態機-StateMachine-DP" class="headerlink" title="股票買賣、狀態機(StateMachine DP)"></a>股票買賣、狀態機(StateMachine DP)</h2><ul>
+<li>常見題目： LeetCode 121, 122, 123, 188, 309, 714 (股票系列全集)</li>
+<li>核心思維： 每一天結束後，你身上只會有特定的幾種「狀態」（例如：手上有股票、手上沒股票）。</li>
+</ul>
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><ol>
+<li><p>觀察序列間邏輯<br> 先在紙上列出 n&#x3D;1, n&#x3D;2, n&#x3D;3 的規律，試圖把狀態轉移方程式寫出來</p>
+</li>
+<li><p>推薦刷題順序<br> 費氏數列 (509) -&gt; 爬樓梯 (70) -&gt; 不同路徑 (62) -&gt; 打家劫舍 (198) -&gt; 零錢兌換 (322)。</p>
+</li>
+</ol>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/leetcode/"># leetcode</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2026/06/16/LeetCode-200-Review/">LeetCode 200 Review</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <!-- <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© HsingYin Hsieh | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer> -->
+
+    </div>
+</body>
+
+</html>
