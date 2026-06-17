@@ -793,8 +793,26 @@ header .menu label {
 .post-content figure.highlight .gutter pre {
   margin: 0;
 }
-.post-content ul {
+.post-content ul,
+.post-content ol {
   padding-left: 2em;
+}
+.post-content ul.task-list,
+.post-content ol.task-list {
+  padding-left: 1.5em;
+  list-style-type: none !important;
+}
+.post-content ul.task-list li,
+.post-content ol.task-list li {
+  list-style-type: none !important;
+}
+.post-content li.task-list-item {
+  list-style-type: none !important;
+  padding-left: 0;
+}
+.post-content li.task-list-item input {
+  margin-right: 0.5em;
+  vertical-align: middle;
 }
 .post-content table {
   max-width: 100%;
