@@ -41,10 +41,51 @@
     
     
         
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
     
 
 
-<meta name="generator" content="Hexo 8.1.1"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
 
 <body>
     <script>
@@ -175,7 +216,7 @@
 </ul>
 <h2 id="架構與實作"><a href="#架構與實作" class="headerlink" title="架構與實作"></a>架構與實作</h2><h3 id="內在架構"><a href="#內在架構" class="headerlink" title="內在架構"></a>內在架構</h3><ul>
 <li>每個位置有固定index</li>
-<li>O(1)時間複雜度查詢固定位置資料</li>
+<li>$ O(1) $ 時間複雜度查詢固定位置資料</li>
 </ul>
 <h3 id="python實作"><a href="#python實作" class="headerlink" title="python實作"></a>python實作</h3><ul>
 <li>使用List作Dynamic array</li>
@@ -187,17 +228,17 @@
 <li>節省記憶體 : 不需耗費額外空間紀錄pointer</li>
 </ul>
 <h2 id="複雜度"><a href="#複雜度" class="headerlink" title="複雜度"></a>複雜度</h2><h3 id="時間複雜度"><a href="#時間複雜度" class="headerlink" title="時間複雜度"></a>時間複雜度</h3><ul>
-<li>隨機讀取: O(n)</li>
+<li>隨機讀取: $ O(n) $</li>
 <li>插入<ul>
-<li>前: O(n)</li>
-<li>中: O(n)</li>
-<li>後: O(1)</li>
+<li>前: $ O(n) $</li>
+<li>中: $ O(n) $</li>
+<li>後: $ O(1) $</li>
 </ul>
 </li>
-<li>刪除: O(n)</li>
+<li>刪除: $ O(n) $</li>
 </ul>
 <h2 id="常見題型"><a href="#常見題型" class="headerlink" title="常見題型"></a>常見題型</h2><ul>
-<li>通常考的是「如何不用暴力解（O(N^2)），而在 $O(N)$ 內解決問題」。</li>
+<li>通常考的是「如何不用暴力解 $ O(N^2) $，而在 $ O(N) $ 內解決問題」。</li>
 <li>雙指針 (Two Pointers)： 題目通常已排序，用前後兩個指標向中間靠攏（如：Two Sum II, 3Sum）。</li>
 <li>滑動窗口 (Sliding Window)： 找連續子陣列的最大&#x2F;最小值（如：Minimum Size Subarray Sum）。</li>
 </ul>
@@ -219,9 +260,9 @@
 <li>經典應用： 實作 Stack (堆疊)、Queue (佇列)，或是高階的 LRU Cache (快取淘汰機制)</li>
 </ul>
 <h2 id="複雜度-1"><a href="#複雜度-1" class="headerlink" title="複雜度"></a>複雜度</h2><h3 id="時間複雜度-1"><a href="#時間複雜度-1" class="headerlink" title="時間複雜度"></a>時間複雜度</h3><ul>
-<li>隨機讀取: O(n)</li>
-<li>插入: O(1) 前提是有紀錄前後指標</li>
-<li>刪除: O(1)</li>
+<li>隨機讀取: $ O(n) $</li>
+<li>插入: $ O(1) $ 前提是有紀錄前後指標</li>
+<li>刪除: $ O(1) $</li>
 </ul>
 <h3 id="空間複雜度"><a href="#空間複雜度" class="headerlink" title="空間複雜度"></a>空間複雜度</h3><ul>
 <li>較多，需要額外空間存放指標</li>
