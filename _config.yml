@@ -54,6 +54,16 @@ prismjs:
   preprocess: true
   line_number: true
   tab_replace: ''
+mermaid:
+  enable: true
+  version: "10.9.0"
+
+math:
+  engine: 'mathjax' # or 'katex'
+  mathjax:
+    # src: custom_mathjax_source
+    config:
+      # MathJax config
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')

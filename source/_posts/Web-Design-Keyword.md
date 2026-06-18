@@ -4,6 +4,22 @@ date: 2026-04-21 20:19:46
 tags: web
 categories: Basic Knowledge
 ---
+* [前端/後端](#前端後端)
+* [Frontend Skills](#frontend-skills)
+  * [UI/UX (User Interface/User Experience)](#uiux-user-interfaceuser-experience)
+  * [RWD (Responsive Web Design)](#rwd-responsive-web-design)
+  * [HTML、CSS、JS](#htmlcssjs)
+  * [DOM (Document Object Model)](#dom-document-object-model)
+  * [Framework?](#framework)
+  * [SEO (Search Engine Optimization)](#seo-search-engine-optimization)
+  * [網站規劃相關流程](#網站規劃相關流程)
+* [Other Key Word](#other-key-word)
+  * [CI/CD (Continuous Intergation/ Continuous Deployment)](#cicd-continuous-intergation-continuous-deployment)
+  * [IDE (Integrated Development Environment)](#ide-integrated-development-environment)
+  * [CRUD (Create / Read / Update / Delete)](#crud-create--read--update--delete)
+  * [SQL \& noSQL](#sql--nosql)
+
+
 ## 前端/後端
 
 - **為甚麼要分前後端?** 
@@ -111,3 +127,20 @@ CRUD 是資料操作的四大基本功能，分別代表 Create（建立）、Re
 
 
 ### SQL & noSQL
+
+#### SQL資料庫正規化(Normalization)
+
+- 目的:減少資料重複、避免異常、資料一致性
+
+- 第一正規化 (1NF,first normal form)
+  - Atomicity : Each column contains single values
+  - 無重複群組：沒有重複的欄位
+  - Primary key 
+
+- 第二正規化 (2NF)
+  - 所有非主鍵欄位是否完全相依於主鍵？
+  - 複合主鍵時，是否有欄位只相依於部分主鍵？
+  
+- 第三正規化 (3NF)
+  - 非主鍵欄位之間是否有相依關係？
+  - 是否有遞移相依（A→B→C）？
