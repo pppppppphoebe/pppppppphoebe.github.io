@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en/zh">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="HsingYin Hsieh">
+
+
+
+
+
+<title>LeetCode Review: Linked List vs. Array | Nini&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/image/rabbit.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const pagebody = document.getElementsByTagName('body')[0]
+
+            function setTheme(status) {
+
+                if (status === 'dark') {
+                    window.sessionStorage.theme = 'dark'
+                    pagebody.classList.add('dark-theme');
+
+                } else if (status === 'light') {
+                    window.sessionStorage.theme = 'light'
+                    pagebody.classList.remove('dark-theme');
+                }
+            };
+
+            setTheme(window.sessionStorage.theme)
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Nini&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                <a class="menu-item" href="/archives">Posts</a>
+                
+                <a class="menu-item" href="/category">Categories</a>
+                
+                <a class="menu-item" href="/tag">Tags</a>
+                
+                <a class="menu-item" href="/about">About</a>
+                
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Nini&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">
+                    <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 17.27q-.213 0-.356-.145T4 16.768t.144-.356t.356-.143h15q.213 0 .356.144q.144.144.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.144T4 11.999t.144-.356t.356-.143h15q.213 0 .356.144t.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.143Q4 7.443 4 7.23t.144-.356t.356-.143h15q.213 0 .356.144T20 7.23t-.144.356t-.356.144z"/></svg>
+                    <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols Light by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="m12 12.708l-5.246 5.246q-.14.14-.344.15t-.364-.15t-.16-.354t.16-.354L11.292 12L6.046 6.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16L12 11.292l5.246-5.246q.14-.14.345-.15q.203-.01.363.15t.16.354t-.16.354L12.708 12l5.246 5.246q.14.14.15.345q.01.203-.15.363t-.354.16t-.354-.16z"/></svg>
+                </div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                <a class="menu-item" href="/archives">Posts</a>
+                
+                <a class="menu-item" href="/category">Categories</a>
+                
+                <a class="menu-item" href="/tag">Tags</a>
+                
+                <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.classList.contains("active")) {
+            toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        } else {
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">LeetCode Review: Linked List vs. Array</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">HsingYin Hsieh</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">June 18, 2026&nbsp;&nbsp;11:46:20</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/LeetCode-Review/">LeetCode Review</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <iframe 
+  src="markmap.html" 
+  style="width: 100%; height: 60vh; min-height: 400px; max-height: 800px; border: none; border-radius: 8px;"
+  allowfullscreen>
+</iframe>
+
+<hr>
+<h1 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h1><h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><ul>
+<li>電影院裡的連號座位、在記憶體中則是一塊連續的空間。</li>
+</ul>
+<h2 id="架構與實作"><a href="#架構與實作" class="headerlink" title="架構與實作"></a>架構與實作</h2><h3 id="內在架構"><a href="#內在架構" class="headerlink" title="內在架構"></a>內在架構</h3><ul>
+<li>每個位置有固定index</li>
+<li>O(1)時間複雜度查詢固定位置資料</li>
+</ul>
+<h3 id="python實作"><a href="#python實作" class="headerlink" title="python實作"></a>python實作</h3><ul>
+<li>使用List作Dynamic array</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Array 在 Python 中直接使用 list</span></span><br><span class="line">my_array = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>]</span><br><span class="line"><span class="built_in">print</span>(my_array[<span class="number">2</span>])  <span class="comment"># 輸出 30 (透過 Index 直接讀取，速度極快)</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用情境"><a href="#使用情境" class="headerlink" title="使用情境"></a>使用情境</h2><ul>
+<li>需要頻繁讀取的資料 : 使用index讀取快速</li>
+<li>資料固定或不需變動 : 像是插入、刪除資料需要耗費較多資源</li>
+<li>節省記憶體 : 不需耗費額外空間紀錄pointer</li>
+</ul>
+<h2 id="複雜度"><a href="#複雜度" class="headerlink" title="複雜度"></a>複雜度</h2><h3 id="時間複雜度"><a href="#時間複雜度" class="headerlink" title="時間複雜度"></a>時間複雜度</h3><ul>
+<li>隨機讀取: O(n)</li>
+<li>插入<ul>
+<li>前: O(n)</li>
+<li>中: O(n)</li>
+<li>後: O(1)</li>
+</ul>
+</li>
+<li>刪除: O(n)</li>
+</ul>
+<h2 id="常見題型"><a href="#常見題型" class="headerlink" title="常見題型"></a>常見題型</h2><ul>
+<li>通常考的是「如何不用暴力解（O(N^2)），而在 $O(N)$ 內解決問題」。</li>
+<li>雙指針 (Two Pointers)： 題目通常已排序，用前後兩個指標向中間靠攏（如：Two Sum II, 3Sum）。</li>
+<li>滑動窗口 (Sliding Window)： 找連續子陣列的最大&#x2F;最小值（如：Minimum Size Subarray Sum）。</li>
+</ul>
+<hr>
+<h1 id="Linked-List"><a href="#Linked-List" class="headerlink" title="Linked List"></a>Linked List</h1><h2 id="核心概念-1"><a href="#核心概念-1" class="headerlink" title="核心概念"></a>核心概念</h2><ul>
+<li>像是火車車廂，每個節點儲存在不同位置，透過pointer連接起來，有前後關係。</li>
+</ul>
+<h2 id="架構與實作-1"><a href="#架構與實作-1" class="headerlink" title="架構與實作"></a>架構與實作</h2><h3 id="內在架構-1"><a href="#內在架構-1" class="headerlink" title="內在架構"></a>內在架構</h3><ol>
+<li>val: 此節點儲存的資料</li>
+<li>next: 下一個節點的位置(pointer)</li>
+</ol>
+<h3 id="python實作-1"><a href="#python實作-1" class="headerlink" title="python實作"></a>python實作</h3><ul>
+<li>必須自訂一類別(class)把他們包起來，並進行連接。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 定義節點結構</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ListNode</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, val=<span class="number">0</span>, <span class="built_in">next</span>=<span class="literal">None</span></span>):</span><br><span class="line">        <span class="variable language_">self</span>.val = val       <span class="comment"># 儲存數值</span></span><br><span class="line">        <span class="variable language_">self</span>.<span class="built_in">next</span> = <span class="built_in">next</span>     <span class="comment"># 指向下一節車廂的指標</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 實作並手動串接： 10 -&gt; 20 -&gt; 30 -&gt; None</span></span><br><span class="line">node1 = ListNode(<span class="number">10</span>)</span><br><span class="line">node2 = ListNode(<span class="number">20</span>)</span><br><span class="line">node3 = ListNode(<span class="number">30</span>)</span><br><span class="line"></span><br><span class="line">node1.<span class="built_in">next</span> = node2</span><br><span class="line">node2.<span class="built_in">next</span> = node3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 走訪 Linked List (必須從頭開始數，無法直接用 index 拿資料)</span></span><br><span class="line">curr = node1</span><br><span class="line"><span class="keyword">while</span> curr:</span><br><span class="line">    <span class="built_in">print</span>(curr.val)</span><br><span class="line">    curr = curr.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用情境-1"><a href="#使用情境-1" class="headerlink" title="使用情境"></a>使用情境</h2><ul>
+<li>需要頻繁在頭部或中間新增刪除的系統(如排隊系統)</li>
+<li>資料量完全無法預估: 因為array在新增時需要定義一定連續空間</li>
+<li>經典應用： 實作 Stack (堆疊)、Queue (佇列)，或是高階的 LRU Cache (快取淘汰機制)</li>
+</ul>
+<h2 id="複雜度-1"><a href="#複雜度-1" class="headerlink" title="複雜度"></a>複雜度</h2><h3 id="時間複雜度-1"><a href="#時間複雜度-1" class="headerlink" title="時間複雜度"></a>時間複雜度</h3><ul>
+<li>隨機讀取: O(n)</li>
+<li>插入: O(1) 前提是有紀錄前後指標</li>
+<li>刪除: O(1)</li>
+</ul>
+<h3 id="空間複雜度"><a href="#空間複雜度" class="headerlink" title="空間複雜度"></a>空間複雜度</h3><ul>
+<li>較多，需要額外空間存放指標</li>
+</ul>
+<h2 id="常見題型-1"><a href="#常見題型-1" class="headerlink" title="常見題型"></a>常見題型</h2><ul>
+<li>考試重點: 通常不考高深的數學或複雜邏輯，純粹考你「指針操作的細心度」（面試極愛考，因為寫錯一個 next 就會造成死循環或斷軌）。</li>
+<li>反轉鏈表 (Reverse Linked List - LC 206)： 將 A -&gt; B -&gt; C 變成 C -&gt; B -&gt; A。考驗你如何用一個 prev 暫存變數去翻轉指針。</li>
+<li>快慢指針 &#x2F; 龜兔賽跑 (Slow &amp; Fast Pointers)： * 找中點：快指針一次走兩步，慢指針一次走一步，快指針到終點時，慢指針剛好在中點（Middle of the Linked List - LC 876）。</li>
+<li>判斷有沒有環：如果鏈表繞成一個圈，快慢指針總有一天會相遇（Linked List Cycle - LC 141）。</li>
+<li>合併兩個有序鏈表 (Merge Two Sorted Lists - LC 21)： 用一個虛擬頭節點（Dummy Node）沿路把小的節點勾過來。</li>
+</ul>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/leetcode/"># leetcode</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2026/06/17/LeetCode-Review-Climbing-Stairs/">LeetCode Review: No.76(Climbing Stairs)</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <!-- <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© HsingYin Hsieh | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer> -->
+
+    </div>
+</body>
+
+</html>
