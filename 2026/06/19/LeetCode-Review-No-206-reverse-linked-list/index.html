@@ -13,7 +13,7 @@
 
 
 
-<title>處理Markmap心智圖數學表示手機顯示問題 | Nini&#39;s Blog</title>
+<title>LeetCode Review: No.206 (reverse-linked-list) | Nini&#39;s Blog</title>
 
 
 
@@ -140,7 +140,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">處理Markmap心智圖數學表示手機顯示問題</h1>
+            <h1 class="post-title">LeetCode Review: No.206 (reverse-linked-list)</h1>
             
                 <div class="post-meta">
                     
@@ -149,14 +149,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">June 19, 2026&nbsp;&nbsp;17:07:13</a>
+                        Date: <a href="#">June 19, 2026&nbsp;&nbsp;22:10:41</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/Hexo-Issue-Log/">Hexo Issue Log</a>
+                                <a href="/categories/LeetCode-Review/">LeetCode Review</a>
                             
                         </span>
                     
@@ -165,10 +165,35 @@
         </header>
 
         <div class="post-content">
-            <h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>使用mathjax格式生成帶有數學式的心智圖(markmap.html)時，電腦顯示沒有問題，但是手機會出現以下文字位移狀況。</p>
-<img src="/2026/06/19/%E8%99%95%E7%90%86Markmap%E5%BF%83%E6%99%BA%E5%9C%96%E6%95%B8%E5%AD%B8%E8%A1%A8%E7%A4%BA%E6%89%8B%E6%A9%9F%E9%A1%AF%E7%A4%BA%E5%95%8F%E9%A1%8C/image.png" class="" title="markmap.html數學式手機位移問題">
+            <iframe 
+  src="markmap.html" 
+  style="width: 100%; height: 60vh; min-height: 400px; max-height: 800px; border: none; border-radius: 8px;"
+  allowfullscreen>
+</iframe>
+---
 
-<h2 id="解決"><a href="#解決" class="headerlink" title="解決?"></a>解決?</h2><p>目前還沒有解決，就只能先不要在生成前使用數學示。<br>(因為我也沒有很常用)</p>
+<h1 id="連結"><a href="#連結" class="headerlink" title="連結"></a>連結</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/reverse-linked-list/">https://leetcode.com/problems/reverse-linked-list/</a></li>
+</ul>
+<h1 id="一開始的思考誤區"><a href="#一開始的思考誤區" class="headerlink" title="一開始的思考誤區"></a>一開始的思考誤區</h1><ul>
+<li>以array思考方式撰寫，有些交換時連接邏輯問題</li>
+<li>陷在DP&amp;遞迴的思考邏輯，不適合的原因<ul>
+<li>明明走直線卻需要源遞返回的流程消耗時間</li>
+<li>空間複雜度太多，需要在系統中紀錄Stack，且是紀錄在RAM中(非暫存器)增加讀取時間</li>
+<li>忘記head.next &#x3D; None會導致內部linked list無限迴圈，很容易陷入困惑</li>
+</ul>
+</li>
+</ul>
+<h1 id="我的解題方法"><a href="#我的解題方法" class="headerlink" title="我的解題方法"></a>我的解題方法</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, next=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.next = next</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">reverseList</span>(<span class="params">self, head</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        :type head: Optional[ListNode]</span></span><br><span class="line"><span class="string">        :rtype: Optional[ListNode]</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head <span class="keyword">or</span> <span class="keyword">not</span> head.<span class="built_in">next</span>:</span><br><span class="line">            <span class="keyword">return</span> head</span><br><span class="line">        </span><br><span class="line">        new_head = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">while</span> head:</span><br><span class="line">            temp = head.<span class="built_in">next</span></span><br><span class="line">            head.<span class="built_in">next</span> = new_head</span><br><span class="line">            new_head = head</span><br><span class="line">            head = temp</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> new_head</span><br></pre></td></tr></table></figure>
+<h1 id="思考路徑"><a href="#思考路徑" class="headerlink" title="思考路徑"></a>思考路徑</h1><ul>
+<li>需要三個指標:<ul>
+<li>新的頭</li>
+<li>還未重新連接的頭</li>
+<li>確保重新連接後還找的到下個地方</li>
+</ul>
+</li>
+<li>注意: 不要讓迴圈陷入無限迴圈，當要修改node.next時一定要先記錄下來。</li>
+</ul>
 
         </div>
 
@@ -179,7 +204,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/markmap/"># markmap</a>
+                        <a href="/tags/leetcode-linked-list/"># leetcode, linked list</a>
                     
                         
                 </span>
@@ -192,10 +217,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2026/06/19/LeetCode-Review-No-206-reverse-linked-list/">LeetCode Review: No.206 (reverse-linked-list)</a>
             
-            
-            <a class="next" rel="next" href="/2026/06/18/LeetCode-Review-Linked-List-vs-Array/">LeetCode Review: Linked List vs. Array</a>
+            <a class="next" rel="next" href="/2026/06/19/%E8%99%95%E7%90%86Markmap%E5%BF%83%E6%99%BA%E5%9C%96%E6%95%B8%E5%AD%B8%E8%A1%A8%E7%A4%BA%E6%89%8B%E6%A9%9F%E9%A1%AF%E7%A4%BA%E5%95%8F%E9%A1%8C/">處理Markmap心智圖數學表示手機顯示問題</a>
             
         </section>
 

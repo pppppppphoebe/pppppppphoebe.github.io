@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/styles/default.min.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/index.js"></script><script>(r => {
+              setTimeout(r);
+            })(function renderToolbar() {
+  const {
+    markmap,
+    mm
+  } = window;
+  const {
+    el
+  } = markmap.Toolbar.create(mm);
+  el.setAttribute('style', 'position:absolute;bottom:20px;right:20px');
+  document.body.append(el);
+})</script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+              if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.documentElement.classList.add("markmap-dark");
+              }
+            })(() => window.markmap,null,{"content":"LeetCode Review: No.206 (reverse-linked-list)","children":[{"content":"&#x9023;&#x7d50;","children":[{"content":"<a href=\"https://leetcode.com/problems/reverse-linked-list/\">https://leetcode.com/problems/reverse-linked-list/</a>","children":[],"payload":{"tag":"li","lines":"9,11"}}],"payload":{"tag":"h1","lines":"8,9"}},{"content":"&#x4e00;&#x958b;&#x59cb;&#x7684;&#x601d;&#x8003;&#x8aa4;&#x5340;","children":[{"content":"&#x4ee5;array&#x601d;&#x8003;&#x65b9;&#x5f0f;&#x64b0;&#x5beb;&#xff0c;&#x6709;&#x4e9b;&#x4ea4;&#x63db;&#x6642;&#x9023;&#x63a5;&#x908f;&#x8f2f;&#x554f;&#x984c;","children":[],"payload":{"tag":"li","lines":"12,13"}},{"content":"&#x9677;&#x5728;DP&amp;&#x905e;&#x8ff4;&#x7684;&#x601d;&#x8003;&#x908f;&#x8f2f;&#xff0c;&#x4e0d;&#x9069;&#x5408;&#x7684;&#x539f;&#x56e0;","children":[{"content":"&#x660e;&#x660e;&#x8d70;&#x76f4;&#x7dda;&#x537b;&#x9700;&#x8981;&#x6e90;&#x905e;&#x8fd4;&#x56de;&#x7684;&#x6d41;&#x7a0b;&#x6d88;&#x8017;&#x6642;&#x9593;","children":[],"payload":{"tag":"li","lines":"14,15"}},{"content":"&#x7a7a;&#x9593;&#x8907;&#x96dc;&#x5ea6;&#x592a;&#x591a;&#xff0c;&#x9700;&#x8981;&#x5728;&#x7cfb;&#x7d71;&#x4e2d;&#x7d00;&#x9304;Stack&#xff0c;&#x4e14;&#x662f;&#x7d00;&#x9304;&#x5728;RAM&#x4e2d;(&#x975e;&#x66ab;&#x5b58;&#x5668;)&#x589e;&#x52a0;&#x8b80;&#x53d6;&#x6642;&#x9593;","children":[],"payload":{"tag":"li","lines":"15,16"}},{"content":"&#x5fd8;&#x8a18;head.next = None&#x6703;&#x5c0e;&#x81f4;&#x5167;&#x90e8;linked list&#x7121;&#x9650;&#x8ff4;&#x5708;&#xff0c;&#x5f88;&#x5bb9;&#x6613;&#x9677;&#x5165;&#x56f0;&#x60d1;","children":[],"payload":{"tag":"li","lines":"16,18"}}],"payload":{"tag":"li","lines":"13,18"}}],"payload":{"tag":"h1","lines":"11,12"}},{"content":"&#x6211;&#x7684;&#x89e3;&#x984c;&#x65b9;&#x6cd5;","children":[{"content":"<pre data-lines=\"19,43\"><code class=\"language-python\"><span class=\"hljs-comment\"># Definition for singly-linked list.</span>\n<span class=\"hljs-comment\"># class ListNode(object):</span>\n<span class=\"hljs-comment\">#     def __init__(self, val=0, next=None):</span>\n<span class=\"hljs-comment\">#         self.val = val</span>\n<span class=\"hljs-comment\">#         self.next = next</span>\n<span class=\"hljs-keyword\">class</span> <span class=\"hljs-title class_\">Solution</span>(<span class=\"hljs-title class_ inherited__\">object</span>):\n    <span class=\"hljs-keyword\">def</span> <span class=\"hljs-title function_\">reverseList</span>(<span class=\"hljs-params\">self, head</span>):\n        <span class=\"hljs-string\">&quot;&quot;&quot;\n        :type head: Optional[ListNode]\n        :rtype: Optional[ListNode]\n        &quot;&quot;&quot;</span>\n        <span class=\"hljs-keyword\">if</span> <span class=\"hljs-keyword\">not</span> head <span class=\"hljs-keyword\">or</span> <span class=\"hljs-keyword\">not</span> head.<span class=\"hljs-built_in\">next</span>:\n            <span class=\"hljs-keyword\">return</span> head\n        \n        new_head = <span class=\"hljs-literal\">None</span>\n        <span class=\"hljs-keyword\">while</span> head:\n            temp = head.<span class=\"hljs-built_in\">next</span>\n            head.<span class=\"hljs-built_in\">next</span> = new_head\n            new_head = head\n            head = temp\n        \n        <span class=\"hljs-keyword\">return</span> new_head\n</code></pre>","children":[],"payload":{"tag":"pre","lines":"19,43"}}],"payload":{"tag":"h1","lines":"18,19"}},{"content":"&#x601d;&#x8003;&#x8def;&#x5f91;","children":[{"content":"&#x9700;&#x8981;&#x4e09;&#x500b;&#x6307;&#x6a19;:","children":[{"content":"&#x65b0;&#x7684;&#x982d;","children":[],"payload":{"tag":"li","lines":"45,46"}},{"content":"&#x9084;&#x672a;&#x91cd;&#x65b0;&#x9023;&#x63a5;&#x7684;&#x982d;","children":[],"payload":{"tag":"li","lines":"46,47"}},{"content":"&#x78ba;&#x4fdd;&#x91cd;&#x65b0;&#x9023;&#x63a5;&#x5f8c;&#x9084;&#x627e;&#x7684;&#x5230;&#x4e0b;&#x500b;&#x5730;&#x65b9;","children":[],"payload":{"tag":"li","lines":"47,48"}}],"payload":{"tag":"li","lines":"44,48"}},{"content":"&#x6ce8;&#x610f;: &#x4e0d;&#x8981;&#x8b93;&#x8ff4;&#x5708;&#x9677;&#x5165;&#x7121;&#x9650;&#x8ff4;&#x5708;&#xff0c;&#x7576;&#x8981;&#x4fee;&#x6539;node.next&#x6642;&#x4e00;&#x5b9a;&#x8981;&#x5148;&#x8a18;&#x9304;&#x4e0b;&#x4f86;&#x3002;","children":[],"payload":{"tag":"li","lines":"48,50"}}],"payload":{"tag":"h1","lines":"43,44"}}]},{})</script>
+</body>
+</html>
