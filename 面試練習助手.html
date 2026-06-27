@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en/zh">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="HsingYin Hsieh">
+
+
+
+
+
+<title>Nini&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/image/rabbit.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const pagebody = document.getElementsByTagName('body')[0]
+
+            function setTheme(status) {
+
+                if (status === 'dark') {
+                    window.sessionStorage.theme = 'dark'
+                    pagebody.classList.add('dark-theme');
+
+                } else if (status === 'light') {
+                    window.sessionStorage.theme = 'light'
+                    pagebody.classList.remove('dark-theme');
+                }
+            };
+
+            setTheme(window.sessionStorage.theme)
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Nini&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                <a class="menu-item" href="/archives">Posts</a>
+                
+                <a class="menu-item" href="/category">Categories</a>
+                
+                <a class="menu-item" href="/tag">Tags</a>
+                
+                <a class="menu-item" href="/about">About</a>
+                
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Nini&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">
+                    <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 17.27q-.213 0-.356-.145T4 16.768t.144-.356t.356-.143h15q.213 0 .356.144q.144.144.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.144T4 11.999t.144-.356t.356-.143h15q.213 0 .356.144t.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.143Q4 7.443 4 7.23t.144-.356t.356-.143h15q.213 0 .356.144T20 7.23t-.144.356t-.356.144z"/></svg>
+                    <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols Light by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="m12 12.708l-5.246 5.246q-.14.14-.344.15t-.364-.15t-.16-.354t.16-.354L11.292 12L6.046 6.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16L12 11.292l5.246-5.246q.14-.14.345-.15q.203-.01.363.15t.16.354t-.16.354L12.708 12l5.246 5.246q.14.14.15.345q.01.203-.15.363t-.354.16t-.354-.16z"/></svg>
+                </div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                <a class="menu-item" href="/archives">Posts</a>
+                
+                <a class="menu-item" href="/category">Categories</a>
+                
+                <a class="menu-item" href="/tag">Tags</a>
+                
+                <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.classList.contains("active")) {
+            toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        } else {
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    <article class="post-wrap page">
+        
+        <h2 class="post-title"></h2>
+        
+        <section class="post-content">
+            <!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>面試練習助手</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f7f6f3;
+    --surface: #ffffff;
+    --surface2: #f0efe9;
+    --border: #e4e2da;
+    --border2: #ccc9be;
+    --text: #1c1b18;
+    --text2: #6b6960;
+    --text3: #a09d94;
+    --accent: #2a5cff;
+    --accent-light: #eef1ff;
+    --green: #1a7f5a;
+    --green-light: #e6f5ef;
+    --amber: #b45309;
+    --amber-light: #fef3c7;
+    --red: #b91c1c;
+    --red-light: #fee2e2;
+    --radius: 10px;
+    --radius-lg: 14px;
+  }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .app-wrapper {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem;
+  }
+
+  .top-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .top-bar h1 {
+    font-size: 17px;
+    font-weight: 600;
+    flex: 1;
+    letter-spacing: -0.01em;
+  }
+
+  .top-bar .subtitle {
+    font-size: 12px;
+    color: var(--text2);
+    font-weight: 400;
+  }
+
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  /* ---- FORM ---- */
+  .field { margin-bottom: 1.25rem; }
+  .field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text2);
+    margin-bottom: 6px;
+    letter-spacing: 0.01em;
+  }
+
+  textarea, input[type=text] {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--text);
+    resize: vertical;
+    transition: border-color 0.15s;
+    line-height: 1.65;
+  }
+
+  textarea:focus, input[type=text]:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(42,92,255,0.08);
+  }
+
+  /* ---- BUTTONS ---- */
+  button {
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border2);
+    background: transparent;
+    color: var(--text);
+    padding: 8px 16px;
+    transition: background 0.12s, border-color 0.12s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  button:hover { background: var(--surface2); }
+  button:active { transform: scale(0.98); }
+  button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+  .btn-primary {
+    background: var(--text);
+    color: #fff;
+    border-color: var(--text);
+    font-weight: 500;
+    padding: 11px 20px;
+  }
+  .btn-primary:hover { background: #333; border-color: #333; }
+
+  .btn-sm { padding: 6px 12px; font-size: 13px; }
+
+  .btn-full { width: 100%; justify-content: center; }
+
+  /* ---- CARDS ---- */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.25rem;
+  }
+
+  /* ---- BADGES ---- */
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 5px;
+    letter-spacing: 0.03em;
+  }
+
+  .badge-行為 { background: #e8f0fe; color: #1a56db; }
+  .badge-技術 { background: var(--green-light); color: var(--green); }
+  .badge-情境 { background: var(--amber-light); color: var(--amber); }
+  .badge-動機 { background: #fdf4ff; color: #7c3aed; }
+
+  /* ---- API KEY ---- */
+  .api-notice {
+    background: var(--accent-light);
+    border: 1px solid #c3cffe;
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    font-size: 13px;
+    color: #1e40af;
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  /* ---- LOADING ---- */
+  .spinner {
+    display: inline-block;
+    width: 16px; height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    flex-shrink: 0;
+  }
+  .spinner-dark {
+    border-color: rgba(0,0,0,0.15);
+    border-top-color: var(--text2);
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ---- PROGRESS ---- */
+  .progress-wrap { margin-bottom: 1.5rem; }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text2);
+    margin-bottom: 6px;
+  }
+  .progress-bar {
+    height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--text);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+
+  /* ---- Q LIST ---- */
+  .filter-bar {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+  .filter-btn {
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text2);
+    cursor: pointer;
+    transition: all 0.12s;
+  }
+  .filter-btn.active {
+    background: var(--text);
+    color: #fff;
+    border-color: var(--text);
+  }
+
+  .q-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 6px;
+    cursor: pointer;
+    transition: border-color 0.12s, box-shadow 0.12s;
+  }
+  .q-item:hover {
+    border-color: var(--border2);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .q-item.done { opacity: 0.65; }
+
+  .q-check { font-size: 18px; padding-top: 1px; flex-shrink: 0; }
+  .q-check.done { color: var(--green); }
+  .q-check.undone { color: var(--border2); }
+
+  .q-content { flex: 1; min-width: 0; }
+  .q-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 3px; }
+  .q-num { font-size: 11px; color: var(--text3); }
+  .q-text { font-size: 14px; line-height: 1.5; }
+
+  /* ---- PRACTICE ---- */
+  .question-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  .question-card .q-meta { margin-bottom: 8px; }
+  .question-card .q-text { font-size: 16px; font-weight: 500; line-height: 1.6; }
+
+  /* ---- FEEDBACK ---- */
+  .feedback-block {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.25rem;
+    margin-top: 1rem;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.75;
+    white-space: pre-wrap;
+  }
+
+  .score-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .score-num {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .score-label { font-size: 13px; color: var(--text2); }
+
+  /* ---- RECORDS ---- */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 1.25rem;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.9rem;
+    text-align: center;
+  }
+  .stat-num { font-size: 22px; font-weight: 600; }
+  .stat-label { font-size: 12px; color: var(--text2); margin-top: 2px; }
+
+  .record-item {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: border-color 0.12s, box-shadow 0.12s;
+    background: var(--surface);
+  }
+  .record-item:hover {
+    border-color: var(--border2);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .record-q { font-size: 14px; font-weight: 500; margin: 4px 0; }
+  .record-answer {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .record-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+  /* ---- MODAL ---- */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.35);
+    display: flex; align-items: flex-end;
+    z-index: 100;
+    animation: fadeIn 0.15s ease;
+  }
+  @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+  .modal-sheet {
+    background: var(--surface);
+    border-radius: 16px 16px 0 0;
+    padding: 1.25rem;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    animation: slideUp 0.2s ease;
+  }
+  @keyframes slideUp { from { transform: translateY(30px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+  .modal-handle {
+    width: 36px; height: 4px;
+    background: var(--border2);
+    border-radius: 2px;
+    margin: 0 auto 1.25rem;
+  }
+  .modal-section { margin-bottom: 1.25rem; }
+  .modal-section-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .modal-content {
+    background: var(--surface2);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--text);
+    white-space: pre-wrap;
+  }
+
+  /* ---- EMPTY ---- */
+  .empty {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text2);
+    font-size: 14px;
+  }
+  .empty i { font-size: 32px; display: block; margin-bottom: 10px; opacity: 0.3; }
+
+  /* ---- TOAST ---- */
+  #toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--text);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    opacity: 0;
+    transition: all 0.25s;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 999;
+  }
+  #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<div class="app-wrapper">
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div>
+      <h1>面試練習助手 <span style="font-size:13px;color:var(--text3);font-weight:400">Interview Coach</span></h1>
+    </div>
+    <div id="nav-records-btn" style="display:none">
+      <button class="btn-sm" onclick="showRecords()">
+        <i class="ti ti-clipboard-list"></i> 練習記錄
+      </button>
+    </div>
+  </div>
+
+  <!-- SCREEN 1: SETUP -->
+  <div id="s-setup" class="screen active">
+
+    <div class="api-notice">
+      <i class="ti ti-info-circle" style="font-size:16px;flex-shrink:0;margin-top:1px"></i>
+      <div>
+        需要你的 <strong>DeepSeek API Key</strong> 才能呼叫 AI。
+        取得方式：前往 <a href="https://platform.deepseek.com/api_keys" target="_blank" style="color:inherit;font-weight:600">platform.deepseek.com</a>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>DeepSeek API Key</label>
+      <div style="position:relative">
+        <input type="password" id="api-key-input" placeholder="sk-…" autocomplete="off" spellcheck="false" style="padding-right:44px">
+        <button type="button" id="toggle-key-btn" onclick="toggleApiKeyVisibility()" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);border:none;background:none;padding:4px 6px;color:var(--text3)" title="顯示/隱藏">
+          <i class="ti ti-eye" id="toggle-key-icon"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>你的履歷（貼上純文字）</label>
+      <textarea id="resume-input" rows="7" placeholder="姓名、學歷、工作經歷、技能、專案…"></textarea>
+    </div>
+
+    <div class="field">
+      <label>投遞職缺（職缺名稱＋JD 說明）</label>
+      <textarea id="job-input" rows="5" placeholder="例：前端工程師，需要 React、TypeScript，負責用戶端產品開發…"></textarea>
+    </div>
+
+    <button id="gen-btn" class="btn-primary btn-full" onclick="generateQuestions()">
+      <i class="ti ti-sparkles"></i> 生成 50 題面試題
+    </button>
+  </div>
+
+  <!-- SCREEN 2: QUESTION LIST -->
+  <div id="s-list" class="screen">
+    <div id="list-progress" class="progress-wrap">
+      <div class="progress-label">
+        <span id="list-progress-text">完成進度</span>
+        <span id="list-progress-pct">0 / 50</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="list-progress-bar" style="width:0%"></div></div>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" id="fb-all" onclick="setFilter('all')">全部 <span id="fc-all"></span></button>
+      <button class="filter-btn" id="fb-行為" onclick="setFilter('行為')">行為題 <span id="fc-行為"></span></button>
+      <button class="filter-btn" id="fb-技術" onclick="setFilter('技術')">技術題 <span id="fc-技術"></span></button>
+      <button class="filter-btn" id="fb-情境" onclick="setFilter('情境')">情境題 <span id="fc-情境"></span></button>
+      <button class="filter-btn" id="fb-動機" onclick="setFilter('動機')">動機題 <span id="fc-動機"></span></button>
+    </div>
+
+    <div id="q-list"></div>
+  </div>
+
+  <!-- SCREEN 3: PRACTICE -->
+  <div id="s-practice" class="screen">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.25rem">
+      <button class="btn-sm" onclick="showScreen('s-list')">
+        <i class="ti ti-arrow-left"></i>
+      </button>
+      <div style="flex:1">
+        <div class="progress-label" style="margin-bottom:5px">
+          <span id="prac-progress-label"></span>
+          <span id="prac-progress-pct"></span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="prac-progress-bar" style="width:0%"></div></div>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-meta">
+        <span class="badge" id="prac-type-badge"></span>
+        <span class="q-num" id="prac-q-num"></span>
+      </div>
+      <p class="q-text" id="prac-q-text"></p>
+    </div>
+
+    <div class="field">
+      <label>你的回答</label>
+      <textarea id="answer-input" rows="7" placeholder="請輸入你的回答，建議使用 STAR 法則（情境、任務、行動、結果）…"></textarea>
+    </div>
+
+    <button id="submit-btn" class="btn-primary btn-full" onclick="submitAnswer()">
+      <i class="ti ti-send"></i> 提交並獲得 AI 評分
+    </button>
+
+    <div id="feedback-area" style="display:none;margin-top:1rem">
+      <div id="score-row" class="score-row"></div>
+      <div class="feedback-block" id="feedback-text"></div>
+      <div style="display:flex;gap:8px;margin-top:1rem">
+        <button onclick="showScreen('s-list')" style="flex:1;justify-content:center">
+          <i class="ti ti-list"></i> 回題目列表
+        </button>
+        <button id="next-btn" class="btn-primary" style="flex:1;justify-content:center" onclick="nextQuestion()">
+          下一題 <i class="ti ti-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 4: RECORDS -->
+  <div id="s-records" class="screen">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.5rem">
+      <button class="btn-sm" onclick="showScreen('s-list')">
+        <i class="ti ti-arrow-left"></i>
+      </button>
+      <h2 style="font-size:16px;font-weight:600;flex:1">練習記錄</h2>
+      <button class="btn-sm" onclick="exportTxt()">
+        <i class="ti ti-download"></i> 匯出 .txt
+      </button>
+    </div>
+
+    <div class="stat-grid" id="stat-grid"></div>
+    <div id="records-list"></div>
+  </div>
+
+</div>
+
+<div id="toast"></div>
+
+<script>
+let apiKey = '';
+let questions = [];
+let records = [];
+let currentQ = null;
+let filterType = 'all';
+let resumeText = '';
+let jobText = '';
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById('nav-records-btn').style.display =
+    (id === 's-list' || id === 's-practice') ? 'block' : 'none';
+}
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+function toggleApiKeyVisibility() {
+  const input = document.getElementById('api-key-input');
+  const icon = document.getElementById('toggle-key-icon');
+  if (input.type === 'password') {
+    input.type = 'text';
+    icon.className = 'ti ti-eye-off';
+  } else {
+    input.type = 'password';
+    icon.className = 'ti ti-eye';
+  }
+}
+
+// ─── GENERATE ───────────────────────────────────────────────
+async function generateQuestions() {
+  apiKey = document.getElementById('api-key-input').value.trim();
+  resumeText = document.getElementById('resume-input').value.trim();
+  jobText = document.getElementById('job-input').value.trim();
+
+  if (!apiKey) { toast('請輸入 API Key'); return; }
+  if (!resumeText) { toast('請貼上你的履歷'); return; }
+  if (!jobText) { toast('請填入職缺說明'); return; }
+
+  const btn = document.getElementById('gen-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> AI 生成中，請稍候…';
+
+  try {
+    const res = await fetch('https://api.deepseek.com/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
+      },
+      body: JSON.stringify({
+        model: 'deepseek-chat',
+        max_tokens: 4096,
+        messages: [
+          {
+            role: 'system',
+            content: `你是資深人資面試官。根據履歷與職缺生成 50 個面試問題。
+只回傳 JSON 陣列，不要加任何文字或 markdown：
+[{"id":1,"type":"行為","question":"..."},...]
+規則：Q1-20 type="行為"、Q21-35 type="技術"、Q36-45 type="情境"、Q46-50 type="動機"
+技術題要針對職缺技術棧出題，行為題用 STAR 框架引導。`
+          },
+          {
+            role: 'user',
+            content: `履歷：\n${resumeText}\n\n職缺：\n${jobText}\n\n請生成 50 題。`
+          }
+        ]
+      })
+    });
+
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.error?.message || `HTTP ${res.status}`);
+    }
+
+    const data = await res.json();
+    const raw = data.choices?.[0]?.message?.content || '[]';
+    const clean = raw.replace(/```json|```/g, '').trim();
+    questions = JSON.parse(clean);
+    records = [];
+    renderList();
+    showScreen('s-list');
+    toast('✓ 50 題生成完成！');
+  } catch(e) {
+    toast('生成失敗：' + e.message);
+    console.error(e);
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="ti ti-sparkles"></i> 生成 50 題面試題';
+  }
+}
+
+// ─── FILTER & LIST ───────────────────────────────────────────
+function setFilter(type) {
+  filterType = type;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('fb-' + (type === 'all' ? 'all' : type)).classList.add('active');
+  renderList();
+}
+
+function renderList() {
+  const doneIds = records.map(r => r.id);
+  const counts = { all: questions.length };
+  ['行為','技術','情境','動機'].forEach(t => {
+    counts[t] = questions.filter(q => q.type === t).length;
+  });
+  ['all','行為','技術','情境','動機'].forEach(k => {
+    const el = document.getElementById('fc-' + k);
+    if (el) el.textContent = counts[k] ? `(${counts[k]})` : '';
+  });
+
+  const done = doneIds.length;
+  document.getElementById('list-progress-text').textContent = `完成進度`;
+  document.getElementById('list-progress-pct').textContent = `${done} / 50`;
+  document.getElementById('list-progress-bar').style.width = Math.round(done / 50 * 100) + '%';
+
+  const filtered = filterType === 'all' ? questions : questions.filter(q => q.type === filterType);
+  const list = document.getElementById('q-list');
+
+  if (filtered.length === 0) {
+    list.innerHTML = '<div class="empty"><i class="ti ti-mood-empty"></i>暫無題目</div>';
+    return;
+  }
+
+  list.innerHTML = filtered.map(q => {
+    const done = doneIds.includes(q.id);
+    return `<div class="q-item ${done ? 'done' : ''}" onclick="startPractice(${q.id})">
+      <i class="ti ${done ? 'ti-circle-check q-check done' : 'ti-circle q-check undone'}"></i>
+      <div class="q-content">
+        <div class="q-meta">
+          <span class="badge badge-${q.type}">${q.type}</span>
+          <span class="q-num">Q${q.id}</span>
+        </div>
+        <p class="q-text">${q.question}</p>
+      </div>
+      <i class="ti ti-chevron-right" style="color:var(--border2);font-size:15px;padding-top:2px;flex-shrink:0"></i>
+    </div>`;
+  }).join('');
+}
+
+// ─── PRACTICE ────────────────────────────────────────────────
+function startPractice(id) {
+  currentQ = questions.find(q => q.id === id);
+  if (!currentQ) return;
+
+  document.getElementById('prac-type-badge').textContent = currentQ.type;
+  document.getElementById('prac-type-badge').className = `badge badge-${currentQ.type}`;
+  document.getElementById('prac-q-num').textContent = `第 ${currentQ.id} 題`;
+  document.getElementById('prac-q-text').textContent = currentQ.question;
+
+  const pct = Math.round(currentQ.id / 50 * 100);
+  document.getElementById('prac-progress-label').textContent = `進度`;
+  document.getElementById('prac-progress-pct').textContent = `${currentQ.id} / 50`;
+  document.getElementById('prac-progress-bar').style.width = pct + '%';
+
+  document.getElementById('answer-input').value = '';
+  document.getElementById('feedback-area').style.display = 'none';
+  document.getElementById('submit-btn').style.display = 'flex';
+
+  const nextQ = questions.find(q => q.id === currentQ.id + 1);
+  if (nextQ) {
+    document.getElementById('next-btn').style.display = 'flex';
+  } else {
+    document.getElementById('next-btn').style.display = 'none';
+  }
+
+  showScreen('s-practice');
+}
+
+async function submitAnswer() {
+  const answer = document.getElementById('answer-input').value.trim();
+  if (!answer) { toast('請先輸入你的回答'); return; }
+
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> AI 評分中…';
+
+  try {
+    const res = await fetch('https://api.deepseek.com/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
+      },
+      body: JSON.stringify({
+        model: 'deepseek-chat',
+        max_tokens: 1000,
+        messages: [
+          {
+            role: 'system',
+            content: `你是資深面試官，針對候選人回答給出結構化評分。
+格式（繁體中文）：
+分數：X/10
+✅ 優點：...
+💡 建議：...
+📝 更好的回答參考：...`
+          },
+          {
+            role: 'user',
+            content: `職缺背景：${jobText.slice(0, 300)}\n問題（${currentQ.type}題）：${currentQ.question}\n\n候選人回答：${answer}`
+          }
+        ]
+      })
+    });
+
+    const data = await res.json();
+    const feedback = data.choices?.[0]?.message?.content || '無法取得評分';
+
+    const scoreMatch = feedback.match(/(\d+)\s*\/\s*10/);
+    const score = scoreMatch ? parseInt(scoreMatch[1]) : null;
+
+    records.push({
+      id: currentQ.id,
+      type: currentQ.type,
+      question: currentQ.question,
+      answer,
+      feedback,
+      score,
+      time: new Date().toLocaleString('zh-TW')
+    });
+
+    // Score display
+    let scoreColor = 'var(--green)';
+    let scoreLabel = '表現優秀';
+    if (score !== null) {
+      if (score < 5) { scoreColor = 'var(--red)'; scoreLabel = '需要加強'; }
+      else if (score < 7) { scoreColor = 'var(--amber)'; scoreLabel = '尚可改進'; }
+    }
+
+    document.getElementById('score-row').innerHTML = score !== null
+      ? `<span class="score-num" style="color:${scoreColor}">${score}</span>
+         <span style="font-size:18px;color:var(--text3)">/10</span>
+         <span class="score-label">${scoreLabel}</span>`
+      : '';
+
+    document.getElementById('feedback-text').textContent = feedback;
+    document.getElementById('feedback-area').style.display = 'block';
+    document.getElementById('submit-btn').style.display = 'none';
+
+    toast('✓ 評分完成，已記錄');
+    renderList();
+
+  } catch(e) {
+    toast('評分失敗：' + e.message);
+    console.error(e);
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="ti ti-send"></i> 提交並獲得 AI 評分';
+  }
+}
+
+function nextQuestion() {
+  const nextId = currentQ.id + 1;
+  const nextQ = questions.find(q => q.id === nextId);
+  if (nextQ) startPractice(nextQ.id);
+  else showScreen('s-list');
+}
+
+// ─── RECORDS ─────────────────────────────────────────────────
+function showRecords() {
+  const scored = records.filter(r => r.score !== null);
+  const avg = scored.length > 0
+    ? (scored.reduce((s, r) => s + r.score, 0) / scored.length).toFixed(1)
+    : '—';
+
+  document.getElementById('stat-grid').innerHTML = `
+    <div class="stat-card">
+      <div class="stat-num">${records.length}</div>
+      <div class="stat-label">已練習題數</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">${avg}</div>
+      <div class="stat-label">平均分數</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">${Math.round(records.length / 50 * 100)}%</div>
+      <div class="stat-label">完成度</div>
+    </div>
+  `;
+
+  const list = document.getElementById('records-list');
+  if (records.length === 0) {
+    list.innerHTML = '<div class="empty"><i class="ti ti-note-off"></i>尚無練習記錄<br><span style="font-size:12px;color:var(--text3)">開始練習後記錄會出現在這裡</span></div>';
+  } else {
+    list.innerHTML = records.slice().reverse().map((r, i) => {
+      const realIdx = records.length - 1 - i;
+      let scoreColor = 'var(--green)';
+      if (r.score !== null && r.score < 5) scoreColor = 'var(--red)';
+      else if (r.score !== null && r.score < 7) scoreColor = 'var(--amber)';
+      return `
+        <div class="record-item" onclick="openRecordModal(${realIdx})">
+          <div class="record-meta">
+            <span class="badge badge-${r.type}">${r.type}</span>
+            <span class="q-num">Q${r.id}</span>
+            ${r.score !== null ? `<span style="font-size:13px;font-weight:600;color:${scoreColor}">${r.score}/10</span>` : ''}
+            <span style="margin-left:auto;font-size:11px;color:var(--text3)">${r.time}</span>
+            <i class="ti ti-chevron-right" style="color:var(--border2);font-size:14px"></i>
+          </div>
+          <p class="record-q">${r.question}</p>
+          <p class="record-answer">${r.answer}</p>
+        </div>
+      `;
+    }).join('');
+  }
+
+  showScreen('s-records');
+}
+
+function openRecordModal(idx) {
+  const r = records[idx];
+  if (!r) return;
+  let scoreColor = 'var(--green)';
+  if (r.score !== null && r.score < 5) scoreColor = 'var(--red)';
+  else if (r.score !== null && r.score < 7) scoreColor = 'var(--amber)';
+
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.innerHTML = `
+    <div class="modal-sheet">
+      <div class="modal-handle"></div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:1.25rem">
+        <span class="badge badge-${r.type}">${r.type}</span>
+        <span style="font-size:12px;color:var(--text3)">Q${r.id} · ${r.time}</span>
+        ${r.score !== null ? `<span style="margin-left:auto;font-size:20px;font-weight:600;color:${scoreColor}">${r.score}<span style="font-size:13px;color:var(--text3)">/10</span></span>` : ''}
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">題目</div>
+        <div class="modal-content">${r.question}</div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">你的回答</div>
+        <div class="modal-content">${r.answer}</div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">AI 評分與建議</div>
+        <div class="modal-content">${r.feedback}</div>
+      </div>
+
+      <button onclick="this.closest('.modal-overlay').remove()" style="width:100%;justify-content:center;padding:11px;margin-top:0.5rem">關閉</button>
+    </div>
+  `;
+  overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+  document.body.appendChild(overlay);
+}
+
+// ─── EXPORT ───────────────────────────────────────────────────
+function exportTxt() {
+  if (records.length === 0) { toast('尚無記錄可匯出'); return; }
+
+  const scored = records.filter(r => r.score !== null);
+  const avg = scored.length > 0
+    ? (scored.reduce((s, r) => s + r.score, 0) / scored.length).toFixed(1)
+    : '—';
+
+  let txt = `面試練習記錄\n`;
+  txt += `匯出時間：${new Date().toLocaleString('zh-TW')}\n`;
+  txt += `職缺：${jobText.split('\n')[0]}\n`;
+  txt += `練習題數：${records.length} / 50　平均分數：${avg}\n`;
+  txt += `${'='.repeat(55)}\n\n`;
+
+  records.forEach(r => {
+    txt += `【Q${r.id}】${r.type}題　${r.time}\n`;
+    txt += `問題：${r.question}\n\n`;
+    txt += `回答：\n${r.answer}\n\n`;
+    txt += `AI 評分：${r.score !== null ? r.score + '/10' : '—'}\n`;
+    txt += `評分說明：\n${r.feedback}\n\n`;
+    txt += `${'-'.repeat(55)}\n\n`;
+  });
+
+  const blob = new Blob([txt], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `面試練習記錄_${new Date().toLocaleDateString('zh-TW').replace(/\//g, '-')}.txt`;
+  a.click();
+  URL.revokeObjectURL(url);
+  toast('✓ 已匯出 .txt 文件');
+}
+</script>
+</body>
+</html>
+
+        </section>
+    </article>
+</div>
+
+            </div>
+            <!-- <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© HsingYin Hsieh | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer> -->
+
+    </div>
+</body>
+
+</html>

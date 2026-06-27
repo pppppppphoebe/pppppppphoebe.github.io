@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en/zh">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="HsingYin Hsieh">
+
+
+
+
+
+<title>Nini&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/image/rabbit.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const pagebody = document.getElementsByTagName('body')[0]
+
+            function setTheme(status) {
+
+                if (status === 'dark') {
+                    window.sessionStorage.theme = 'dark'
+                    pagebody.classList.add('dark-theme');
+
+                } else if (status === 'light') {
+                    window.sessionStorage.theme = 'light'
+                    pagebody.classList.remove('dark-theme');
+                }
+            };
+
+            setTheme(window.sessionStorage.theme)
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Nini&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                <a class="menu-item" href="/archives">Posts</a>
+                
+                <a class="menu-item" href="/category">Categories</a>
+                
+                <a class="menu-item" href="/tag">Tags</a>
+                
+                <a class="menu-item" href="/about">About</a>
+                
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Nini&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">
+                    <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 17.27q-.213 0-.356-.145T4 16.768t.144-.356t.356-.143h15q.213 0 .356.144q.144.144.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.144T4 11.999t.144-.356t.356-.143h15q.213 0 .356.144t.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.143Q4 7.443 4 7.23t.144-.356t.356-.143h15q.213 0 .356.144T20 7.23t-.144.356t-.356.144z"/></svg>
+                    <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols Light by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="m12 12.708l-5.246 5.246q-.14.14-.344.15t-.364-.15t-.16-.354t.16-.354L11.292 12L6.046 6.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16L12 11.292l5.246-5.246q.14-.14.345-.15q.203-.01.363.15t.16.354t-.16.354L12.708 12l5.246 5.246q.14.14.15.345q.01.203-.15.363t-.354.16t-.354-.16z"/></svg>
+                </div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                <a class="menu-item" href="/archives">Posts</a>
+                
+                <a class="menu-item" href="/category">Categories</a>
+                
+                <a class="menu-item" href="/tag">Tags</a>
+                
+                <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.classList.contains("active")) {
+            toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        } else {
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    <article class="post-wrap page">
+        
+        <h2 class="post-title"></h2>
+        
+        <section class="post-content">
+            <!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>問題分析工具 — 5W1H</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #F7F6F3; --surface: #FFFFFF; --surface2: #F0EEE9;
+    --border: #E2DED6; --border2: #CCC8BF;
+    --text: #1A1816; --text2: #6B6760; --text3: #9B9791;
+    --accent: #3D5A80; --accent-light: #E8EFF7; --accent-mid: #A8BCCF;
+    --green: #2D6A4F; --green-light: #E8F4EE;
+    --amber: #7B4F12; --amber-light: #FBF0E0;
+    --radius: 10px; --radius-lg: 16px;
+  }
+  html { font-size: 16px; }
+  body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 2rem 1rem; }
+  .container { max-width: 680px; margin: 0 auto; }
+  .header { margin-bottom: 2rem; }
+  .header-eyebrow { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 8px; }
+  .header h1 { font-size: 26px; font-weight: 600; line-height: 1.3; color: var(--text); margin-bottom: 8px; }
+  .header p { font-size: 14px; color: var(--text2); line-height: 1.7; }
+  .progress-bar { display: flex; gap: 4px; margin-bottom: 2rem; }
+  .progress-step { flex: 1; height: 3px; background: var(--border); border-radius: 2px; transition: background 0.4s; }
+  .progress-step.done { background: var(--accent); }
+  .progress-step.active { background: var(--accent-mid); }
+  .step-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--text3); margin-top: 6px; margin-bottom: 2rem; }
+  .step-labels span.active { color: var(--accent); font-weight: 500; }
+  .step-labels span.done { color: var(--green); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1rem; }
+  .card-muted { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1rem; }
+  label { display: block; font-size: 13px; font-weight: 500; color: var(--text2); margin-bottom: 6px; letter-spacing: 0.01em; }
+  textarea, input[type="text"], input[type="password"], select {
+    width: 100%; border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 10px 14px; font-size: 14px; font-family: 'Noto Sans TC', sans-serif;
+    color: var(--text); background: var(--surface); line-height: 1.7;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  textarea { resize: vertical; }
+  select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B6760' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; cursor: pointer; }
+  textarea:focus, input:focus, select:focus { outline: none; border-color: var(--accent-mid); box-shadow: 0 0 0 3px rgba(61,90,128,0.1); }
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; font-size: 14px; font-family: 'Noto Sans TC', sans-serif; font-weight: 500; border-radius: var(--radius); cursor: pointer; transition: all 0.15s; border: 1px solid transparent; }
+  .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .btn-primary:hover { background: #2d4360; }
+  .btn-ghost { background: transparent; color: var(--text2); border-color: var(--border2); }
+  .btn-ghost:hover { background: var(--surface2); }
+  .btn-green { background: var(--green); color: #fff; border-color: var(--green); }
+  .btn-green:hover { background: #1f4d39; }
+  .btn-sm { padding: 6px 12px; font-size: 12px; }
+  .q-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 12px; }
+  .q-card:focus-within { border-color: var(--accent-mid); }
+  .q-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .q-badge { font-size: 10px; font-weight: 600; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .badge-what { background: var(--accent-light); color: var(--accent); }
+  .badge-who  { background: #F0E8F5; color: #6B3FA0; }
+  .badge-when { background: var(--amber-light); color: var(--amber); }
+  .badge-where { background: #E8F4F8; color: #1A6B85; }
+  .badge-why  { background: #FDEBEB; color: #A03030; }
+  .badge-how  { background: var(--green-light); color: var(--green); }
+  .q-question { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .q-hint { font-size: 12px; color: var(--text3); margin-bottom: 10px; line-height: 1.6; }
+  .q-card textarea { min-height: 56px; font-size: 13px; }
+  .record-item { border-left: 3px solid var(--accent-mid); padding: 8px 0 8px 14px; margin-bottom: 14px; }
+  .record-label { font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 3px; }
+  .record-q { font-size: 12px; color: var(--text3); margin-bottom: 4px; }
+  .record-a { font-size: 14px; color: var(--text); line-height: 1.6; }
+  .record-a.empty { color: var(--text3); font-style: italic; }
+  .advice-card { border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 12px; border: 1px solid transparent; }
+  .advice-action  { background: var(--green-light); border-color: #99D4B5; }
+  .advice-mindset { background: var(--accent-light); border-color: var(--accent-mid); }
+  .advice-resource { background: var(--amber-light); border-color: #EDCA87; }
+  .advice-tag { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+  .advice-action .advice-tag  { color: var(--green); }
+  .advice-mindset .advice-tag { color: var(--accent); }
+  .advice-resource .advice-tag { color: var(--amber); }
+  .advice-title { font-size: 15px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; }
+  .advice-action .advice-title  { color: var(--green); }
+  .advice-mindset .advice-title { color: var(--accent); }
+  .advice-resource .advice-title { color: var(--amber); }
+  .advice-body { font-size: 13px; line-height: 1.75; color: var(--text); }
+  hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+  .loading-dots { display: flex; align-items: center; gap: 8px; padding: 1rem 0; font-size: 14px; color: var(--text2); }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-mid); animation: pulse 1.2s infinite; }
+  .dot:nth-child(2) { animation-delay: 0.2s; }
+  .dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes pulse { 0%,80%,100%{opacity:0.3;transform:scale(0.8)} 40%{opacity:1;transform:scale(1)} }
+  .export-box { display: none; margin-top: 1rem; }
+  .export-box textarea { font-family: monospace; font-size: 12px; min-height: 280px; background: var(--surface2); }
+  .section-title { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text3); margin-bottom: 12px; }
+  .problem-display { font-size: 15px; line-height: 1.7; color: var(--text); font-weight: 500; }
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 1.25rem; }
+  .phase { display: none; }
+  .phase.active { display: block; }
+  .fade-in { animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from { opacity:0; transform: translateY(6px); } to { opacity:1; transform: translateY(0); } }
+
+  /* API Settings panel */
+  .settings-toggle { display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--text3); font-size: 12px; margin-bottom: 1.5rem; user-select: none; }
+  .settings-toggle:hover { color: var(--text2); }
+  .settings-toggle svg { transition: transform 0.2s; }
+  .settings-toggle.open svg { transform: rotate(180deg); }
+  .settings-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; display: none; }
+  .settings-panel.open { display: block; }
+  .settings-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+  .settings-row.full { grid-template-columns: 1fr; }
+  .token-wrap { position: relative; }
+  .token-wrap input { padding-right: 40px; }
+  .token-eye { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--text3); padding: 2px; display: flex; align-items: center; }
+  .token-eye:hover { color: var(--text2); }
+  .saved-badge { font-size: 11px; color: var(--green); margin-top: 4px; display: none; }
+  .model-hint { font-size: 11px; color: var(--text3); margin-top: 4px; line-height: 1.5; }
+  .provider-tag { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 20px; margin-left: 6px; vertical-align: middle; }
+  .tag-anthropic { background: var(--accent-light); color: var(--accent); }
+  .tag-openai { background: #E8F5E9; color: #2E7D32; }
+  .tag-gemini { background: #FFF3E0; color: #E65100; }
+  .tag-custom { background: var(--surface2); color: var(--text2); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-eyebrow">問題分析工具</div>
+    <h1>5W1H 深度探索</h1>
+    <p>描述你的問題，透過六個維度引導你思考，最後獲得具體建議並保存完整紀錄。</p>
+  </div>
+
+  <!-- Settings toggle -->
+  <div class="settings-toggle" id="settings-toggle" onclick="toggleSettings()">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    AI 設定
+    <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M1 3l4 4 4-4"/></svg>
+  </div>
+
+  <div class="settings-panel" id="settings-panel">
+    <div class="settings-row">
+      <div>
+        <label for="provider-select">服務商</label>
+        <select id="provider-select" onchange="onProviderChange()">
+          <option value="anthropic">Anthropic (Claude)</option>
+          <option value="openai">OpenAI (GPT)</option>
+          <option value="gemini">Google (Gemini)</option>
+          <option value="deepseek">DeepSeek</option>
+          <option value="custom">自訂 API</option>
+        </select>
+      </div>
+      <div>
+        <label for="model-select">模型</label>
+        <select id="model-select"></select>
+        <div class="model-hint" id="model-hint"></div>
+      </div>
+    </div>
+    <div class="settings-row full" id="custom-url-row" style="display:none;">
+      <div>
+        <label for="custom-url">API 端點 URL</label>
+        <input type="text" id="custom-url" placeholder="https://your-api.example.com/v1/chat/completions">
+      </div>
+    </div>
+    <div class="settings-row full">
+      <div>
+        <label for="api-token">API Token</label>
+        <div class="token-wrap">
+          <input type="password" id="api-token" placeholder="貼上你的 API key…" oninput="onTokenInput()">
+          <button class="token-eye" onclick="toggleTokenVisibility()" title="顯示/隱藏">
+            <svg id="eye-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+        <div class="saved-badge" id="saved-badge">✓ 已儲存（僅存於本機記憶體）</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress-step active" id="bar1"></div>
+    <div class="progress-step" id="bar2"></div>
+    <div class="progress-step" id="bar3"></div>
+  </div>
+  <div class="step-labels">
+    <span id="sl1" class="active">描述問題</span>
+    <span id="sl2">5W1H 探索</span>
+    <span id="sl3">建議與紀錄</span>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div id="phase1" class="phase active fade-in">
+    <div class="card">
+      <label for="problem-input">你目前面臨的問題是什麼？</label>
+      <textarea id="problem-input" rows="5" placeholder="請用幾句話描述你正在面臨的問題或挑戰，越具體越好。例如：工作上與主管的溝通出現問題，導致任務方向一直被改動，讓我感到很困惑…"></textarea>
+      <div id="p-error" style="font-size:12px;color:#A03030;margin-top:6px;display:none;">請先描述你的問題再繼續。</div>
+      <div id="token-error" style="font-size:12px;color:#A03030;margin-top:6px;display:none;">請先在「AI 設定」中輸入 API Token。</div>
+      <div class="actions">
+        <button class="btn btn-primary" onclick="startAnalysis()">開始分析 →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div id="phase2" class="phase">
+    <div class="card-muted">
+      <div class="section-title">你的問題</div>
+      <div class="problem-display" id="problem-display"></div>
+    </div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:1.25rem;">
+      請回答以下六個問題，幫助你從不同角度看清這個問題的全貌。不確定的欄位可以略過。
+    </div>
+    <div id="questions-container"></div>
+    <div class="actions">
+      <button class="btn btn-primary" onclick="getAdvice()">獲得建議 →</button>
+      <button class="btn btn-ghost" onclick="resetAll()">重新開始</button>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div id="phase3" class="phase">
+    <div class="card-muted">
+      <div class="section-title">你的問題</div>
+      <div class="problem-display" id="problem-display2"></div>
+    </div>
+    <hr>
+    <div class="section-title">5W1H 分析紀錄</div>
+    <div id="qa-summary"></div>
+    <hr>
+    <div class="section-title">給你的建議</div>
+    <div id="advice-container">
+      <div class="loading-dots">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <span>AI 正在分析你的情況…</span>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-green" onclick="toggleExport()">匯出完整紀錄</button>
+      <button class="btn btn-ghost" onclick="resetAll()">分析新問題</button>
+    </div>
+    <div class="export-box" id="export-box">
+      <textarea id="export-text" readonly></textarea>
+      <div style="margin-top:8px;">
+        <button class="btn btn-ghost btn-sm" onclick="copyExport()">複製全部</button>
+        <span id="copy-confirm" style="font-size:12px;color:var(--green);margin-left:10px;display:none;">已複製 ✓</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const PROVIDERS = {
+  anthropic: {
+    label: 'Anthropic',
+    models: [
+      { value: 'claude-opus-4-5', label: 'Claude Opus 4.5' },
+      { value: 'claude-sonnet-4-5', label: 'Claude Sonnet 4.5' },
+      { value: 'claude-haiku-4-5', label: 'Claude Haiku 4.5' },
+    ],
+    hint: '從 console.anthropic.com 取得 API key'
+  },
+  openai: {
+    label: 'OpenAI',
+    models: [
+      { value: 'gpt-4o', label: 'GPT-4o' },
+      { value: 'gpt-4o-mini', label: 'GPT-4o mini' },
+      { value: 'gpt-4-turbo', label: 'GPT-4 Turbo' },
+      { value: 'gpt-3.5-turbo', label: 'GPT-3.5 Turbo' },
+    ],
+    hint: '從 platform.openai.com 取得 API key'
+  },
+  gemini: {
+    label: 'Google Gemini',
+    models: [
+      { value: 'gemini-1.5-pro', label: 'Gemini 1.5 Pro' },
+      { value: 'gemini-1.5-flash', label: 'Gemini 1.5 Flash' },
+      { value: 'gemini-2.0-flash', label: 'Gemini 2.0 Flash' },
+    ],
+    hint: '從 aistudio.google.com 取得 API key'
+  },
+  deepseek: {
+    label: 'DeepSeek',
+    models: [
+      { value: 'deepseek-chat', label: 'DeepSeek V3 (Chat)' },
+      { value: 'deepseek-reasoner', label: 'DeepSeek R1 (Reasoner)' },
+    ],
+    hint: '從 platform.deepseek.com 取得 API key'
+  },
+  custom: {
+    label: '自訂',
+    models: [{ value: 'custom', label: '自訂模型名稱' }],
+    hint: '相容 OpenAI Chat Completions 格式的端點'
+  }
+};
+
+const W_TAGS = [
+  { key: 'What', label: 'What — 是什麼', badge: 'badge-what', q: '這個問題的核心是什麼？具體發生了什麼事？', hint: '試著用一句話說明問題的本質，避免描述情緒，只描述事實。' },
+  { key: 'Why',  label: 'Why — 為什麼',  badge: 'badge-why',  q: '為什麼這個問題會發生？你認為背後的原因是什麼？', hint: '可以問自己「為什麼」五次，找到更深層的原因。' },
+  { key: 'Who',  label: 'Who — 誰',      badge: 'badge-who',  q: '這個問題涉及到哪些人？誰是主要相關者？', hint: '思考誰影響了這個問題，誰又被這個問題所影響。' },
+  { key: 'When', label: 'When — 何時',   badge: 'badge-when', q: '這個問題是什麼時候開始的？有時間壓力嗎？', hint: '時間線有助於了解問題的緊迫程度和發展脈絡。' },
+  { key: 'Where',label: 'Where — 在哪',  badge: 'badge-where',q: '這個問題發生在什麼情境或環境下？', hint: '環境因素（職場、家庭、社交圈）可能是重要的背景。' },
+  { key: 'How',  label: 'How — 如何',    badge: 'badge-how',  q: '你目前嘗試過哪些方法？效果如何？', hint: '記錄已嘗試的方法，有助於找出新的突破點。' },
+];
+
+let problemText = '';
+
+// ---- Settings ----
+function onProviderChange() {
+  const p = document.getElementById('provider-select').value;
+  const cfg = PROVIDERS[p];
+  const sel = document.getElementById('model-select');
+  sel.innerHTML = cfg.models.map(m => `<option value="${m.value}">${m.label}</option>`).join('');
+  document.getElementById('model-hint').textContent = cfg.hint;
+  document.getElementById('custom-url-row').style.display = p === 'custom' ? 'block' : 'none';
+  if (p === 'custom') sel.removeAttribute('disabled');
+  document.getElementById('api-token').value = '';
+  document.getElementById('saved-badge').style.display = 'none';
+}
+
+function onTokenInput() {
+  const v = document.getElementById('api-token').value.trim();
+  document.getElementById('saved-badge').style.display = v ? 'block' : 'none';
+}
+
+function toggleTokenVisibility() {
+  const inp = document.getElementById('api-token');
+  const ico = document.getElementById('eye-icon');
+  if (inp.type === 'password') {
+    inp.type = 'text';
+    ico.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>';
+  } else {
+    inp.type = 'password';
+    ico.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+  }
+}
+
+function toggleSettings() {
+  const panel = document.getElementById('settings-panel');
+  const toggle = document.getElementById('settings-toggle');
+  const open = panel.classList.toggle('open');
+  toggle.classList.toggle('open', open);
+}
+
+// ---- API call ----
+async function callLLM(prompt) {
+  const provider = document.getElementById('provider-select').value;
+  const model = document.getElementById('model-select').value;
+  const token = document.getElementById('api-token').value.trim();
+
+  if (provider === 'anthropic') {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-api-key': token, 'anthropic-version': '2023-06-01' },
+      body: JSON.stringify({ model, max_tokens: 1000, messages: [{ role: 'user', content: prompt }] })
+    });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error.message);
+    return data.content.map(c => c.text || '').join('');
+
+  } else if (provider === 'gemini') {
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${token}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+    });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error.message);
+    return data.candidates[0].content.parts.map(p => p.text || '').join('');
+
+  } else if (provider === 'deepseek') {
+    const res = await fetch('https://api.deepseek.com/chat/completions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+      body: JSON.stringify({ model, max_tokens: 1000, messages: [{ role: 'user', content: prompt }] })
+    });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error.message);
+    return data.choices[0].message.content;
+
+  } else {
+    // OpenAI-compatible (openai or custom)
+    const url = provider === 'custom'
+      ? document.getElementById('custom-url').value.trim()
+      : 'https://api.openai.com/v1/chat/completions';
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+      body: JSON.stringify({ model, max_tokens: 1000, messages: [{ role: 'user', content: prompt }] })
+    });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error.message);
+    return data.choices[0].message.content;
+  }
+}
+
+// ---- Main flow ----
+function startAnalysis() {
+  const val = document.getElementById('problem-input').value.trim();
+  const token = document.getElementById('api-token').value.trim();
+  document.getElementById('p-error').style.display = !val ? 'block' : 'none';
+  document.getElementById('token-error').style.display = !token ? 'block' : 'none';
+  if (!val || !token) return;
+  problemText = val;
+  document.getElementById('problem-display').textContent = val;
+  switchPhase(1, 2);
+  renderQuestions();
+}
+
+async function renderQuestions() {
+  const container = document.getElementById('questions-container');
+  container.innerHTML = `<div class="loading-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><span>AI 正在根據你的問題生成引導問題…</span></div>`;
+
+  const genPrompt = `你是一個問題分析專家。使用者描述了以下問題，請根據這個問題的具體內容，用 5W1H 框架（What、Why、Who、When、Where、How）各生成一個最有針對性的引導問題，幫助使用者深入思考。
+
+問題：${problemText}
+
+要求：
+- 每個問題都要緊扣使用者的具體情境，不要套用通用模板
+- 問題要具體、有啟發性，讓使用者真正能回答
+- 每個問題附上一句簡短的提示語（hint），幫助使用者思考方向
+
+請只回傳JSON，格式如下（不要任何其他文字）：
+[
+  {"key":"What","label":"What — 是什麼","badge":"badge-what","q":"針對性問題","hint":"提示語"},
+  {"key":"Why","label":"Why — 為什麼","badge":"badge-why","q":"針對性問題","hint":"提示語"},
+  {"key":"Who","label":"Who — 誰","badge":"badge-who","q":"針對性問題","hint":"提示語"},
+  {"key":"When","label":"When — 何時","badge":"badge-when","q":"針對性問題","hint":"提示語"},
+  {"key":"Where","label":"Where — 在哪","badge":"badge-where","q":"針對性問題","hint":"提示語"},
+  {"key":"How","label":"How — 如何","badge":"badge-how","q":"針對性問題","hint":"提示語"}
+]`;
+
+  try {
+    const raw = await callLLM(genPrompt);
+    const clean = raw.replace(/```json|```/g, '').trim();
+    const questions = JSON.parse(clean);
+    W_TAGS.splice(0, W_TAGS.length, ...questions);
+    container.innerHTML = questions.map((w, i) => `
+      <div class="q-card fade-in">
+        <div class="q-header"><span class="q-badge ${w.badge}">${w.label}</span></div>
+        <div class="q-question">${w.q}</div>
+        <div class="q-hint">${w.hint}</div>
+        <textarea id="ans-${i}" rows="2" placeholder="你的回答…"></textarea>
+      </div>`).join('');
+  } catch(e) {
+    container.innerHTML = `<div style="font-size:14px;color:#A03030;padding:1rem 0;">無法生成問題：${e.message || '請檢查 API Token'}</div>`;
+  }
+}
+
+async function getAdvice() {
+  const answers = W_TAGS.map((w, i) => ({ tag: w.label, q: w.q, a: document.getElementById('ans-'+i).value.trim() }));
+  document.getElementById('problem-display2').textContent = problemText;
+  document.getElementById('qa-summary').innerHTML = answers.map(x => `
+    <div class="record-item">
+      <div class="record-label">${x.tag}</div>
+      <div class="record-q">${x.q}</div>
+      <div class="record-a ${x.a ? '' : 'empty'}">${x.a || '（未填寫）'}</div>
+    </div>`).join('');
+  switchPhase(2, 3);
+
+  const qaText = answers.map(x => `${x.tag}：${x.a || '未回答'}`).join('\n');
+  const prompt = `你是一個問題解決顧問，擅長幫助人們清晰分析問題並採取行動。使用者面臨以下問題，並透過5W1H回答了相關問題。
+
+請給出3~4條具體、可執行的建議。每條建議要有實質內容，不要泛泛而談。
+
+請用繁體中文回應，格式為JSON陣列：
+[{"title":"建議標題","body":"具體說明（2-3句話）","type":"action|mindset|resource"}]
+
+type說明：action=行動建議, mindset=思維調整, resource=資源/工具建議
+
+問題：${problemText}
+
+5W1H分析：
+${qaText}
+
+只回傳JSON，不要其他任何文字或markdown符號。`;
+
+  try {
+    const raw = await callLLM(prompt);
+    const clean = raw.replace(/```json|```/g, '').trim();
+    const advices = JSON.parse(clean);
+    renderAdvice(advices, answers);
+  } catch(e) {
+    document.getElementById('advice-container').innerHTML =
+      `<div style="font-size:14px;color:#A03030;padding:1rem 0;">無法取得建議：${e.message || '請檢查 API Token 是否正確。'}</div>`;
+  }
+}
+
+function renderAdvice(advices, answers) {
+  const typeMap = { action: ['advice-action','行動建議'], mindset: ['advice-mindset','思維調整'], resource: ['advice-resource','資源建議'] };
+  document.getElementById('advice-container').innerHTML = advices.map(a => {
+    const [cls, tag] = typeMap[a.type] || typeMap.action;
+    return `<div class="advice-card ${cls} fade-in">
+      <div class="advice-tag">${tag}</div>
+      <div class="advice-title">${a.title}</div>
+      <div class="advice-body">${a.body}</div>
+    </div>`;
+  }).join('');
+  prepareExport(advices, answers);
+}
+
+function prepareExport(advices, answers) {
+  const now = new Date().toLocaleDateString('zh-TW', { year:'numeric', month:'long', day:'numeric' });
+  const provider = document.getElementById('provider-select').options[document.getElementById('provider-select').selectedIndex].text;
+  const model = document.getElementById('model-select').options[document.getElementById('model-select').selectedIndex].text;
+  const lines = [
+    '╔══════════════════════════════════╗',
+    '  問題分析完整紀錄',
+    `  ${now}  |  ${provider} / ${model}`,
+    '╚══════════════════════════════════╝',
+    '', '【問題描述】', problemText,
+    '', '【5W1H 分析】',
+    ...W_TAGS.map((w,i) => `\n▸ ${w.label}\n  問：${w.q}\n  答：${answers[i].a || '（未填寫）'}`),
+    '', '', '【建議】',
+    ...advices.map((a,i) => `\n${i+1}. [${a.type==='action'?'行動':a.type==='mindset'?'思維':'資源'}] ${a.title}\n   ${a.body}`),
+    '', '══════════════════════════════════'
+  ];
+  document.getElementById('export-text').value = lines.join('\n');
+}
+
+function toggleExport() {
+  const box = document.getElementById('export-box');
+  box.style.display = box.style.display === 'block' ? 'none' : 'block';
+}
+
+function copyExport() {
+  const ta = document.getElementById('export-text');
+  ta.select();
+  document.execCommand('copy');
+  const c = document.getElementById('copy-confirm');
+  c.style.display = 'inline';
+  setTimeout(() => c.style.display = 'none', 2500);
+}
+
+function switchPhase(from, to) {
+  document.getElementById('phase'+from).classList.remove('active');
+  const el = document.getElementById('phase'+to);
+  el.classList.add('active', 'fade-in');
+  for (let i = 1; i <= 3; i++) {
+    document.getElementById('bar'+i).className = 'progress-step' + (i < to ? ' done' : i === to ? ' active' : '');
+    document.getElementById('sl'+i).className = i < to ? 'done' : i === to ? 'active' : '';
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function resetAll() {
+  problemText = '';
+  document.getElementById('problem-input').value = '';
+  document.getElementById('export-box').style.display = 'none';
+  const from = document.getElementById('phase2').classList.contains('active') ? 2
+             : document.getElementById('phase3').classList.contains('active') ? 3 : 1;
+  switchPhase(from, 1);
+}
+
+// Init
+onProviderChange();
+</script>
+</body>
+</html>
+
+        </section>
+    </article>
+</div>
+
+            </div>
+            <!-- <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© HsingYin Hsieh | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer> -->
+
+    </div>
+</body>
+
+</html>
